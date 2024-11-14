@@ -39,32 +39,44 @@ class FaqController extends Controller
         }
     }
 
-    public function edit(Faq $faq)
+    public function edit($id)
     {
+        // Find the FAQ by id
+        $faq = Faq::findOrFail($id);
+
+        // Return the edit view with the FAQ data
         return view('admin.faqs.edit', compact('faq'));
     }
 
-    public function update(Request $request, Faq $id)
+    public function update(Request $request, $id)
     {
+        // Validate the request data
         $request->validate([
             'question' => 'required|string|max:255',
             'answer' => 'required|string',
         ]);
 
         try {
-            $faq->update($request->all());
+            // Find the FAQ by id
+            $faq = Faq::findOrFail($id);
 
+            // Update the FAQ with the validated data
+            $faq->update($request->only(['question', 'answer']));
+
+            // Return a successful response
             return response()->json([
                 'status' => 'success',
                 'message' => 'FAQ updated successfully.',
             ]);
         } catch (\Exception $e) {
+            // Return an error response if the FAQ wasn't found or an exception occurred
             return response()->json([
                 'status' => 'error',
                 'message' => 'There was an error updating the FAQ.',
             ], 500);
         }
     }
+
 
     public function destroy(Request $request, $id)
 {
