@@ -66,20 +66,26 @@ class FaqController extends Controller
         }
     }
 
-    public function destroy($id)
-    {
-        try {
-            $faq->delete();
+    public function destroy(Request $request, $id)
+{
+    try {
+        // Find the FAQ by id
+        $faq = Faq::findOrFail($id);
 
-            return response()->json([
-                'status' => 'success',
-                'message' => 'FAQ deleted successfully.',
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'There was an error deleting the FAQ.',
-            ], 500);
-        }
+        // Delete the FAQ
+        $faq->delete();
+
+        // Return a successful response
+        return response()->json([
+            'status' => 'success',
+            'message' => 'FAQ deleted successfully.',
+        ]);
+    } catch (\Exception $e) {
+        // If the FAQ is not found or another error occurs, return an error response
+        return response()->json([
+            'status' => 'error',
+            'message' => 'There was an error deleting the FAQ. ' . $e->getMessage(),
+        ], 500);
     }
+}
 }

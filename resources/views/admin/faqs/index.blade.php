@@ -41,7 +41,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid"> 
+        <div class="container-fluid">
             <div class="card">
                 <div class="table-responsive">
                     <table id="table" class="table table-sm table-striped">
@@ -93,7 +93,7 @@
 
                 $.ajax({
                     url: url,
-                    type: 'POST',
+                    type: 'DELETE',
                     dataType: 'json',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

@@ -36,7 +36,7 @@
                     <h1>Edit FAQ</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.faqs.index') }}" class="btn btn-primary">Back to FAQs</a>
+                    <a href="{{ route('admin.faqs.index') }}" class="btn btn-success">Back to FAQs</a>
                 </div>
             </div>
         </div>
