@@ -63,7 +63,7 @@
                             @if($cars->count() > 0)
                             <tr>
                                 <td class="text-center align-middle">{{ $key + 1 }}</td>
-                                <td class="text-center align-middle">{{ $car->type }}</td>
+                                <td class="text-center align-middle">{{ $car->car_type }}</td>
                                 <td class="text-center align-middle">{{ $car->model }}</td>
                                 <td class="text-center align-middle">{{ $car->engine_size }}</td>
                                 <td class="text-center align-middle">{{ $car->year }}</td>
