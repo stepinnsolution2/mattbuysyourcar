@@ -67,12 +67,12 @@
                     <p>About</p>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="{{ route('admin.event.index') }}" class="nav-link @if(Request::routeIs('admin.event.index')) active @endif">
                     <i class="fas fa-calendar nav-icon"></i>
                     <p>Events</p>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a href="{{ route('admin.cars.index') }}" class="nav-link @if(Request::routeIs('admin.cars.index')) active @endif">
                     <i class="fas fa-calendar nav-icon"></i>
