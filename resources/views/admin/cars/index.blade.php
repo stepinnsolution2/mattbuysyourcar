@@ -69,12 +69,8 @@
                                 <td class="text-center align-middle">{{ $car->year }}</td>
                                 <td class="text-center align-middle">
                                     <a href="{{ route('admin.cars.show', $car->id) }}" class="btn btn-info btn-sm">View</a>
-                                    <a href="{{ route('admin.cars.edit', $car->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="{{ route('admin.cars.destroy', $car->id) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                                    </form>
+                                    <a href="{{ route('admin.cars.edit', $car->id) }}" class="btn btn-sm btn-success btn-sm">Edit</a>
+                                    <a href="javascript:void(0)" onclick="deleteCar({{ $car->id }})" class="btn  btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                             @else
@@ -88,4 +84,82 @@
         </div>
         <!-- /.card -->
     </section>
+@endsection
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@section('customjs')
+<script>
+    function deleteCar(id) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Car Info !",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#28a745",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var url = "{{ route('admin.cars.destroy', ':id') }}";
+                url = url.replace(':id', id);
+
+                $.ajax({
+                    url: url,
+                    type: 'DELETE',
+                    dataType: 'json',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        if (response.status) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: response.message,
+                                icon: "success",
+                                customClass: {
+                                    confirmButton: 'btn btn-success'
+                                },
+                                buttonsStyling: false
+                            }).then((result) => {
+                                location.reload();
+                            });
+                        } else {
+                            Swal.fire({
+                                title: "Error",
+                                text: "There was a problem deleting the Car.",
+                                icon: "error",
+                                customClass: {
+                                    confirmButton: 'btn btn-success'
+                                },
+                                buttonsStyling: false
+                            });
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire({
+                            title: "Error",
+                            text: "There was a problem with the request.",
+                            icon: "error",
+                            customClass: {
+                                confirmButton: 'btn btn-success'
+                            },
+                            buttonsStyling: false
+                        });
+                    }
+                });
+            } else {
+                Swal.fire({
+                    title: "Cancelled",
+                    text: "Your Car Info is safe!",
+                    icon: "info",
+                    customClass: {
+                        confirmButton: 'btn btn-success'
+                    },
+                    buttonsStyling: false
+                });
+            }
+        });
+    }
+</script>
 @endsection
