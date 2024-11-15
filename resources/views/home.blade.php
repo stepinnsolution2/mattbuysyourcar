@@ -1,64 +1,181 @@
 @extends('master.main')
+<style>
+    .btn-bg-warning {
+        border: 1px solid black; /* Black outline */
+        color: black;           /* Black font color */
+        background-color: transparent; /* Transparent background */
+        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    }
+    /* Hover effect for input buttons */
+    .btn-bg-warning:hover {
+        background-color: yellow;
+        color: black; /* Optional: change text color for contrast */
+    }
 
+    /* Maintain focus style when active */
+    .btn-bg-warning.active {
+        background-color: yellow;
+        color: black;
+    }
+</style>
 @section('content')
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
 
-    <div class="box">
-        <h1>tell us about your car</h1>
-        <h6>Car Information</h6>
-        <form id="step1Form">
-            @csrf
-            <input type="hidden" name="step" value="1">
+<div class="box">
+    <h1>Tell us about your car</h1>
 
-            <div class="row">
-                <!-- Type of Car Dropdown -->
-                <div class="input-group mb-3">
-                    <select class="form-select" name="car_type" id="inputGroupSelect02">
-                        <option selected>Type of Car</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+    <!-- Tab Navigation -->
+    <ul class="nav nav-tabs" id="carTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="step1-tab" data-bs-toggle="tab" data-bs-target="#step1" type="button" role="tab" aria-controls="step1" aria-selected="true">Step 1</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="step2-tab" data-bs-toggle="tab" data-bs-target="#step2" type="button" role="tab" aria-controls="step2" aria-selected="false" disabled>Step 2</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="step3-tab" data-bs-toggle="tab" data-bs-target="#step3" type="button" role="tab" aria-controls="step3" aria-selected="false" disabled>Step 3</button>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-3">
+        <!-- Step 1 -->
+        <div class="tab-pane fade show active" id="step1" role="tabpanel" aria-labelledby="step1-tab">
+            <form id="step1Form">
+                @csrf
+                <input type="hidden" name="step" value="1">
+
+                <div class="row">
+                    <!-- Type of Car Dropdown -->
+                    <div class="input-group mb-3">
+                        <select class="form-select" name="car_type" id="inputGroupSelect01">
+                            <option selected>Type of Car</option>
+                            <option value="1">SUV</option>
+                            <option value="2">Sedan</option>
+                            <option value="3">Hatchback</option>
+                        </select>
+                    </div>
+
+                    <!-- Car Model Dropdown -->
+                    <div class="input-group mb-3">
+                        <select class="form-select" name="car_model" id="inputGroupSelect02">
+                            <option selected>Model of Car</option>
+                            <option value="1">Model 1</option>
+                            <option value="2">Model 2</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="text" name="specification" placeholder="Specification/Trim" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="text" name="engine_size" placeholder="Engine Size (e.g., 1499cc)" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class="form-select" name="year" id="inputGroupSelect03" required>
+                            <option selected>Year</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
                 </div>
 
-                <!-- Car Model Dropdown -->
-                <div class="input-group mb-3">
-                    <select class="form-select" name="car_model" required id="inputGroupSelect02">
-                        <option selected>Model of Car</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
+                <button class="button" onclick="submitStep1(event)">Next</button>
+            </form>
+        </div>
 
-                <!-- Specification/Trim Input -->
-                <div class="input-group mb-3">
-                    <input class="form-control" type="text" name="specification" placeholder="Specification/Trim (e.g., ‘E350 Sport’)" aria-label="default input example">
-                </div>
+        <!-- Step 2 -->
+        <div class="tab-pane fade" id="step2" role="tabpanel" aria-labelledby="step2-tab">
+            <form id="step2Form">
+                <div class="row">
+                    <!-- GCC Spec Section -->
+                    <div class="mb-1">
+                        <label for="gccSpec" class="form-label">GCC Spec?</label>
+                        <div class="btn-group d-flex" role="group">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Yes GCC">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning active" value="American">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="European">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Japanese">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="I don't know">
+                        </div>
+                    </div>
 
-                <!-- Engine Size Input -->
-                <div class="input-group mb-3">
-                    <input class="form-control" type="text" name="engine_size" placeholder="Engine Size (1499cc)" aria-label="default input example">
-                </div>
+                    <!-- Overall Condition -->
+                    <div class="mb-1">
+                        <label class="form-label">Overall Condition</label>
+                        <div class="btn-group d-flex" role="group">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Excellent">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Good">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning active" value="Average">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Poor">
+                        </div>
+                    </div>
 
-                <!-- Year Dropdown -->
-                <div class="input-group mb-3">
-                    <select class="form-select" name="year" id="inputGroupSelect02">
-                        <option selected>Year</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <!-- Paintwork -->
+                    <div class="mb-1">
+                        <label class="form-label">Paintwork</label>
+                        <div class="btn-group d-flex" role="group">
+                            <input type="button" class="btn btn-outline-warning  btn-bg-warning" value="Original Paint">
+                            <input type="button" class="btn btn-outline-warning  btn-bg-warning" value="Partial Repaint">
+                            <input type="button" class="btn btn-outline-warning  btn-bg-warning active" value="Total Repaint">
+                            <input type="button" class="btn btn-outline-warning  btn-bg-warning" value="I Don't Know">
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <button class="button" onclick="submitStep1(event)">Next</button>
+            </form>
+        </div>
 
-            <!-- Next Button -->
-            <button class="button" onclick="submitStep1(event)">Next</button>
-        </form>
+        <!-- Step 3 -->
+        <div class="tab-pane fade" id="step3" role="tabpanel" aria-labelledby="step3-tab">
+            <form id="step3Form">
+                <div class="row">
+                    <!-- GCC Spec Section -->
+                    <!-- Interior Condition -->
+                    <div class="mb-3">
+                        <label class="form-label">Interior Condition</label>
+                        <div class="btn-group d-flex" role="group">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Excellent">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Good">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning active" value="Average">
+                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Poor">
+                        </div>
+                    </div>
+
+                    <!-- Service History -->
+                    <div class="mb-3">
+                        <label class="form-label">Service History</label>
+                        <div>
+                            <input type="checkbox" id="serviceHistoryYes" name="serviceHistoryYes"><span><label for="serviceHistoryYes">Yes</label></span>
+
+                        </div>
+                    </div>
+
+                    <!-- Comment Section -->
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Comment here.</label>
+                        <textarea class="form-control" id="comment" rows="3" style="background-color: #333; color: white;"></textarea>
+                    </div>
+
+                    <!-- Loan or Mortgage -->
+                    <div class="mb-3">
+                        <label class="form-label">Loan or Mortgage</label>
+                        <div>
+                            <input type="checkbox" id="loanYes" name="loanYes">
+                            <label for="loanYes">Yes</label>
+                            <input type="checkbox" id="loanNo" name="loanNo">
+                            <label for="loanNo">No</label>
+                        </div>
+                    </div>
+                </div>
+                <button class="button" onclick="submitStep1(event)">Next</button>
+            </form>
+        </div>
     </div>
+</div>
 
 
 
@@ -75,76 +192,9 @@
                             @csrf
                             <input type="hidden" name="step" value="2">
 
-                            <!-- GCC Spec Section -->
-                        <div class="mb-3">
-                            <label for="gccSpec" class="form-label">GCC Spec?</label>
-                            <div class="btn-group d-flex" role="group">
-                                <input type="button" class="btn btn-outline-light" value="Yes GCC">
-                                <input type="button" class="btn btn-outline-light" value="American">
-                                <input type="button" class="btn btn-outline-light" value="European">
-                                <input type="button" class="btn btn-outline-light" value="Japanese">
-                                <input type="button" class="btn btn-outline-light" value="I don't know">
-                            </div>
-                        </div>
 
-                        <!-- Overall Condition -->
-                        <div class="mb-3">
-                            <label class="form-label">Overall Condition</label>
-                            <div class="btn-group d-flex" role="group">
-                                <input type="button" class="btn btn-outline-light" value="Excellent">
-                                <input type="button" class="btn btn-outline-light" value="Good">
-                                <input type="button" class="btn btn-outline-light active" value="Average">
-                                <input type="button" class="btn btn-outline-light" value="Poor">
-                            </div>
-                        </div>
 
-                        <!-- Paintwork -->
-                        <div class="mb-3">
-                            <label class="form-label">Paintwork</label>
-                            <div class="btn-group d-flex" role="group">
-                                <input type="button" class="btn btn-outline-light" value="Original Paint">
-                                <input type="button" class="btn btn-outline-light" value="Partial Repaint">
-                                <input type="button" class="btn btn-outline-light active" value="Total Repaint">
-                                <input type="button" class="btn btn-outline-light" value="I Don't Know">
-                            </div>
-                        </div>
 
-                        <!-- Interior Condition -->
-                        <div class="mb-3">
-                            <label class="form-label">Interior Condition</label>
-                            <div class="btn-group d-flex" role="group">
-                                <input type="button" class="btn btn-outline-light" value="Excellent">
-                                <input type="button" class="btn btn-outline-light" value="Good">
-                                <input type="button" class="btn btn-outline-light active" value="Average">
-                                <input type="button" class="btn btn-outline-light" value="Poor">
-                            </div>
-                        </div>
-
-                        <!-- Service History -->
-                        <div class="mb-3">
-                            <label class="form-label">Service History</label>
-                            <div>
-                                <input type="checkbox" id="serviceHistoryYes" name="serviceHistoryYes">
-                                <label for="serviceHistoryYes">Yes</label>
-                            </div>
-                        </div>
-
-                        <!-- Comment Section -->
-                        <div class="mb-3">
-                            <label for="comment" class="form-label">Comment here.</label>
-                            <textarea class="form-control" id="comment" rows="3" style="background-color: #333; color: white;"></textarea>
-                        </div>
-
-                        <!-- Loan or Mortgage -->
-                        <div class="mb-3">
-                            <label class="form-label">Loan or Mortgage</label>
-                            <div>
-                                <input type="checkbox" id="loanYes" name="loanYes">
-                                <label for="loanYes">Yes</label>
-                                <input type="checkbox" id="loanNo" name="loanNo">
-                                <label for="loanNo">No</label>
-                            </div>
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -371,6 +421,65 @@
 </div>
 <script src="{{ asset('js/faq.js') }}"></script>
 @endsection
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript for Tabs Navigation -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Step 1 Form Submission
+    function submitStep1(event) {
+        event.preventDefault();
+
+        // Perform validation for Step 1
+        const step1Form = document.getElementById("step1Form");
+        if (step1Form.checkValidity()) {
+            // Enable Step 2 tab and navigate to it
+            const step2Tab = document.getElementById("step2-tab");
+            step2Tab.disabled = false;
+            step2Tab.click();
+        } else {
+            step1Form.reportValidity();
+        }
+    }
+
+    // Step 2 Form Submission
+    function submitStep2(event) {
+        event.preventDefault();
+
+        // Perform validation for Step 2
+        const step2Form = document.getElementById("step2Form");
+        if (step2Form.checkValidity()) {
+            // Enable Step 3 tab and navigate to it
+            const step3Tab = document.getElementById("step3-tab");
+            step3Tab.disabled = false;
+            step3Tab.click();
+        } else {
+            step2Form.reportValidity();
+        }
+    }
+
+    // Step 3 Form Submission
+    function submitStep3(event) {
+        event.preventDefault();
+
+        // Perform validation for Step 3
+        const step3Form = document.getElementById("step3Form");
+        if (step3Form.checkValidity()) {
+            alert("Form submitted successfully!");
+        } else {
+            step3Form.reportValidity();
+        }
+    }
+
+    // Attach event listeners to buttons
+    document.querySelector("#step1Form .button").addEventListener("click", submitStep1);
+    document.querySelector("#step2Form .button").addEventListener("click", submitStep2);
+    document.querySelector("#step3Form .button").addEventListener("click", submitStep3);
+});
+
+</script>
+
 <script>
 
 function submitStep1(event) {

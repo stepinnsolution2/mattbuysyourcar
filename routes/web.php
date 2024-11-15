@@ -11,7 +11,7 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\AboutController;
-use App\Http\Controllers\admin\EventController;
+use App\Http\Controllers\admin\MarketingMediaController;
 use App\Http\Controllers\admin\AdminContactController;
 use App\Http\Controllers\admin\NurseryController;
 use App\Http\Controllers\admin\ServiceController;
@@ -98,6 +98,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/banners', [AdminController::class, 'banners'])->name('banners');
     Route::post('/store_banner', [AdminController::class, 'store_banner'])->name('store-banner');
     Route::delete('/delete-banners/{id}', [AdminController::class,'destroy'])->name('banners.destroy');
+
+    //MarketingMedia
+    Route::get('/admin/marketing-media', [MarketingMediaController::class, 'index'])->name('admin.marketing-media.index');
+    Route::get('/admin/marketing-media/create', [MarketingMediaController::class, 'create'])->name('admin.marketing-media.create');
+    Route::post('/admin/marketing-media', [MarketingMediaController::class, 'store'])->name('admin.marketing-media.store');
+    Route::get('/admin/marketing-media/{id}', [MarketingMediaController::class, 'show'])->name('admin.marketing-media.show');
+    Route::get('/admin/marketing-media/{id}/edit', [MarketingMediaController::class, 'edit'])->name('admin.marketing-media.edit');
+    Route::put('/admin/marketing-media/{id}', [MarketingMediaController::class, 'update'])->name('admin.marketing-media.update');
+    Route::delete('/admin/marketing-media/{id}', [MarketingMediaController::class, 'destroy'])->name('admin.marketing-media.destroy');
+
 
 
     //Car

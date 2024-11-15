@@ -94,7 +94,7 @@
 			<!-- /.content-wrapper -->
 			<footer class="main-footer">
 
-				<strong>Powered By <a href="https://stepinnsolution.com/">StepinnSolution</a> Copyright &copy; <?php echo date('Y'); ?> GrowGreen - All rights reserved.
+				<strong>Powered By <a href="https://stepinnsolution.com/">StepinnSolution</a> Copyright &copy; <?php echo date('Y'); ?> mattbuysyourcars - All rights reserved.
 			</footer>
 
 		</div>

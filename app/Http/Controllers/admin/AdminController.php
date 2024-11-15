@@ -52,12 +52,10 @@ class AdminController extends Controller
 
     public function store_banner(Request $req)
     {
-        // Validate the request
         $req->validate([
             'banner' => 'required|image|mimes:jpeg,png,jpg',
         ]);
 
-        // Handle the uploaded file
         if ($req->hasFile('banner')) {
             $cloudinaryImage = $req->file('banner')->storeOnCloudinaryAs('banner', $req->file('banner')->getClientOriginalName());
             $url = $cloudinaryImage->getSecurePath();
