@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use App\Models\User;
 use App\Models\Banner;
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
@@ -24,54 +25,46 @@ class AdminController extends Controller
     }
     public function destroy($id)
     {
-        $banner = Banner::find($id);
-        if (!$banner) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Banner not found.',
-            ], 404);
-        }
-        $publicId = $banner->image_public_id;
-
-    // Delete the image from Cloudinary
         try {
-            Cloudinary::destroy($publicId);
+            $banner = Banner::find($id);
+            $banner->delete();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Banner deleted successfully.'
+            ]);
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Error deleting the image from Cloudinary.',
+                'message' => 'There was an error deleting the Banner'
             ], 500);
         }
-        $banner->delete();
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Banner deleted successfully.',
-        ]);
     }
 
-    public function store_banner(Request $req)
+    public function store_banner(Request $request)
     {
-        $req->validate([
+        $request->validate([
             'banner' => 'required|image|mimes:jpeg,png,jpg',
         ]);
+        // Generate a unique filename for the image
+        $imageName = Str::random(20) . '.' . $request->banner->getClientOriginalExtension();
 
-        if ($req->hasFile('banner')) {
-            $cloudinaryImage = $req->file('banner')->storeOnCloudinaryAs('banner', $req->file('banner')->getClientOriginalName());
-            $url = $cloudinaryImage->getSecurePath();
-            $publicId = $cloudinaryImage->getPublicId();
+        // Store the image in public/images folder
+        $request->banner->move(public_path('images/Banner/'), $imageName);
 
-            // Optionally, store the path in the database
-            Banner::create([
-                'image' => $url,
-                'image_public_id' => $publicId,
-            ]);
+        // Create a path for the image relative to the public directory
+        $imagePath = 'images/Banner/' . $imageName;
+
+        // Create a new team member record
+        Banner::create([
+            'banner'    => $banner,
+        ]);
+
 
             return response()->json([
                 'status' => 'success',
                 'message' => 'Banner Added successfully.',
             ]);
-        }
     }
     public function password_reset()
     {

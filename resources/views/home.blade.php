@@ -24,156 +24,51 @@
 
 
 
-<div class="box">
-    <h1>Tell us about your car</h1>
-
-    <!-- Tab Navigation -->
-    <ul class="nav nav-tabs" id="carTabs" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="step1-tab" data-bs-toggle="tab" data-bs-target="#step1" type="button" role="tab" aria-controls="step1" aria-selected="true">Step 1</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="step2-tab" data-bs-toggle="tab" data-bs-target="#step2" type="button" role="tab" aria-controls="step2" aria-selected="false" disabled>Step 2</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="step3-tab" data-bs-toggle="tab" data-bs-target="#step3" type="button" role="tab" aria-controls="step3" aria-selected="false" disabled>Step 3</button>
-        </li>
-    </ul>
-
-    <!-- Tab Content -->
-    <div class="tab-content mt-3">
-        <!-- Step 1 -->
-        <div class="tab-pane fade show active" id="step1" role="tabpanel" aria-labelledby="step1-tab">
-            <form id="step1Form">
-                @csrf
-                <input type="hidden" name="step" value="1">
-
-                <div class="row">
-                    <!-- Type of Car Dropdown -->
-                    <div class="input-group mb-3">
-                        <select class="form-select" name="car_type" id="inputGroupSelect01">
-                            <option selected>Type of Car</option>
-                            <option value="1">SUV</option>
-                            <option value="2">Sedan</option>
-                            <option value="3">Hatchback</option>
-                        </select>
-                    </div>
-
-                    <!-- Car Model Dropdown -->
-                    <div class="input-group mb-3">
-                        <select class="form-select" name="car_model" id="inputGroupSelect02">
-                            <option selected>Model of Car</option>
-                            <option value="1">Model 1</option>
-                            <option value="2">Model 2</option>
-                        </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input class="form-control" type="text" name="specification" placeholder="Specification/Trim" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input class="form-control" type="text" name="engine_size" placeholder="Engine Size (e.g., 1499cc)" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <select class="form-select" name="year" id="inputGroupSelect03" required>
-                            <option selected>Year</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                        </select>
-                    </div>
+<div>
+    <div class="box">
+        <h1>tell us about your car</h1>
+        <h6>Car Information</h6>
+        <form action="#" method="post">
+            <div class="row">
+                <div class="input-group mb-3">
+                    <select class="form-select" id="inputGroupSelect02">
+                        <option selected>Type of Car</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
                 </div>
-
-                <button class="button" onclick="submitStep1(event)">Next</button>
-            </form>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="tab-pane fade" id="step2" role="tabpanel" aria-labelledby="step2-tab">
-            <form id="step2Form">
-                <div class="row">
-                    <!-- GCC Spec Section -->
-                    <div class="mb-1">
-                        <label for="gccSpec" class="form-label">GCC Spec?</label>
-                        <div class="btn-group d-flex" role="group">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Yes GCC">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning active" value="American">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="European">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Japanese">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="I don't know">
-                        </div>
-                    </div>
-
-                    <!-- Overall Condition -->
-                    <div class="mb-1">
-                        <label class="form-label">Overall Condition</label>
-                        <div class="btn-group d-flex" role="group">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Excellent">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Good">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning active" value="Average">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Poor">
-                        </div>
-                    </div>
-
-                    <!-- Paintwork -->
-                    <div class="mb-1">
-                        <label class="form-label">Paintwork</label>
-                        <div class="btn-group d-flex" role="group">
-                            <input type="button" class="btn btn-outline-warning  btn-bg-warning" value="Original Paint">
-                            <input type="button" class="btn btn-outline-warning  btn-bg-warning" value="Partial Repaint">
-                            <input type="button" class="btn btn-outline-warning  btn-bg-warning active" value="Total Repaint">
-                            <input type="button" class="btn btn-outline-warning  btn-bg-warning" value="I Don't Know">
-                        </div>
-                    </div>
+                <div class="input-group mb-3">
+                    <select class="form-select" id="inputGroupSelect02">
+                        <option selected>Model of Car</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
                 </div>
-                <button class="button" onclick="submitStep1(event)">Next</button>
-            </form>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="tab-pane fade" id="step3" role="tabpanel" aria-labelledby="step3-tab">
-            <form id="step3Form">
-                <div class="row">
-                    <!-- GCC Spec Section -->
-                    <!-- Interior Condition -->
-                    <div class="mb-3">
-                        <label class="form-label">Interior Condition</label>
-                        <div class="btn-group d-flex" role="group">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Excellent">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Good">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning active" value="Average">
-                            <input type="button" class="btn btn-outline-warning btn-bg-warning" value="Poor">
-                        </div>
-                    </div>
-
-                    <!-- Service History -->
-                    <div class="mb-3">
-                        <label class="form-label">Service History</label>
-                        <div>
-                            <input type="checkbox" id="serviceHistoryYes" name="serviceHistoryYes"><span><label for="serviceHistoryYes">Yes</label></span>
-
-                        </div>
-                    </div>
-
-                    <!-- Comment Section -->
-                    <div class="mb-3">
-                        <label for="comment" class="form-label">Comment here.</label>
-                        <textarea class="form-control" id="comment" rows="3" style="background-color: #333; color: white;"></textarea>
-                    </div>
-
-                    <!-- Loan or Mortgage -->
-                    <div class="mb-3">
-                        <label class="form-label">Loan or Mortgage</label>
-                        <div>
-                            <input type="checkbox" id="loanYes" name="loanYes">
-                            <label for="loanYes">Yes</label>
-                            <input type="checkbox" id="loanNo" name="loanNo">
-                            <label for="loanNo">No</label>
-                        </div>
-                    </div>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" placeholder="Specification/Trim (e.g.,“E350 Sport”)"
+                        aria-label="default input example">
                 </div>
-                <button class="button" onclick="submitStep1(event)">Next</button>
-            </form>
-        </div>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" placeholder="Engine Size(1499cc)"
+                        aria-label="default input example">
+                </div>
+                <div class="input-group mb-3">
+                    <select class="form-select" id="inputGroupSelect02">
+                        <option selected>Year</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" placeholder="Engine Size(1499cc)"
+                        aria-label="default input example">
+                </div>
+            </div>
+            <button class="button">Next</button>
+        </form>
     </div>
 </div>
 
@@ -248,80 +143,19 @@
         <p class="faq-para">Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl<br> pellentesque integer
             sed. In tortor </p>
         <div class="faqs-container">
+            @foreach ($faqs as $faq)
             <div class="faq ">
-                <h3 class="faq-title">
-                    Do You Offer Cash Payment When Buying My Car?
-                </h3>
-                <p class="faq-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis facere odit debitis omnis
-                    esse pariatur dolor adipisci neque? Obcaecati officiis amet animi sapiente, enim cupiditate
-                    fugiat nesciunt ipsa corrupti exercitationem!
-                </p>
+                <h3 class="faq-title">{{$faq->question}}</h3>
+                <p class="faq-text">{{$faq->answer}}</p>
                 <button class="faq-toggle">
-                    <i class="fas fa-plus"></i>
-                    <i class="fas fa-times"></i>
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <i class="fa-solid fa-circle-minus"></i>
                 </button>
             </div>
+            @endforeach
 
-            <div class="faq">
-                <h3 class="faq-title">
-                    How Soon Will I Receive Payment For My Car?
-                </h3>
-                <p class="faq-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis facere odit debitis omnis
-                    esse pariatur dolor adipisci neque? Obcaecati officiis amet animi sapiente, enim cupiditate
-                    fugiat nesciunt ipsa corrupti exercitationem!
-                </p>
-                <button class="faq-toggle">
-                    <i class="fas fa-plus"></i>
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
 
-            <div class="faq">
-                <h3 class="faq-title">
-                    Do I Need An Appointment To Sell My Car For Cash?
-                </h3>
-                <p class="faq-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis facere odit debitis omnis
-                    esse pariatur dolor adipisci neque? Obcaecati officiis amet animi sapiente, enim cupiditate
-                    fugiat nesciunt ipsa corrupti exercitationem!
-                </p>
-                <button class="faq-toggle">
-                    <i class="fas fa-plus"></i>
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
 
-            <div class="faq">
-                <h3 class="faq-title">
-                    What Happens If I Change My Mind After Receiving The Cash?
-                </h3>
-                <p class="faq-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis facere odit debitis omnis
-                    esse pariatur dolor adipisci neque? Obcaecati officiis amet animi sapiente, enim cupiditate
-                    fugiat nesciunt ipsa corrupti exercitationem!
-                </p>
-                <button class="faq-toggle">
-                    <i class="fas fa-plus"></i>
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-
-            <div class="faq">
-                <h3 class="faq-title">
-                    Do You Buy Cars Of Any Make, Model, Or Condition For Cash?
-                </h3>
-                <p class="faq-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis facere odit debitis omnis
-                    esse pariatur dolor adipisci neque? Obcaecati officiis amet animi sapiente, enim cupiditate
-                    fugiat nesciunt ipsa corrupti exercitationem!
-                </p>
-                <button class="faq-toggle">
-                    <i class="fas fa-plus"></i>
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
         </div>
     </div>
 </div>

@@ -14,13 +14,15 @@ use App\Models\Nursery;
 use App\Models\Transporter;
 use App\Models\Country;
 use App\Models\Setting;
+use App\Models\Faq;
 
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function home(){
-        // $banners = Banner::latest()->get();
+         $banners = Banner::latest()->get();
+         $faqs = Faq::latest()->get();
         // $projects = Project::latest()->paginate(4); // Adjust the number 10 to the number of records per page you want to display
         // $nurseries = Nursery::latest()->get();
         // $seeds = Seed::latest()->get();
@@ -28,7 +30,7 @@ class PageController extends Controller
         // $transporters = Transporter::latest()->get();
         // //dd($nurseries->images);
 
-        return view('home');
+        return view('home',compact('banners', 'faqs'));
     }
     public function about(){
 
