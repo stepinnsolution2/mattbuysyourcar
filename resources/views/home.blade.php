@@ -216,22 +216,101 @@
         <h1 class="rotated-heading-part">مدونة</h1>
     </div>
 </div>
-
+<style>
+    .custom-card {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      height: 400px;
+    }
+    .custom-card img {
+      object-fit: cover;
+      width: 100%;
+      height: 400px;
+    }
+    .custom-card-content {
+        position: absolute;
+        top: 63%;
+        left: 37%;
+        transform: translate(-50%, -50%);
+    }
+    .custom-card .btn {
+      margin-top: 15px;
+    }
+  </style>
 <!-- ============================================================seven part=================================================================== -->
-<div class="seven-part">
-    <div class="row">
-        <div class="col-4">
-            <img src="images/seven-part-img1.JPG" alt="">
-        </div>
-        <div class="col-4">
-            <img src="images/seven-part-img2.JPG" alt="">
-        </div>
-        <div class="col-4 seting-img">
-            <img src="images/seven-part-img3.JPG" alt="">
-        </div>
+<div class="container pt-5 overflow-hidden">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+              <div class="card custom-card">
+                  <img src="{{ asset('images/hr.jfif') }}" alt="Card Background Image">
+                  <div class="custom-card-content  pb-4">
+                    <h3 class="card-title ">Card Title</h3>
+                    <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                    <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                  </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card custom-card">
+                <img src="{{ asset('images/gp.jfif') }}" alt="Card Background Image">
+                <div class="custom-card-content">
+                  <h3 class="card-title">Card Title</h3>
+                  <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                  <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                </div>
+          </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card custom-card">
+                <img src="{{ asset('images/pc.jfif') }}" alt="Card Background Image">
+                <div class="custom-card-content">
+                  <h3 class="card-title">Card Title</h3>
+                  <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                  <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                </div>
+          </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card custom-card">
+                <img src="{{ asset('images/gp.jfif') }}" alt="Card Background Image">
+                <div class="custom-card-content">
+                  <h3 class="card-title">Card Title</h3>
+                  <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                  <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                </div>
+          </div>
+          </div>
+      </div>
+      </div>
     </div>
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+ <script>
+   // Initialize Swiper
+const swiper = new Swiper('.swiper-container', {
+  slidesPerView: 3, // Number of slides to show at once on larger screens
+  spaceBetween: 0, // Space between the slides (increased for better clarity)
+  loop: true, // Infinite loop for slides
+  
+  breakpoints: {
+    0: {
+      slidesPerView: 1, // Show 1 slide on very small mobile screens
+    },
+    576: {
+      slidesPerView: 2, // Show 2 slides on slightly larger mobile screens
+    },
+    768: {
+      slidesPerView: 3, // Show 3 slides on tablets
+    },
+    1024: {
+      slidesPerView: 3, // Maintain 3 slides on desktops and larger screens
+    },
+  },
+});
 
+  </script>
 <!-- ===========================================================eight part================================================================== -->
 
 <div class="eight-part">
