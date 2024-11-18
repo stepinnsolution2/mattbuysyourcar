@@ -7,7 +7,7 @@
 .main-header {
     width: 100%;
     height: 100vh;
-    background-image: url('../images/main-header.jpg');
+    background-image: url('images/main-header.jpg');
     background-size: cover;
     /* Ensure the image covers the entire screen */
     background-position: center;
@@ -55,9 +55,9 @@ nav {
 }
 
 .box {
-    width: 40vw;
+    width: 36vw;
     position: absolute;
-    height: 70vh;
+    height: 58vh;
     border-radius: 20px;
     background-color: #f7f6f4;
     top: 26%;
@@ -69,7 +69,7 @@ nav {
     text-align: center;
     font-size: 25px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     font-weight: 800;
 }
 
@@ -238,17 +238,13 @@ nav {
 
 .faq-title {
     margin: 0 35px 0 0;
-    font-size: 20px;
-    font-weight: 400;
-    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
 }
 
 .faq-text {
     display: none;
-    margin: 15px 0 0;
-    font-size: 16;
-    font-weight: 400;
-    line-height: 22.43px;
+    margin: 30px 0 0;
+    font-size: 20px;
 }
 
 .faq.active .faq-text {
@@ -281,23 +277,21 @@ nav {
     background-color: #9FA4A8;
 }
 
-.faq-toggle .fa-circle-minus {
+.faq-toggle .fa-times {
     display: none;
 }
 
-.faq.active .faq-toggle .fa-circle-minus {
+.faq.active .faq-toggle .fa-times {
     display: block;
-    color: black;
-    font-size: 30px;
 }
 
-.faq-toggle .fa-circle-plus {
+.faq-toggle .fa-plus {
     /* color: #fbfdff; */
     color: black;
-    font-size: 30px;
+    font-size: 38px;
 }
 
-.faq.active .faq-toggle .fa-circle-plus {
+.faq.active .faq-toggle .fa-plus {
     display: none;
 }
 
@@ -467,7 +461,7 @@ nav {
         width: 90%;
     }
 
-    .faq-toggle .fa-circle-plus {
+    .faq-toggle .fa-plus {
         /* color: #fbfdff; */
         color: black;
         font-size: 25px;
@@ -578,16 +572,19 @@ nav {
     height: 60vh;
     position: relative;
 }
-.left-part-six{
+
+.left-part-six {
     width: 60%;
     position: absolute;
     top: 15%;
     left: 10%;
 }
-.left-part-six > h1{
+
+.left-part-six>h1 {
     font-size: 68px;
     margin-bottom: 20px;
 }
+
 .rotated-heading-part {
     position: absolute;
     transform: rotate(90deg);
@@ -599,14 +596,16 @@ nav {
     font-size: 100px;
     font-weight: 800;
 }
-.six-btn-1{
+
+.six-btn-1 {
     padding: 10px 18px;
     border: 2px solid rgb(10, 10, 10);
     background: transparent;
     color: rgb(15, 15, 15);
     border-radius: 5px;
 }
-.six-btn-2{
+
+.six-btn-2 {
     padding: 12px 18px;
     background-color: #e9d203;
     border: none;
@@ -616,50 +615,57 @@ nav {
 
 
 /* ===========================================================seven part==================================================================== */
-.seven-part{
+.seven-part {
     width: 80%;
     height: 60vh;
     margin: 0 auto;
 }
-.seting-img > img{
+
+.seting-img>img {
     width: 400px;
     height: 443px;
 }
+
 /* ===========================================================eight part==================================================================== */
-.eight-part{
+.eight-part {
     width: 80%;
     height: 60vh;
     margin: 0 auto;
     position: relative;
 }
-.first-eight{
+
+.first-eight {
     position: absolute;
     left: -1%;
     top: 20%;
     text-align: center;
 }
-.second-eight{
+
+.second-eight {
     position: absolute;
     left: 33%;
     top: 21%;
     text-align: center;
 }
-.second-eight > img{
+
+.second-eight>img {
     margin-bottom: 42px;
 }
-.third-eight{
+
+.third-eight {
     position: absolute;
     left: 68%;
     top: 20%;
     text-align: center;
 }
-.third-eight > img{
+
+.third-eight>img {
     margin-bottom: 11px;
 }
 
 /* ===========================================================footer part ===================================================================== */
 
-.upper-footer{
+.upper-footer {
     width: 100%;
     height: 60vh;
     background-color: black;
@@ -670,24 +676,28 @@ nav {
     justify-content: center;
     flex-direction: column;
 }
-.upper-footer > .input-group{
+
+.upper-footer>.input-group {
     width: 20%;
 }
-.btn-footer{
+
+.btn-footer {
     padding: 12px 18px;
     background-color: #e9d203;
     border: none;
     color: rgb(15, 15, 15);
     border-radius: 5px;
 }
-.mid-footer{
+
+.mid-footer {
     width: 100%;
     height: 5vh;
     background-color: #000000;
     color: white;
     text-align: end;
 }
-.mid-footer ul{
+
+.mid-footer ul {
     list-style: none;
     display: flex;
     gap: 20px;
@@ -697,7 +707,8 @@ nav {
     align-items: center;
     justify-content: end;
 }
-.down-footer{
+
+.down-footer {
     width: 100%;
     height: 10vh;
     background-color: black;
@@ -708,7 +719,220 @@ nav {
     color: white;
     padding-left: 30px;
 }
-.down-footer > .right > img{
+
+.down-footer>.right>img {
     width: 40px;
     margin-right: 20px;
 }
+
+
+
+
+
+
+/* =============================================mODALS STYLING================================================================= */
+.btn-modal-first {
+    background-color: #e9d203;
+    color: #000;
+}
+
+.btn-modal-first:hover {
+    background-color: #e9d203;
+    color: #000;
+}
+
+
+.modal-content {
+    min-height: 80vh;
+    background-color: #111111c2;
+    color: white;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 8px 0 rgba(248, 246, 246, 0.61), 0 6px 20px 0 rgba(247, 245, 245, 0.651);
+    padding: 20px;
+}
+
+.modal-content>h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.modal-form>h6 {
+    color: gray;
+}
+
+
+
+/* Button Group Styling */
+.button-group {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+.modal-form > p{
+    color: gray;
+    margin-bottom: 2px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.btn-modalone {
+    padding: 5px 5px;
+    border: none;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-modalone:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-modalone.active {
+    background-color: #e9d203;
+    /* Highlight color for the active button */
+    color: #000;
+    font-size: 14px;
+}
+
+
+
+
+
+.btn-modaltwo {
+    padding: 5px 5px;
+    border: none;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-modaltwo:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-modaltwo.active {
+    background-color: #e9d203;
+    /* Highlight color for the active button */
+    color: #000;
+    font-size: 14px;
+}
+
+
+
+
+.btn-modalthree {
+    padding: 5px 5px;
+    border: none;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-modalthree:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-modalthree.active {
+    background-color: #e9d203;
+    /* Highlight color for the active button */
+    color: #000;
+    font-size: 14px;
+}
+
+
+
+
+
+.btn-modalfour {
+    padding: 5px 5px;
+    border: none;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-modalfour:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-modalfour.active {
+    background-color: #e9d203;
+    /* Highlight color for the active button */
+    color: #000;
+    font-size: 14px;
+}
+
+
+
+
+
+/* Scoped Styles for Custom Radio Buttons */
+.custom-radio-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: gray;
+    margin-top: 15px;
+  }
+  
+  .custom-radio-container .question {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .custom-radio-container .custom-radio {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .custom-radio-container .custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .custom-radio-container .custom-radio .checkmark {
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border: 2px solid #888;
+    border-radius: 4px;
+    margin-right: 8px;
+    transition: background-color 0.3s, border-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .custom-radio-container .custom-radio input:checked + .checkmark {
+    background-color: #ffd700; /* Yellow background for checked state */
+    border-color: #ffd700;
+  }
+  
+  .custom-radio-container .custom-radio input:checked + .checkmark::after {
+    content: "✔";
+    color: #000; /* Black tick color */
+    font-size: 14px;
+    font-weight: bold;
+  }

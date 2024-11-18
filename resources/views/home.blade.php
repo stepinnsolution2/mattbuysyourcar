@@ -72,40 +72,190 @@
     </div>
 </div>
 
+<style>
+    .custom-label{
+  font-size: 12px !important;
+  font-weight: lighter !important;
 
+
+}
+</style>
+
+
+</style>
+ <!-- Button trigger modal -->
+ <button type="button" class="btn btn-modal-first" data-bs-toggle="modal" data-bs-target="#carModal">
+        car model
+    </button>
+<!-- Modal -->
+<div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="carModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header d-flex justify-content-between align-items-center">
+        <span class="modal-title text-center text-white w-100" id="carModalLabel">
+          TELL US ABOUT YOUR CAR
+        </span>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <form action="#" class="modal-form">
+          <!-- Image Upload -->
+          <div class="mb-4 ">
+            <label for="carImage" class="form-label custom-label text-white">Upload Car Image</label>
+            <div class="image-upload-wrapper mx-auto">
+              <input class="form-control" type="file" id="carImage">
+            </div>
+            <div class="mt-4 text-center">
+              <button type="submit" class="btn btn-warning w-100">Next</button>
+            </div>
+          </div>
+          <div class="modal-header d-flex justify-content-between align-items-center">
+            <span class="modal-title text-center text-white w-100" id="carModalLabel">
+              TELL US ABOUT YOUR CAR
+            </span>
+          </div>
+          <!-- Contact Information -->
+          <h6 class="mt-4 text-white custom-label">Contact Information</h6>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" id="firstName" placeholder="Phone Number" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="email" class="form-control" id="lastName" placeholder="Email Address" required>
+            </div>
+          </div>
+          <!-- Car Location -->
+          <textarea class="form-control" id="carLocation" rows="3" placeholder="Location where car"></textarea>
+
+          <!-- Submit Button -->
+          <div class="mt-4 text-center">
+            <button type="submit" class="btn btn-warning w-100">Next</button>
+          </div>
+          <div class="modal-header d-flex justify-content-between align-items-center">
+            <span class="modal-title text-center text-white w-100" id="carModalLabel">
+              TELL US ABOUT YOUR CAR
+            </span>
+          </div>
+          <!-- Contact Information -->
+          <h6 class="mt-4 text-white custom-label">Contact Information</h6>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" id="firstName" placeholder="Phone Number" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="email" class="form-control" id="lastName" placeholder="Email Address" required>
+            </div>
+          </div>
+          <!-- Car Location -->
+          <textarea class="form-control" id="carLocation" rows="3" placeholder="Location where car"></textarea>
+
+          <!-- Submit Button -->
+          <div class="mt-4 text-center">
+            <button type="submit" class="btn btn-warnng w-100">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style></style>
+ <!-- Button trigger modal -->
+ <button type="button" class="btn btn-modal-first" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Enter Your Car Detail Here
+    </button>
 
     <!-- Modal -->
-        <div class="modal fade" id="carDetailsModal" tabindex="-1" aria-labelledby="carDetailsModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="background-color: #1d1d1d; color: white; border-radius: 15px;">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="carDetailsModalLabel">TELL US ABOUT YOUR CAR</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="step2Form">
-                            @csrf
-                            <input type="hidden" name="step" value="2">
 
-
-
-
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3>TELL US ABOUT YOUR CAR</h3>
+                <form action="#" class="modal-form">
+                    <h6>Additional Questions</h6>
+                    <p>GCC Spec?</p>
+                    <div class="button-group">
+                        <button class="btn-modalone">Yes GCC</button>
+                        <button class="btn-modalone">American</button>
+                        <button class="btn-modalone">European</button>
+                        <button class="btn-modalone">Japanese</button>
+                        <button class="btn-modalone">I Don't Know</button>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-warning" style="background-color: #ffcc00; color: black;">Next</button>
+                    <p>Overall Condition</p>
+                    <div class="button-group">
+                        <button class="btn-modaltwo">Excellent</button>
+                        <button class="btn-modaltwo">Good</button>
+                        <button class="btn-modaltwo">Average</button>
+                        <button class="btn-modaltwo">Poor</button>
                     </div>
-                            <button type="button" class="button" onclick="submitStep2()">Submit</button>
-                        </form>
+                    <p>Paintwork</p>
+                    <div class="button-group">
+                        <button class="btn-modalthree">Original Paint</button>
+                        <button class="btn-modalthree">Partial Repaint</button>
+                        <button class="btn-modalthree">Total Repaint</button>
+                        <button class="btn-modalthree">I Don't Know</button>
                     </div>
+                    <p>Interior Condition</p>
+                    <div class="button-group">
+                        <button class="btn-modalfour">Excellent</button>
+                        <button class="btn-modalfour">Good</button>
+                        <button class="btn-modalfour">Average</button>
+                        <button class="btn-modalfour">Poor</button>
+                    </div>
+
+                    <div class="custom-radio-container">
+                        <span class="question">Service History</span>
+                        <label class="custom-radio">
+                          <input type="radio" name="loan" value="yes">
+                          <span class="checkmark"></span>
+                          Yes
+                        </label>
+                        <label class="custom-radio">
+                          <input type="radio" name="loan" value="no">
+                          <span class="checkmark"></span>
+                          No
+                        </label>
+                      </div>
+
+                      <textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" placeholder="Comment Here"></textarea>
+
+                      <div class="custom-radio-container">
+                        <span class="question">Loan or Mortgage</span>
+                        <label class="custom-radio">
+                          <input type="radio" name="loansec" value="yes">
+                          <span class="checkmark"></span>
+                          Yes
+                        </label>
+                        <label class="custom-radio">
+                          <input type="radio" name="loansec" value="no">
+                          <span class="checkmark"></span>
+                          No
+                        </label>
+                      </div>
+                      <button class="button">Next</button>
+                </form>
             </div>
         </div>
-
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#carDetailsModal">
-            Tell Us About Your Car
-        </button>
-
+    </div>
 
 
 <!-- ===========================================================Second Part========================================================================= -->
