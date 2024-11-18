@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.cars.index') }}" class="nav-link @if(Request::routeIs('admin.cars.index')) active @endif">
+                <a href="{{ route('admin.car_detail.index') }}" class="nav-link @if(Request::routeIs('admin.cars.index')) active @endif">
                     <i class="fas fa-calendar nav-icon"></i>
                     <p>Available Purchases</p>
                 </a>

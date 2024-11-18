@@ -18,59 +18,7 @@
         color: black;
     }
 </style>
-@section('content')
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-
-
-<div>
-    <div class="box">
-        <h1>tell us about your car</h1>
-        <h6>Car Information</h6>
-        <form action="#" method="post">
-            <div class="row">
-                <div class="input-group mb-3">
-                    <select class="form-select" id="inputGroupSelect02">
-                        <option selected>Type of Car</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <select class="form-select" id="inputGroupSelect02">
-                        <option selected>Model of Car</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <input class="form-control" type="text" placeholder="Specification/Trim (e.g.,“E350 Sport”)"
-                        aria-label="default input example">
-                </div>
-                <div class="input-group mb-3">
-                    <input class="form-control" type="text" placeholder="Engine Size(1499cc)"
-                        aria-label="default input example">
-                </div>
-                <div class="input-group mb-3">
-                    <select class="form-select" id="inputGroupSelect02">
-                        <option selected>Year</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <input class="form-control" type="text" placeholder="Engine Size(1499cc)"
-                        aria-label="default input example">
-                </div>
-            </div>
-            <button class="button">Next</button>
-        </form>
-    </div>
-</div>
 
 <style>
     .custom-label{
@@ -80,109 +28,60 @@
 
 }
 </style>
+@section('content')
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
-</style>
- <!-- Button trigger modal -->
- <button type="button" class="btn btn-modal-first" data-bs-toggle="modal" data-bs-target="#carModal">
-        car model
-    </button>
-<!-- Modal -->
-<div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="carModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header d-flex justify-content-between align-items-center">
-        <span class="modal-title text-center text-white w-100" id="carModalLabel">
-          TELL US ABOUT YOUR CAR
-        </span>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
 
-      <!-- Modal Body -->
-      <div class="modal-body">
-        <form action="#" class="modal-form">
-          <!-- Image Upload -->
-          <div class="mb-4 ">
-            <label for="carImage" class="form-label custom-label text-white">Upload Car Image</label>
-            <div class="image-upload-wrapper mx-auto">
-              <input class="form-control" type="file" id="carImage">
+<div>
+    <div class="box" id="exampleModa">
+        <h1>tell us about your car</h1>
+        <h6>Car Information</h6>
+            <div class="row">
+                <div class="input-group mb-3">
+                    <select class="form-select" name="car_type" id="inputGroupSelect02">
+                        <option selected>Type of Car</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <select class="form-select" name="model" id="inputGroupSelect02">
+                        <option selected>Model of Car</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" name="specification" placeholder="Specification/Trim (e.g.,“E350 Sport”)"
+                        aria-label="default input example">
+                </div>
+                <div class="input-group mb-3">
+                    <input class="form-control" name="engine_size" type="text" placeholder="Engine Size(1499cc)"
+                        aria-label="default input example">
+                </div>
+                <div class="input-group mb-3">
+                    <select class="form-select" name="year" id="inputGroupSelect02">
+                        <option selected>Year</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <input class="form-control" name="kilometers" type="text" placeholder="kilometers"
+                        aria-label="default input example">
+                </div>
             </div>
-            <div class="mt-4 text-center">
-              <button type="submit" class="btn btn-warning w-100">Next</button>
-            </div>
-          </div>
-          <div class="modal-header d-flex justify-content-between align-items-center">
-            <span class="modal-title text-center text-white w-100" id="carModalLabel">
-              TELL US ABOUT YOUR CAR
-            </span>
-          </div>
-          <!-- Contact Information -->
-          <h6 class="mt-4 text-white custom-label">Contact Information</h6>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
-            </div>
-            <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="firstName" placeholder="Phone Number" required>
-            </div>
-            <div class="col-md-6 mb-3">
-              <input type="email" class="form-control" id="lastName" placeholder="Email Address" required>
-            </div>
-          </div>
-          <!-- Car Location -->
-          <textarea class="form-control" id="carLocation" rows="3" placeholder="Location where car"></textarea>
-
-          <!-- Submit Button -->
-          <div class="mt-4 text-center">
-            <button type="submit" class="btn btn-warning w-100">Next</button>
-          </div>
-          <div class="modal-header d-flex justify-content-between align-items-center">
-            <span class="modal-title text-center text-white w-100" id="carModalLabel">
-              TELL US ABOUT YOUR CAR
-            </span>
-          </div>
-          <!-- Contact Information -->
-          <h6 class="mt-4 text-white custom-label">Contact Information</h6>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
-            </div>
-            <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="firstName" placeholder="Phone Number" required>
-            </div>
-            <div class="col-md-6 mb-3">
-              <input type="email" class="form-control" id="lastName" placeholder="Email Address" required>
-            </div>
-          </div>
-          <!-- Car Location -->
-          <textarea class="form-control" id="carLocation" rows="3" placeholder="Location where car"></textarea>
-
-          <!-- Submit Button -->
-          <div class="mt-4 text-center">
-            <button type="submit" class="btn btn-warnng w-100">Next</button>
-          </div>
-        </form>
-      </div>
+            <button type="button" id="next-button-modal1" class="btn btn-modal-first" >
+                Next
+            </button>
     </div>
-  </div>
 </div>
 
-<style></style>
- <!-- Button trigger modal -->
- <button type="button" class="btn btn-modal-first" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Enter Your Car Detail Here
-    </button>
 
     <!-- Modal -->
 
@@ -190,69 +89,131 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3>TELL US ABOUT YOUR CAR</h3>
-                <form action="#" class="modal-form">
                     <h6>Additional Questions</h6>
                     <p>GCC Spec?</p>
                     <div class="button-group">
-                        <button class="btn-modalone">Yes GCC</button>
-                        <button class="btn-modalone">American</button>
-                        <button class="btn-modalone">European</button>
-                        <button class="btn-modalone">Japanese</button>
-                        <button class="btn-modalone">I Don't Know</button>
+                        <button type="button" class="btn-modalone" name="gcc_spec" value="yes">Yes GCC</button>
+                        <button type="button" class="btn-modalone" name="gcc_spec" value="american">American</button>
+                        <button type="button" class="btn-modalone" name="gcc_spec" value="european">European</button>
+                        <button type="button" class="btn-modalone" name="gcc_spec" value="japanese">Japanese</button>
+                        <button type="button" class="btn-modalone" name="gcc_spec" value="unknown">I Don't Know</button>
                     </div>
                     <p>Overall Condition</p>
                     <div class="button-group">
-                        <button class="btn-modaltwo">Excellent</button>
-                        <button class="btn-modaltwo">Good</button>
-                        <button class="btn-modaltwo">Average</button>
-                        <button class="btn-modaltwo">Poor</button>
+                        <button type="button" class="btn-modaltwo" name="condition" value="excellent">Excellent</button>
+                        <button type="button" class="btn-modaltwo" name="condition" value="good">Good</button>
+                        <button type="button" class="btn-modaltwo" name="condition" value="average">Average</button>
+                        <button type="button" class="btn-modaltwo" name="condition" value="poor">Poor</button>
                     </div>
                     <p>Paintwork</p>
                     <div class="button-group">
-                        <button class="btn-modalthree">Original Paint</button>
-                        <button class="btn-modalthree">Partial Repaint</button>
-                        <button class="btn-modalthree">Total Repaint</button>
-                        <button class="btn-modalthree">I Don't Know</button>
+                        <button type="button" class="btn-modalthree" name="paintwork" value="original">Original Paint</button>
+                        <button type="button" class="btn-modalthree" name="paintwork" value="partial">Partial Repaint</button>
+                        <button type="button" class="btn-modalthree" name="paintwork" value="total">Total Repaint</button>
+                        <button type="button" class="btn-modalthree" name="paintwork" value="unknown">I Don't Know</button>
                     </div>
                     <p>Interior Condition</p>
                     <div class="button-group">
-                        <button class="btn-modalfour">Excellent</button>
-                        <button class="btn-modalfour">Good</button>
-                        <button class="btn-modalfour">Average</button>
-                        <button class="btn-modalfour">Poor</button>
+                        <button type="button" class="btn-modalfour" name="interior_condition" value="excellent">Excellent</button>
+                        <button type="button" class="btn-modalfour" name="interior_condition" value="good">Good</button>
+                        <button type="button" class="btn-modalfour" name="interior_condition" value="average">Average</button>
+                        <button type="button" class="btn-modalfour" name="interior_condition" value="poor">Poor</button>
                     </div>
 
                     <div class="custom-radio-container">
                         <span class="question">Service History</span>
                         <label class="custom-radio">
-                          <input type="radio" name="loan" value="yes">
-                          <span class="checkmark"></span>
-                          Yes
+                            <input type="radio" name="service_history" value="yes">
+                            <span class="checkmark"></span>
+                            Yes
                         </label>
                         <label class="custom-radio">
-                          <input type="radio" name="loan" value="no">
-                          <span class="checkmark"></span>
-                          No
+                            <input type="radio" name="service_history" value="no">
+                            <span class="checkmark"></span>
+                            No
                         </label>
-                      </div>
+                    </div>
 
-                      <textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" placeholder="Comment Here"></textarea>
+                    <textarea class="form-control mt-3" name="comment" id="exampleFormControlTextarea1" rows="3"
+                        placeholder="Comment Here"></textarea>
 
-                      <div class="custom-radio-container">
+                    <div class="custom-radio-container">
                         <span class="question">Loan or Mortgage</span>
                         <label class="custom-radio">
-                          <input type="radio" name="loansec" value="yes">
-                          <span class="checkmark"></span>
-                          Yes
+                            <input type="radio" name="loan_secured" value="yes">
+                            <span class="checkmark"></span>
+                            Yes
                         </label>
                         <label class="custom-radio">
-                          <input type="radio" name="loansec" value="no">
-                          <span class="checkmark"></span>
-                          No
+                            <input type="radio" name="loan_secured" value="no">
+                            <span class="checkmark"></span>
+                            No
                         </label>
+                    </div>
+                    <button type="button"  id="next-button-modal2" class="btn btn-modal-first" >
+                        Next
+                    </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content image-modal">
+                <h3>TELL US ABOUT YOUR CAR</h3>
+                    <div class="custom-image-upload">
+                        <h2>Upload Images</h2>
+                        <p>Upload at least 6 images of your car.</p>
+                        <div class="custom-upload-box">
+                            <label for="custom-file-input" class="custom-upload-label">
+                                <div class="custom-upload-icon">⬆</div>
+                                <span class="custom-upload-button">Upload Images</span>
+                            </label>
+                            <input type="file" id="custom-file-input" name="images[]" accept="image/*" multiple style="display: none;" />
+                            <p class="custom-upload-info">
+                                5 Mb maximum file size accepted in the following formats: jpg, jpeg, png<br>
+                                Upload at least 6 images of your car
+                            </p>
+                            <p id="image-error" class="text-danger" style="display: none;">You must upload at least 6 images!</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-modal-first"  id="next-button-modal3">
+                        Next
+                    </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================================================================Contact Modal============================================================ -->
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content contact-modal">
+                <h3>TELL US ABOUT YOUR CAR</h3>
+                <div class="contact-info-form">
+                    <h3>Contact Information:</h3>
+                      <div class="form-group">
+                        <input type="text" name="first_name" placeholder="First Name" class="form-control" />
+                        <input type="text" name="last_name" placeholder="Last Name" class="form-control" />
                       </div>
-                      <button class="button">Next</button>
-                </form>
+                      <div class="form-group">
+                        <input type="text" name="phone_number" placeholder="Phone Number" class="form-control" />
+                        <input type="email" name="email" placeholder="Email Address" class="form-control" />
+                      </div>
+                      <div class="form-group">
+                        <input style="min-height: 70px;" name="address" type="text" placeholder="Location where car ..." class="form-control full-width" />
+                      </div>
+                  </div>
+                  <button type="button" class="button">Submit</button>
             </div>
         </div>
     </div>
@@ -437,13 +398,16 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Include SweetAlert CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
  <script>
    // Initialize Swiper
 const swiper = new Swiper('.swiper-container', {
   slidesPerView: 3, // Number of slides to show at once on larger screens
   spaceBetween: 0, // Space between the slides (increased for better clarity)
   loop: true, // Infinite loop for slides
-  
+
   breakpoints: {
     0: {
       slidesPerView: 1, // Show 1 slide on very small mobile screens
@@ -486,116 +450,257 @@ const swiper = new Swiper('.swiper-container', {
 @endsection
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- JavaScript for Tabs Navigation -->
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    // Step 1 Form Submission
-    function submitStep1(event) {
-        event.preventDefault();
 
-        // Perform validation for Step 1
-        const step1Form = document.getElementById("step1Form");
-        if (step1Form.checkValidity()) {
-            // Enable Step 2 tab and navigate to it
-            const step2Tab = document.getElementById("step2-tab");
-            step2Tab.disabled = false;
-            step2Tab.click();
-        } else {
-            step1Form.reportValidity();
-        }
-    }
+// {{-- -----------------------------For button input selection------------------------------ --}}
 
-    // Step 2 Form Submission
-    function submitStep2(event) {
-        event.preventDefault();
 
-        // Perform validation for Step 2
-        const step2Form = document.getElementById("step2Form");
-        if (step2Form.checkValidity()) {
-            // Enable Step 3 tab and navigate to it
-            const step3Tab = document.getElementById("step3-tab");
-            step3Tab.disabled = false;
-            step3Tab.click();
-        } else {
-            step2Form.reportValidity();
-        }
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    const selectedData = {};
 
-    // Step 3 Form Submission
-    function submitStep3(event) {
-        event.preventDefault();
+    document.querySelectorAll('.button-group button').forEach(button => {
+        button.addEventListener('click', function () {
+            // Remove active class from sibling buttons
+            const siblings = this.parentElement.querySelectorAll('button');
+            siblings.forEach(sibling => sibling.classList.remove('active'));
 
-        // Perform validation for Step 3
-        const step3Form = document.getElementById("step3Form");
-        if (step3Form.checkValidity()) {
-            alert("Form submitted successfully!");
-        } else {
-            step3Form.reportValidity();
-        }
-    }
+            // Add active class to clicked button
+            this.classList.add('active');
 
-    // Attach event listeners to buttons
-    document.querySelector("#step1Form .button").addEventListener("click", submitStep1);
-    document.querySelector("#step2Form .button").addEventListener("click", submitStep2);
-    document.querySelector("#step3Form .button").addEventListener("click", submitStep3);
+            // Save the selected value
+            const groupName = this.parentElement.previousElementSibling.textContent.trim(); // Group label
+            selectedData[groupName] = this.textContent.trim();
+        });
+    });
 });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let modalData = {};
 
+        // Modal 1 - Collect car info
+        document.getElementById("next-button-modal1").addEventListener("click", function() {
+            alert("ok");
+            modalData.car_info = {
+                car_type: $("select[name='car_type']").val(),
+                model: $("select[name='model']").val(),  // Corrected 'modal' to 'model'
+                specification: $("input[name='specification']").val(),
+                engine_size: $("input[name='engine_size']").val(),
+                year: $("select[name='year']").val(),
+                kilometers: $("input[name='kilometers']").val(),
+            };
+            // Move to next modal
+            $("#exampleModal").modal("show");
+        });
+
+        // Modal 2 - Collect additional data and move to next modal
+        $("#next-button-modal2").click(function () {
+            modalData.additional_questions = {
+                gcc_spec: $("button[name='gcc_spec'].active").val(),
+                condition: $("button[name='condition'].active").val(),
+                paintwork: $("button[name='paintwork'].active").val(),
+                interior_condition: $("button[name='interior_condition'].active").val(),
+                service_history: $("input[name='service_history']:checked").val(),
+                comment: $("textarea[name='comment']").val(),
+                loan_secured: $("input[name='loan_secured']:checked").val(),
+            };
+            // Move to next modal
+            $("#exampleModal").modal("hide");
+            $("#exampleModal1").modal("show");
+        });
+
+        // Modal 3 - Collect image data and move to next modal
+        $("#next-button-modal3").click(function () {
+            let images = [];  // Corrected the array initialization
+            let fileInput = document.getElementById("custom-file-input");
+            if (fileInput.files.length > 0) {
+                // Loop through files in the file input
+                Array.from(fileInput.files).forEach(file => {
+                    images.push(file);  // Push file object, not the file name
+                });
+
+                if (images.length >= 6) {
+                    modalData.images = images;  // Store the files in modalData
+                    // Move to next modal
+                    $("#exampleModal1").modal("hide");
+                    $("#exampleModal2").modal("show");
+                } else {
+                    alert("You must upload at least 6 images!");
+                }
+            } else {
+                alert("You must upload at least 6 images!");
+            }
+        });
+
+        // Modal 4 - Collect contact data and submit everything
+        $(".button").click(function () {
+            modalData.contact_info = {
+                first_name: $("input[name='first_name']").val(),
+                last_name: $("input[name='last_name']").val(),
+                phone_number: $("input[name='phone_number']").val(),
+                email: $("input[name='email']").val(),
+                location: $("input[name='location']").val(),
+            };
+
+            $("#exampleModal2").modal("hide");
+
+            // Prepare FormData object for file uploads
+            let formData = new FormData();
+            // Append all the data into formData
+            for (let key in modalData.car_info) {
+                formData.append('car_info[' + key + ']', modalData.car_info[key]);
+            }
+
+            for (let key in modalData.additional_questions) {
+                formData.append('additional_questions[' + key + ']', modalData.additional_questions[key]);
+            }
+
+            for (let key in modalData.contact_info) {
+                formData.append('contact_info[' + key + ']', modalData.contact_info[key]);
+            }
+
+            // Append the images (file objects) to formData
+            modalData.images.forEach(function (file, index) {
+                formData.append('images[]', file);
+            });
+
+            // CSRF token setup
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            // Send all the collected data via AJAX
+            $.ajax({
+                url: '/car-details/store',  // Replace with your store route URL
+                type: 'POST',
+                data: formData,
+                processData: false,  // Don't process the files
+                contentType: false,  // Let the browser set the content type
+                success: function (response) {
+                    // SweetAlert for success
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Data saved successfully!',
+                        showConfirmButton: true
+                    });
+                    // Optionally redirect or reset modal data
+                },
+                error: function (xhr, status, error) {
+                    // SweetAlert for error
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Error occurred while saving data!',
+                        showConfirmButton: true
+                    });
+                }
+            });
+
+        });
+    });
 </script>
 
+
 <script>
+    //----------------------------For atleast 6 images-----------------------
 
-function submitStep1(event) {
-    // Prevent the default form submission behavior
-    event.preventDefault();
+    document.addEventListener('DOMContentLoaded', () => {
+    const fileInput = document.getElementById('custom-file-input');
+    const nextButton = document.getElementById('next-button');
+    const errorElement = document.getElementById('image-error');
+    const currentModal = document.getElementById('exampleModal1');
+    const nextModalElement = document.getElementById('exampleModal2');
 
-    let form = document.getElementById('step1Form');
-    let formData = new FormData(form);
-    fetch("{{ route('car-details.store') }}", {
-    method: "POST",
-    headers: {
-        "X-CSRF-Token": document.querySelector('input[name="_token"]').value
-    },
-    body: formData
-    })
-    .then(response => {
-        return response.json(); // This may throw an error if the response is not valid JSON
-    })
-    .then(data => {
-        if (data.next_step === 2) {
-            $('#step1Modal').modal('hide');
-            $('#step2Modal').modal('show');
+    nextButton.addEventListener('click', (e) => {
+        const files = fileInput.files;
+
+        // Check if the number of uploaded files is less than 6
+        if (files.length < 6) {
+            e.preventDefault(); // Prevent button default behavior
+            errorElement.style.display = 'block'; // Show the error message
         } else {
-            alert("Error submitting step 1");
+            errorElement.style.display = 'none'; // Hide the error message
+
+            // Hide the current modal
+            const currentModalInstance = bootstrap.Modal.getInstance(currentModal);
+            currentModalInstance.hide();
+
+            // Show the next modal
+            const nextModalInstance = new bootstrap.Modal(nextModalElement);
+            nextModalInstance.show();
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("An error occurred, please try again.");
     });
-}
+});
+</script>
+{{--
+<script>
+    // -------------------------------------Stor Car and user info---------------------------
 
-function submitStep2() {
-    let form = document.getElementById('step2Form');
-    let formData = new FormData(form);
+    document.querySelector(".btn.btn-modal-first").addEventListener("click", function () {
+    // Collect car form data
+    const carData = new FormData();
+        alert("ok");
+    // Collect car type, model, specification, engine size, year, kilometers
+    carData.append("car_type", document.querySelector("select[name='car_type']").value);
+    carData.append("model", document.querySelector("select[name='modal']").value);
+    carData.append("specification", document.querySelector("input[name='specification']").value);
+    carData.append("engine_size", document.querySelector("input[name='engine_size']").value);
+    carData.append("year", document.querySelector("select[name='year']").value);
+    carData.append("kilometers", document.querySelector("input[name='kilometers']").value);
 
-    fetch("{{ route('car-details.store') }}", {
+    // Collect modal questions and checkboxes (if applicable)
+    carData.append("gcc_spec", document.querySelector("input[name='gcc_spec']:checked")?.value || null);
+    carData.append("condition", document.querySelector("input[name='condition']:checked")?.value || null);
+    carData.append("paintwork", document.querySelector("input[name='paintwork']:checked")?.value || null);
+    carData.append("interior_condition", document.querySelector("input[name='interior_condition']:checked")?.value || null);
+    carData.append("service_history", document.querySelector("input[name='service_history']:checked")?.value || null);
+    carData.append("loan_secured", document.querySelector("input[name='loansec']:checked")?.value || null);
+    carData.append("comment", document.querySelector("textarea[name='comment']").value);
+
+    // Collect user information
+    carData.append("first_name", document.querySelector("input[name='first_name']").value);
+    carData.append("last_name", document.querySelector("input[name='last_name']").value);
+    carData.append("email", document.querySelector("input[name='email']").value);
+    carData.append("phone_number", document.querySelector("input[name='phone_number']").value);
+    carData.append("address", document.querySelector("input[name='address']").value);
+
+    // Collect the images (if any)
+    const imageInput = document.querySelector("input[name='car_images']");
+    if (imageInput.files.length > 0) {
+        for (let i = 0; i < imageInput.files.length; i++) {
+            carData.append("car_images[]", imageInput.files[i]);
+        }
+    }
+
+    // Send data via AJAX using FormData
+    fetch("/store-car-info", {
         method: "POST",
         headers: {
-            "X-CSRF-Token": document.querySelector('input[name=_token]').value
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
         },
-        body: formData
+        body: carData,
     })
     .then(response => response.json())
-    .then(data => {
-        if (data.message) {
-            alert(data.message);
-            // Optionally close the modal after final submission
-            $('#step2Modal').modal('hide');
+    .then(result => {
+        if (result.success) {
+            alert("Car data submitted successfully!");
+            // Optionally hide the modal and show the next one
+            const currentModal = bootstrap.Modal.getInstance(document.getElementById("exampleModal"));
+            currentModal.hide();
+            const nextModal = new bootstrap.Modal(document.getElementById("exampleModal1"));
+            nextModal.show();
         } else {
-            alert("Error submitting step 2");
+            alert("Error submitting car data.");
         }
     })
-    .catch(error => console.error('Error:', error));
-}
-</script>
+    .catch(error => console.error("Error:", error));
+});
+
+</script> --}}
+
+

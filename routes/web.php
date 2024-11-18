@@ -41,7 +41,7 @@ Route::get('send-test-email', function () {
 
 ////Static Pages
 Route::get('/', [PageController::class, 'home'])->name('index');
-Route::post('car-details/store', [CarDetailsController::class, 'store'])->name('car-details.store');
+Route::post('car-details/store', [CarDetailsController::class, 'storeCarInfo'])->name('car-details.store');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/act', [PageController::class, 'act'])->name('act');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
@@ -118,6 +118,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/cars/{car}/edit', [CarController::class, 'edit'])->name('admin.cars.edit');
     Route::put('/admin/cars/{car}', [CarController::class, 'update'])->name('admin.cars.update');
     Route::delete('/admin/cars/{car}', [CarController::class, 'destroy'])->name('admin.cars.destroy');
+
+
+    //Car-Details
+    Route::get('/admin/car_detail', [CarDetailsController::class, 'index'])->name('admin.car_detail.index');
+    Route::get('/admin/car_detail/{car}', [CarDetailsController::class, 'show'])->name('admin.car_detail.show');
+    Route::delete('/admin/car_detail/{car}', [CarDetailsController::class, 'destroy'])->name('admin.car_detail.destroy');
 
     //faqs
     Route::get('/admin/faqs', [FaqController::class, 'index'])->name('admin.faqs.index');

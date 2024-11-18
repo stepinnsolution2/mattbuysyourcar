@@ -51,11 +51,17 @@
                         <thead style="background:green;color:white;">
                             <tr>
                                 <th class="text-center">Sr.</th>
-                                <th class="text-center">Type</th>
-                                <th class="text-center">Model</th>
-                                <th class="text-center">Engine Size</th>
-                                <th class="text-center">Year</th>
-                                <th class="text-center">Actions</th>
+                                <th>First Name</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Car Type</th>
+                                <th>Model</th>
+                                <th>Specification</th>
+                                <th>Engine Size</th>
+                                <th>Year</th>
+                                <th>Kilometers</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,13 +69,18 @@
                             @if($cars->count() > 0)
                             <tr>
                                 <td class="text-center align-middle">{{ $key + 1 }}</td>
-                                <td class="text-center align-middle">{{ $car->car_type }}</td>
-                                <td class="text-center align-middle">{{ $car->model }}</td>
-                                <td class="text-center align-middle">{{ $car->engine_size }}</td>
-                                <td class="text-center align-middle">{{ $car->year }}</td>
+                                <td class="text-center align-middle">{{$car->first_name  }}</td>
+                                <td class="text-center align-middle">{{ $car->phone_number }}</td>
+                                <td class="text-center align-middle">{{ $car->email  }}</td>
+                                <td class="text-center align-middle">{{ $car->address  }}</td>
+                                <td class="text-center align-middle">{{ $car->car_type   }}</td>
+                                <td class="text-center align-middle">{{ $car->model   }}</td>
+                                <td class="text-center align-middle">{{ $car->specification}}</td>
+                                <td class="text-center align-middle">{{ $car->engine_size}}</td>
+                                <td class="text-center align-middle">{{ $car->year}}</td>
+                                <td class="text-center align-middle">{{ $car->kilometers}}</td>
                                 <td class="text-center align-middle">
-                                    <a href="{{ route('admin.cars.show', $car->id) }}" class="btn btn-info btn-sm">View</a>
-                                    <a href="{{ route('admin.cars.edit', $car->id) }}" class="btn btn-sm btn-success btn-sm">Edit</a>
+                                    <a href="{{ route('admin.car_detail.show', $car->id) }}" class="btn btn-info btn-sm">View</a>
                                     <a href="javascript:void(0)" onclick="deleteCar({{ $car->id }})" class="btn  btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
@@ -93,7 +104,7 @@
     function deleteCar(id) {
         Swal.fire({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this Car Info !",
+            text: "Once deleted, you will not be able to recover this Car Details !",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#28a745",
@@ -101,7 +112,7 @@
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                var url = "{{ route('admin.cars.destroy', ':id') }}";
+                var url = "{{ route('admin.car_detail.destroy', ':id') }}";
                 url = url.replace(':id', id);
 
                 $.ajax({
@@ -127,7 +138,7 @@
                         } else {
                             Swal.fire({
                                 title: "Error",
-                                text: "There was a problem deleting the Car.",
+                                text: "There was a problem deleting the Car Details.",
                                 icon: "error",
                                 customClass: {
                                     confirmButton: 'btn btn-success'
