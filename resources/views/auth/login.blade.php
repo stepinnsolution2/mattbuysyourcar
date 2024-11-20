@@ -14,7 +14,7 @@
         <link href="images/favicon.png" rel="icon">
         <style>
             .material-half-bg .cover {
-                background-color: #28a745 !important;
+                background-color: #6c757d !important;
             }
         </style>
   </head>
@@ -70,7 +70,7 @@
             </div>
           </div>
           <div class="form-group btn-container">
-            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
+            <button type="submit" class="btn btn-secondary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
           </div>
         </form>
 
