@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
 @section('content')
     <!-- Content Header (Page header) -->
-    <section class="content-header">					
+    <section class="content-header">
         <div class="container-fluid my-2">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Add About</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.about.index') }}" class="btn btn-success">Back</a>
+                    <a href="{{ route('admin.about.index') }}" class="btn btn-secondary">Back</a>
                 </div>
             </div>
         </div>
@@ -21,8 +21,11 @@
             <form id="aboutForm"  method="post" action="{{ route('admin.about.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="card">
-                    <div class="card-body">								 
-                        <div class="row">  
+                    <div class="card-header"  style="background:#353535;color:white;">
+                        <h3 class="card-title">Create About</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="name">Title<span class="text-danger">*</span></label>
@@ -32,7 +35,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="image_path">Image<span class="text-danger">*</span></label>
@@ -53,9 +56,9 @@
                             </div>
                         </div>
                         <div class="pb-5 pt-3 float-right">
-                            <button type="submit" class="btn btn-success" id="submitForm">Create</button>
+                            <button type="submit" class="btn btn-secondary" id="submitForm">Create</button>
                         </div>
-                    </div>							
+                    </div>
                 </div>
             </form>
         </div>

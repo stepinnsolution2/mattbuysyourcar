@@ -3,14 +3,18 @@
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Car;
+use App\Models\CarType;
+use App\Models\CarModel;
+use App\Models\CarYear;
 
 class CarController extends Controller
 {
     public function index()
     {
-        $cars = Car::all();
-        return view('admin.cars.index', compact('cars'));
+        $carTypes = CarType::all();
+        $carModels = CarModel::all();
+        $carYears = CarYear::all();
+        return view('admin.cars.index', compact('carTypes', 'carModels', 'carYears'));
     }
 
     public function create()
@@ -19,42 +23,22 @@ class CarController extends Controller
     }
 
     public function store(Request $request)
-{
-    // Validate the incoming request
-    $request->validate([
-        'car_type' => 'required',
-        'model' => 'required',
-        'engine_size' => 'nullable',
-        'year' => 'nullable|integer',
-    ]);
+    {
+        $request->validate([
+            'type_name' => 'required|string|max:255',
+            'model_name' => 'required|string|max:255',
+            'year' => 'required|integer',
+        ]);
 
-    try {
-        // Create the car record in the database
-        Car::create($request->all());
+        $carType = CarType::create(['name' => $request->type_name]);
+        $carModel = CarModel::create([
+            'name' => $request->model_name,
+            'car_type_id' => $carType->id,
+        ]);
+        CarYear::create(['year' => $request->year]);
 
-        // Check if the request is an AJAX request
-        if ($request->ajax()) {
-            return response()->json([
-                'status' => 'success',
-                'message' => 'Car created successfully.',
-            ]);
-        }
-
-        // Redirect with success message for non-AJAX request
-        return redirect()->route('admin.cars.index')->with('success', 'Car created successfully.');
-    } catch (\Exception $e) {
-        // Handle errors and return JSON response for AJAX requests
-        if ($request->ajax()) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'There was an error creating the car. Please try again.',
-            ], 500);
-        }
-
-        // Redirect with error message for non-AJAX request
-        return redirect()->route('admin.cars.index')->with('error', 'There was an error creating the car. Please try again.');
+        return redirect()->route('admin.cars.index')->with('success', 'Car data added successfully!');
     }
-}
 
 
     public function show(Car $car)
@@ -62,66 +46,30 @@ class CarController extends Controller
         return view('admin.cars.show', compact('car'));
     }
 
-    public function edit(Car $car)
+    public function edit($id)
     {
-        return view('admin.cars.edit', compact('car'));
+        $carType = CarType::findOrFail($id);
+        return view('admin.cars.edit', compact('carType'));
     }
 
     public function update(Request $request, $id)
-{
-    // Validate the request data
-    $request->validate([
-        'car_type' => 'required|string|max:255',
-        'model' => 'required|string|max:255',
-        'specification' => 'nullable|string|max:255',
-        'engine_size' => 'nullable|string|max:255',
-        'year' => 'nullable|integer',
-    ]);
-
-    try {
-        // Find the car by id
-        $car = Car::findOrFail($id);
-
-        // Update the car with the validated data
-        $car->update($request->only(['type', 'model', 'specification', 'engine_size', 'year']));
-
-        // Return a successful JSON response
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Car updated successfully.',
-            'data' => $car,  // Optionally include updated data in the response
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
         ]);
-    } catch (\Exception $e) {
-        // Return an error response if the car wasn't found or an exception occurred
-        return response()->json([
-            'status' => 'error',
-            'message' => 'There was an error updating the car.',
-        ], 500);
+
+        $carType = CarType::findOrFail($id);
+        $carType->update(['name' => $request->name]);
+
+        return redirect()->route('admin.cars.index')->with('success', 'Car Type updated successfully!');
     }
-}
+    public function destroy($id)
+    {
+        $carType = CarType::findOrFail($id);
+        $carType->delete();
 
-public function destroy($id)
-{
-    try {
-        // Find the car by id
-        $car = Car::findOrFail($id);
-
-        // Delete the car
-        $car->delete();
-
-        // Return a successful JSON response
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Car deleted successfully.',
-        ]);
-    } catch (\Exception $e) {
-        // Return an error response if the car wasn't found or an exception occurred
-        return response()->json([
-            'status' => 'error',
-            'message' => 'There was an error deleting the car.',
-        ], 500);
+        return redirect()->route('admin.cars.index')->with('success', 'Car Type deleted successfully!');
     }
-}
 
 
 }

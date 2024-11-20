@@ -43,6 +43,7 @@ class AdminController extends Controller
 
     public function store_banner(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'banner' => 'required|image|mimes:jpeg,png,jpg',
         ]);
@@ -57,7 +58,7 @@ class AdminController extends Controller
 
         // Create a new team member record
         Banner::create([
-            'banner'    => $banner,
+            'image'    => $imagePath,
         ]);
 
 

@@ -34,11 +34,11 @@
 							</div>
 							@if($About)
 								<div class="col-sm-6 text-right">
-									<a href="{{ route('admin.about.edit') }}" class="btn btn-success">Edit About</a>
+									<a href="{{ route('admin.about.edit') }}" class="btn btn-secondary">Edit About</a>
 								</div>
 							@else
 								<div class="col-sm-6 text-right">
-									<a href="{{ route('admin.about.create') }}" class="btn btn-success">Add About</a>
+									<a href="{{ route('admin.about.create') }}" class="btn btn-secondary">Add About</a>
 								</div>
 							@endif
 						</div>
@@ -53,7 +53,7 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="table" class="table table-sm table-striped">
-                                        <thead style="background: green; color: white;">
+                                        <thead style="background:#353535;color:white;">
                                             <tr>
                                                 <th class="text-center">Sr.</th>
                                                 <th class="text-center">Title</th>
@@ -68,8 +68,7 @@
                                                     <td class="text-center align-middle">{{ $About->name }}</td>
                                                     <td class="text-center align-middle"><img src="{{ asset($About->image_path) }}" alt="{{ $About->name }}" style="max-width: 100px; height: auto;"></td>
                                                     <td class="text-center align-middle">
-                                                        <a href="{{ route('admin.about.view') }}" class="btn btn-success btn-sm">View</a>
-
+                                                        <a href="{{ route('admin.about.view') }}" class="btn btn-primary btn-sm">View</a>
                                                     </td>
                                                 </tr>
                                             @endif

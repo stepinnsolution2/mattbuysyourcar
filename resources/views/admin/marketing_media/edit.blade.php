@@ -36,7 +36,7 @@
                     <h1>Edit Marketing Media</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.marketing-media.index') }}" class="btn btn-success">Back to Marketing Media</a>
+                    <a href="{{ route('admin.marketing-media.index') }}" class="btn btn-secondary">Back to Marketing Media</a>
                 </div>
             </div>
         </div>
@@ -46,6 +46,9 @@
     <section class="content">
         <div class="container-fluid">
             <div class="card">
+                <div class="card-header" style="background:#353535;color:white;">
+                    <h3 class="card-title">Create Marketing Media</h3>
+                </div>
                 <div class="card-body">
                     <form id="mediaForm" action="{{ route('admin.marketing-media.update', $mediaItem->id) }}" method="POST">
                         @csrf
@@ -154,7 +157,7 @@
                                 </div>
                             </div>
 
-                        <button type="submit" class="btn btn-success">Save Changes</button>
+                        <button type="submit" class="btn btn-secondary">Save Changes</button>
                     </form>
                 </div>
             </div>

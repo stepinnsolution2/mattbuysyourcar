@@ -1,75 +1,99 @@
 @extends('admin.layouts.app')
 <style>
-    table {
-        padding: 3px;
-    }
     @media (max-width: 576px) {
         table {
-            width: 100%;
-            border-collapse: collapse;
-            padding: 0 !important;
-        }
-        th, td {
-            padding: 8px;
-            word-wrap: break-word;
-        }
-        .card-body {
-            padding: 2px !important;
-        }
-        .table-responsive {
-            display: block;
-            width: 100%;
-            overflow-x: visible;
-        }
+        width: 100%; /* Make the table width 100% of the container */
+        border-collapse: collapse; /* Collapse borders for a cleaner look */
     }
-</style>
+    th, td {
+        padding: 8px;  /* Reduce the font size to fit more content */
+        word-wrap: break-word; /* Break long words to avoid overflow */
+    }
 
+    img {
+        max-width: 50px; /* Restrict image width to fit within the cell */
+        height: auto; /* Maintain aspect ratio */
+    }
+    .card-body{
+        padding: 2px !important;
+    }
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: visible; /* Ensure no horizontal scrolling */
+    }
+}
+</style>
 @section('content')
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid my-2">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>FAQs</h1>
+                    <h1> Available Purchases</h1>
                 </div>
-                <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.faqs.create') }}" class="btn btn-secondary">Add FAQ</a>
-                </div>
+                {{-- <div class="col-sm-6 text-right">
+                    <a href="{{ route('admin.cars.create') }}" class="btn btn-success">Add Car</a>
+                </div> --}}
             </div>
         </div>
+        <!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
+        <!-- Default box -->
         <div class="container-fluid">
             <div class="card">
                 <div class="table-responsive">
+
                     <table id="table" class="table table-sm table-striped">
                         <thead style="background:#353535;color:white;">
                             <tr>
                                 <th class="text-center">Sr.</th>
-                                <th class="text-center">Question</th>
-                                <th class="text-center">Answer</th>
-                                <th class="text-center">Action</th>
+                                <th>First Name</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Car Type</th>
+                                <th>Model</th>
+                                <th>Specification</th>
+                                <th>Engine Size</th>
+                                <th>Year</th>
+                                <th>Kilometers</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($faqs as $index => $faq)
-                                <tr>
-                                    <td class="text-center align-middle">{{ $index + 1 }}</td>
-                                    <td class="text-center align-middle">{{ $faq->question }}</td>
-                                    <td class="text-center align-middle">{{ Str::limit($faq->answer, 50) }}</td>
-                                    <td class="text-center align-middle">
-                                        <a href="{{ route('admin.faqs.edit', $faq->id) }}" class="btn btn-sm btn-primary mb-1 ml-2">Edit</a>
-                                        <a href="javascript:void(0)" onclick="deleteFaq({{ $faq->id }})" class="btn mb-1 btn-sm btn-danger ml-2">Delete</a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            @foreach($cars as $key => $car)
+                            @if($cars->count() > 0)
+                            <tr>
+                                <td class="text-center align-middle">{{ $key + 1 }}</td>
+                                <td class="text-center align-middle">{{$car->first_name  }}</td>
+                                <td class="text-center align-middle">{{ $car->phone_number }}</td>
+                                <td class="text-center align-middle">{{ $car->email  }}</td>
+                                <td class="text-center align-middle">{{ $car->address  }}</td>
+                                <td class="text-center align-middle">{{ $car->car_type   }}</td>
+                                <td class="text-center align-middle">{{ $car->model   }}</td>
+                                <td class="text-center align-middle">{{ $car->specification}}</td>
+                                <td class="text-center align-middle">{{ $car->engine_size}}</td>
+                                <td class="text-center align-middle">{{ $car->year}}</td>
+                                <td class="text-center align-middle">{{ $car->kilometers}}</td>
+                                <td class="text-center align-middle">
+                                    <a href="{{ route('admin.car_detail.show', $car->id) }}" class="btn mb-2 btn-primary btn-sm">View</a>
+                                    <a href="javascript:void(0)" onclick="deleteCar({{ $car->id }})" class="btn  btn-sm btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            @else
+                                <p>No cars found.</p>
+                            @endif
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <!-- /.card -->
     </section>
 @endsection
 
@@ -77,10 +101,10 @@
 
 @section('customjs')
 <script>
-    function deleteFaq(id) {
+    function deleteCar(id) {
         Swal.fire({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this FAQ!",
+            text: "Once deleted, you will not be able to recover this Car Details !",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#28a745",
@@ -88,7 +112,7 @@
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                var url = "{{ route('admin.faqs.destroy', ':id') }}";
+                var url = "{{ route('admin.car_detail.destroy', ':id') }}";
                 url = url.replace(':id', id);
 
                 $.ajax({
@@ -114,7 +138,7 @@
                         } else {
                             Swal.fire({
                                 title: "Error",
-                                text: "There was a problem deleting the FAQ.",
+                                text: "There was a problem deleting the Car Detail.",
                                 icon: "error",
                                 customClass: {
                                     confirmButton: 'btn btn-success'
@@ -138,7 +162,7 @@
             } else {
                 Swal.fire({
                     title: "Cancelled",
-                    text: "Your FAQ is safe!",
+                    text: "Your Car Info is safe!",
                     icon: "info",
                     customClass: {
                         confirmButton: 'btn btn-success'

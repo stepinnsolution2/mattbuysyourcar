@@ -9,7 +9,7 @@
                     <h1>Add FAQ</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.faqs.index') }}" class="btn btn-success">Back to FAQs</a>
+                    <a href="{{ route('admin.faqs.index') }}" class="btn btn-secondary">Back to FAQs</a>
                 </div>
             </div>
         </div>
@@ -18,8 +18,8 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card card-success">
-                <div class="card-header">
+            <div class="card">
+                <div class="card-header"  style="background:#353535;color:white;">
                     <h3 class="card-title">Create FAQ</h3>
                 </div>
                 <!-- /.card-header -->
@@ -44,7 +44,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer text-right">
-                        <button type="submit" class="btn btn-success">Save FAQ</button>
+                        <button type="submit" class="btn btn-secondary">Save FAQ</button>
                     </div>
                 </form>
             </div>

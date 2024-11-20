@@ -36,7 +36,7 @@
                     <h1>Edit FAQ</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.faqs.index') }}" class="btn btn-success">Back to FAQs</a>
+                    <a href="{{ route('admin.faqs.index') }}" class="btn btn-secondary">Back to FAQs</a>
                 </div>
             </div>
         </div>
@@ -46,6 +46,9 @@
     <section class="content">
         <div class="container-fluid">
             <div class="card">
+                <div class="card-header"  style="background:#353535;color:white;">
+                    <h3 class="card-title">Edit FAQ</h3>
+                </div>
                 <div class="card-body">
                     <form id="faqEditForm" action="{{ route('admin.faqs.update', $faq->id) }}" method="POST">
                         @csrf
@@ -61,7 +64,7 @@
                             <textarea name="answer" id="answer" rows="5" class="form-control" required>{{ $faq->answer }}</textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-success">Save Changes</button>
+                        <button type="submit" class="btn btn-secondary">Save Changes</button>
                     </form>
                 </div>
             </div>

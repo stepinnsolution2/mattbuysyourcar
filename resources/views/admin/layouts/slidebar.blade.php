@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-warning elevation-4" style="background: #000000 !important;">
 <!-- Brand Logo -->
 <a href="#" class="brand-link">
     Admin panel
@@ -8,12 +8,12 @@
 <div class="sidebar">
     <style>
         .nav-pills .nav-link.active {
-                background-color: white !important;
-                color: green !important;
+            background-color: #000000 !important;
+            color: #ffffff !important;
             }
             .nav-pills .nav-link:not(.active):hover {
-                background-color: white !important;
-                color: green !important;
+                background-color: #000000 !important;
+                color: #ffffff !important;
             }
             .nav-item {
                 cursor: pointer; /* Ensure the pointer cursor appears for menu items */

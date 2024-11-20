@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-sm-6 text-right">
                     <!-- <a href="" class="btn btn-primary">Add Banner</a> -->
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
                         Add Banner
                     </button>
                 </div>
@@ -55,7 +55,7 @@
             <div class="card">
                 <div class="table-responsive p-3">
                     <table id="table" class="table table-sm table-striped">
-                        <thead style="background:green;color:white;">
+                        <thead style="background:#353535;color:white;">
                             <tr>
                                 <th class="text-center">Sr</th>
                                 <th class="text-center">Banner</th>
@@ -136,7 +136,7 @@
                                 required>
                             <h6 class="text-danger mt-1">The aspect ratio must be at least 1400:680 pixels.</h6>
                         </div>
-                        <button type="submit" class="btn btn-success float-right">Upload</button>
+                        <button type="submit" class="btn btn-secondary float-right">Upload</button>
                     </form>
                 </div>
             </div>

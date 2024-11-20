@@ -19,7 +19,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="card">
-                <div class="card-header bg-success text-white">
+                <div class="card-header" style="background:#353535;color:white;">
                     <h3 class="card-title">Car Information</h3>
                 </div>
                 <div class="card-body">

@@ -9,7 +9,7 @@
                     <h1>Add Marketing Media</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.marketing-media.index') }}" class="btn btn-success">Back to Marketing Media</a>
+                    <a href="{{ route('admin.marketing-media.index') }}" class="btn btn-secondary">Back to Marketing Media</a>
                 </div>
             </div>
         </div>
@@ -18,8 +18,8 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card card-success">
-                <div class="card-header">
+            <div class="card">
+                <div class="card-header" style="background:#353535;color:white;">
                     <h3 class="card-title">Create Marketing Media</h3>
                 </div>
                 <form id="mediaForm" action="{{ route('admin.marketing-media.store') }}" method="POST" enctype="multipart/form-data">
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="card-footer text-right">
-                        <button type="submit" class="btn btn-success">Save Marketing Media</button>
+                        <button type="submit" class="btn btn-secondary">Save Marketing Media</button>
                     </div>
                 </form>
 

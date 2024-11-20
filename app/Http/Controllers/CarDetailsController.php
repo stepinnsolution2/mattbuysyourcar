@@ -11,7 +11,7 @@ class CarDetailsController extends Controller
 {
     public function storeCarInfo(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         // Validate the incoming data
         $validator = Validator::make($request->all(), [
             'car_info.car_type' => 'string',
@@ -72,7 +72,7 @@ class CarDetailsController extends Controller
         $carDetail->car_images = json_encode($imagePaths);  // Store image paths as a JSON array
 
         $carDetail->save();  // Save the car details to the database
-
+        // dd("ok");
         return response()->json([
             'message' => 'Car details saved successfully.',
             'data' => $carDetail
@@ -83,7 +83,7 @@ class CarDetailsController extends Controller
     {
         $cars = CarDetails::all();
 
-        return view('admin.cars.index',compact('cars'));
+        return view('admin.carsDetail.index',compact('cars'));
     }
 
     public function show($id)
@@ -94,22 +94,24 @@ class CarDetailsController extends Controller
             return response()->json(['message' => 'Car details not found.'], 404);
         }
 
-        return view('admin.cars.show', compact('carDetail'));
+        return view('admin.carsDetail.show', compact('carDetail'));
     }
 
     public function destroy($id)
     {
+        // dd($id);
         $carDetail = CarDetails::find($id);
 
         if (!$carDetail) {
+            dd("ok");
             return response()->json(['message' => 'Car details not found.'], 404);
         }
 
         // Delete images from storage
-        $imagePaths = json_decode($carDetail->car_images, true);
-        foreach ($imagePaths as $imagePath) {
-            Storage::disk('public')->delete($imagePath);
-        }
+        // $imagePaths = json_decode($carDetail->car_images, true);
+        // foreach ($imagePaths as $imagePath) {
+        //     Storage::disk('public')->delete($imagePath);
+        // }
 
         $carDetail->delete();
 

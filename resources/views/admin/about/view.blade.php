@@ -10,7 +10,7 @@
                 <h1 class="card-title">About us Details</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.about.index') }}" class="btn btn-success">Back</a>
+                    <a href="{{ route('admin.about.index') }}" class="btn btn-secondary">Back</a>
                 </div>
             </div>
             <div class="col-md-12">

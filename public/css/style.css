@@ -89,6 +89,7 @@ nav {
 
 
 
+
 /* =====================================================================SECOND PART==================================================================== */
 
 .second-part {
@@ -101,19 +102,18 @@ nav {
 
 .rotated-heading {
     position: absolute;
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
     transform-origin: left top;
     color: #dbdbdb;
     font-family: sans-serif;
-    margin-left: 180px;
-    margin-top: 9%;
+    margin-left: -45px;
+    margin-top: 33%;
     font-size: 120px;
     font-weight: 800;
 }
 
 .second-text {
     /* background-color: red; */
-    position: absolute;
     left: 13%;
     top: 15%;
 }
@@ -218,8 +218,6 @@ nav {
 
 .faq.active::after,
 .faq.active::before {
-    color: #2ecc71;
-    content: '\f075';
     font-family: 'Font Awesome 5 Free';
     font-size: 7rem;
     position: absolute;
@@ -277,21 +275,23 @@ nav {
     background-color: #9FA4A8;
 }
 
-.faq-toggle .fa-times {
+.faq-toggle .fa-circle-minus {
     display: none;
 }
 
-.faq.active .faq-toggle .fa-times {
+.faq.active .faq-toggle .fa-circle-minus {
     display: block;
+    color: black;
+    font-size: 28px;
 }
 
-.faq-toggle .fa-plus {
+.faq-toggle .fa-circle-plus {
     /* color: #fbfdff; */
     color: black;
-    font-size: 38px;
+    font-size: 28px;
 }
 
-.faq.active .faq-toggle .fa-plus {
+.faq.active .faq-toggle .fa-circle-plus {
     display: none;
 }
 
@@ -461,7 +461,7 @@ nav {
         width: 90%;
     }
 
-    .faq-toggle .fa-plus {
+    .faq-toggle .fa-circle-plus {
         /* color: #fbfdff; */
         color: black;
         font-size: 25px;
@@ -494,18 +494,19 @@ nav {
     position: absolute;
     top: 10.2%;
     right: 0;
-    padding: 30px 150px;
+    padding: 30px 125px;
 }
 
 .right-text>h1 {
-    font-size: 70px;
+    font-size: 54px;
     color: white;
     font-weight: 700;
 }
 
 .right-text>p {
     color: rgb(209, 204, 204);
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 300;
 }
 
 .right-text>button {
@@ -534,11 +535,13 @@ nav {
     position: absolute;
     left: 13%;
     top: 12%;
+    font-family: 'Alexandria';
 }
 
 .fifth-text>h1 {
     font-size: 60px;
     font-weight: 700;
+    font-family: 'Alexandria';
 }
 
 .fifth-text>p {
@@ -549,11 +552,24 @@ nav {
 .fifth-text>button {
     height: 45px;
     width: 40%;
-    margin-top: 18px;
+    margin-top: 14px;
     border: none;
     border-radius: 10px;
     font-weight: 600;
     background-color: #e9d203;
+}
+
+.rotated-heading-fifth {
+    position: absolute;
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    color: #dbdbdb;
+    font-family: sans-serif;
+    margin-left: 40px;
+    margin-top: 43%;
+    font-size: 120px;
+    font-weight: 700;
+    font-family: 'Alexandria';
 }
 
 .fifth-img>img {
@@ -564,27 +580,24 @@ nav {
     height: auto;
 }
 
-
 /* ==========================================================sixth part===================================================================== */
 
 .sixth-part {
     width: 100%;
-    height: 60vh;
+    height: 45vh;
     position: relative;
 }
-
-.left-part-six {
+.left-part-six{
     width: 60%;
     position: absolute;
     top: 15%;
     left: 10%;
 }
-
-.left-part-six>h1 {
-    font-size: 68px;
-    margin-bottom: 20px;
+.blog-heading{
+    font-size: 58px;
+    font-weight: 700;
+    margin-bottom: 5px;
 }
-
 .rotated-heading-part {
     position: absolute;
     transform: rotate(90deg);
@@ -596,70 +609,60 @@ nav {
     font-size: 100px;
     font-weight: 800;
 }
-
-.six-btn-1 {
-    padding: 10px 18px;
-    border: 2px solid rgb(10, 10, 10);
+.six-btn-1{
+    padding: 8px 18px;
+    border: 1px solid rgb(10, 10, 10);
     background: transparent;
+    font-size: 15px;
+    margin-left: 25px;
+    font-weight: 500;
     color: rgb(15, 15, 15);
     border-radius: 5px;
 }
-
-.six-btn-2 {
-    padding: 12px 18px;
-    background-color: #e9d203;
+.six-btn-2{
+    padding: 8px 18px;
+    background-color: #FCE80A;
     border: none;
+    font-size: 15px;
+    font-weight: 500;
     color: rgb(15, 15, 15);
     border-radius: 5px;
 }
 
 
 /* ===========================================================seven part==================================================================== */
-.seven-part {
+.seven-part{
     width: 80%;
     height: 60vh;
     margin: 0 auto;
 }
-
-.seting-img>img {
+.seting-img > img{
     width: 400px;
     height: 443px;
 }
-
 /* ===========================================================eight part==================================================================== */
-.eight-part {
-    width: 80%;
-    height: 60vh;
-    margin: 0 auto;
+.eight-part{
+
     position: relative;
 }
+.first-eight{
 
-.first-eight {
-    position: absolute;
-    left: -1%;
-    top: 20%;
     text-align: center;
 }
-
-.second-eight {
+.second-eight{
     position: absolute;
     left: 33%;
     top: 21%;
     text-align: center;
 }
-
-.second-eight>img {
+.second-eight > img{
     margin-bottom: 42px;
 }
+.third-eight{
 
-.third-eight {
-    position: absolute;
-    left: 68%;
-    top: 20%;
     text-align: center;
 }
-
-.third-eight>img {
+.third-eight > img{
     margin-bottom: 11px;
 }
 

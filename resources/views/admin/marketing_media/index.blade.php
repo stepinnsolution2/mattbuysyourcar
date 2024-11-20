@@ -37,7 +37,7 @@
 								<h1> Marketing Media</h1>
 							</div>
 							<div class="col-sm-6 text-right">
-								<a href="{{ route('admin.marketing-media.create') }}" class="btn btn-success">Add Marketing Media</a>
+								<a href="{{ route('admin.marketing-media.create') }}" class="btn btn-secondary">Add Marketing Media</a>
 							</div>
 						</div>
 					</div>
@@ -50,7 +50,7 @@
 						<div class="card">
 							<div class="table-responsive">
 								<table id="table" class="table table-sm table-striped">
-									<thead style="background:green;color:white;">
+									<thead style="background:#353535;color:white;">
 										<tr>
 											<th class="text-center">Sr.</th>
 											<th class="text-center">Title</th>
@@ -110,7 +110,7 @@
                             text: response.message,
                             icon: "success",
                             customClass: {
-                                confirmButton: 'btn btn-success'
+                                confirmButton: 'btn btn-primary'
                             },
                             buttonsStyling: false
                         }).then((result) => {
