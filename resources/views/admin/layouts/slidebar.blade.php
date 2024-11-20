@@ -85,6 +85,12 @@
                     <p>Faqs</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.cars.index') }}" class="nav-link @if(Request::routeIs('admin.faqs.index')) active @endif">
+                    <i class="fas fa-calendar nav-icon"></i>
+                    <p>Car Types $ Models</p>
+                </a>
+            </li>
         </ul>
     </nav>
 

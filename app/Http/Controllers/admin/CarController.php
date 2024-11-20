@@ -27,7 +27,6 @@ class CarController extends Controller
         $request->validate([
             'type_name' => 'required|string|max:255',
             'model_name' => 'required|string|max:255',
-            'year' => 'required|integer',
         ]);
 
         $carType = CarType::create(['name' => $request->type_name]);
@@ -35,7 +34,7 @@ class CarController extends Controller
             'name' => $request->model_name,
             'car_type_id' => $carType->id,
         ]);
-        CarYear::create(['year' => $request->year]);
+        // CarYear::create(['year' => $request->year]);
 
         return redirect()->route('admin.cars.index')->with('success', 'Car data added successfully!');
     }
@@ -49,6 +48,7 @@ class CarController extends Controller
     public function edit($id)
     {
         $carType = CarType::findOrFail($id);
+
         return view('admin.cars.edit', compact('carType'));
     }
 
