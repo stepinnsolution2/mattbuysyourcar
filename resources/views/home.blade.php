@@ -94,27 +94,16 @@
         <h6>Car Information</h6>
             <div class="row">
                 <div class="input-group mb-3">
-                    <select class="form-select" name="car_type" id="inputGroupSelect02">
-                        <option selected>Type of Car</option>
-                        <option value="Sedan">Sedan</option>
-                        <option value="SUV">SUV </option>
-                        <option value="Coupe">Coupe</option>
-                        <option value="Convertible">Convertible</option>
-                        <option value="Truck">Truck</option>
-                        <option value="Van">Van</option>
-                        <option value="Wagon">Wagon</option>
-                        <option value="Sports_car">Sports Car</option>
+                    <select class="form-select" name="car_type" id="car_type">
+                        <option value="" selected disabled>Type of Car</option>
+                        @foreach($carTypes as $carType)
+                            <option value="{{ $carType->id }}">{{ $carType->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="input-group mb-3">
-                    <select class="form-select" name="model" id="inputGroupSelect02">
-                        <option selected>Model of Car</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
+                    <select class="form-select" name="model" id="model">
+                        <option value="" selected disabled>Model of Car</option>
                     </select>
                 </div>
                 <div class="input-group mb-3">
@@ -437,7 +426,7 @@
             <h5 style="color:#FCE80A; margin-bottom: -12px;">Blog</h5>
             <h1 class="blog-heading">Maximizing Your Car’s Value! Tips, Tricks, and Industry News!<span><button class="six-btn-1">Sell Your Car</button>
                 <button class="six-btn-2">Latest Article</button></span></h1>
-            
+
         </div>
 
         <div class="ninty">
@@ -586,10 +575,39 @@
     </div>
 </div>
 <script src="{{ asset('js/faq.js') }}"></script>
-@endsection
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // -----------------------For Car type and Car Model Drop Down
+    document.addEventListener('DOMContentLoaded', function () {
+
+    const carTypeSelect = document.getElementById('car_type');
+    const modelSelect = document.getElementById('model');
+
+    carTypeSelect.addEventListener('change', function () {
+        const carTypeId = this.value;
+
+        // Clear previous models
+        modelSelect.innerHTML = '<option value="" selected disabled>Model of Car</option>';
+
+        if (carTypeId) {
+            fetch(`/get-models?car_type_id=${carTypeId}`)
+                .then(response => response.json())
+                .then(models => {
+                    for (const [id, name] of Object.entries(models)) {
+                        const option = document.createElement('option');
+                        option.value = id;
+                        option.textContent = name;
+                        modelSelect.appendChild(option);
+                    }
+                })
+                .catch(error => console.error('Error fetching models:', error));
+        }
+    });
+});
+
+</script>
 
 <script>
     document.querySelector('input[name="phone_number"]').addEventListener('input', function (e) {
@@ -781,70 +799,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-{{--
-<script>
-    // -------------------------------------Stor Car and user info---------------------------
-
-    document.querySelector(".btn.btn-modal-first").addEventListener("click", function () {
-    // Collect car form data
-    const carData = new FormData();
-        alert("ok");
-    // Collect car type, model, specification, engine size, year, kilometers
-    carData.append("car_type", document.querySelector("select[name='car_type']").value);
-    carData.append("model", document.querySelector("select[name='modal']").value);
-    carData.append("specification", document.querySelector("input[name='specification']").value);
-    carData.append("engine_size", document.querySelector("input[name='engine_size']").value);
-    carData.append("year", document.querySelector("select[name='year']").value);
-    carData.append("kilometers", document.querySelector("input[name='kilometers']").value);
-
-    // Collect modal questions and checkboxes (if applicable)
-    carData.append("gcc_spec", document.querySelector("input[name='gcc_spec']:checked")?.value || null);
-    carData.append("condition", document.querySelector("input[name='condition']:checked")?.value || null);
-    carData.append("paintwork", document.querySelector("input[name='paintwork']:checked")?.value || null);
-    carData.append("interior_condition", document.querySelector("input[name='interior_condition']:checked")?.value || null);
-    carData.append("service_history", document.querySelector("input[name='service_history']:checked")?.value || null);
-    carData.append("loan_secured", document.querySelector("input[name='loansec']:checked")?.value || null);
-    carData.append("comment", document.querySelector("textarea[name='comment']").value);
-
-    // Collect user information
-    carData.append("first_name", document.querySelector("input[name='first_name']").value);
-    carData.append("last_name", document.querySelector("input[name='last_name']").value);
-    carData.append("email", document.querySelector("input[name='email']").value);
-    carData.append("phone_number", document.querySelector("input[name='phone_number']").value);
-    carData.append("address", document.querySelector("input[name='address']").value);
-
-    // Collect the images (if any)
-    const imageInput = document.querySelector("input[name='car_images']");
-    if (imageInput.files.length > 0) {
-        for (let i = 0; i < imageInput.files.length; i++) {
-            carData.append("car_images[]", imageInput.files[i]);
-        }
-    }
-
-    // Send data via AJAX using FormData
-    fetch("/store-car-info", {
-        method: "POST",
-        headers: {
-            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
-        },
-        body: carData,
-    })
-    .then(response => response.json())
-    .then(result => {
-        if (result.success) {
-            alert("Car data submitted successfully!");
-            // Optionally hide the modal and show the next one
-            const currentModal = bootstrap.Modal.getInstance(document.getElementById("exampleModal"));
-            currentModal.hide();
-            const nextModal = new bootstrap.Modal(document.getElementById("exampleModal1"));
-            nextModal.show();
-        } else {
-            alert("Error submitting car data.");
-        }
-    })
-    .catch(error => console.error("Error:", error));
-});
-
-</script> --}}
+@endsection
 
 

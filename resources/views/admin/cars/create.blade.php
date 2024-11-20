@@ -23,16 +23,35 @@
             <form action="{{ route('admin.cars.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label>Type Name</label>
-                    <input type="text" name="type_name" class="form-control" required>
+                    <label for="carType" class="form-label">Car Type</label>
+                    <input type="text" name="car_type" id="carType" class="form-control" placeholder="Enter car type" required>
                 </div>
+
+                <!-- Car Models Input -->
                 <div class="mb-3">
-                    <label>Model Name</label>
-                    <input type="text" name="model_name" class="form-control" required>
+                    <label for="carModels" class="form-label">Car Models</label>
+                    <div id="modelsContainer" class="mb-2">
+                        <input type="text" name="models[]" class="form-control mb-2" placeholder="Enter model name" required>
+                    </div>
+                    <button type="button" id="addModelButton" class="btn btn-warning btn-sm">
+                        <i class="bi bi-plus-circle"></i> Add Another Model
+                    </button>
                 </div>
+
                 <button type="submit" class="btn btn-secondary">Save</button>
             </form>
         </div>
     </div>
 </div>
+<script>
+    document.getElementById('addModelButton').addEventListener('click', () => {
+        const container = document.getElementById('modelsContainer');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'models[]';
+        input.className = 'form-control mb-2';
+        input.placeholder = 'Enter another model name';
+        container.appendChild(input);
+    });
+</script>
 @endsection

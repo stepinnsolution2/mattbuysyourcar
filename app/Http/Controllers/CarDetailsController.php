@@ -103,8 +103,11 @@ class CarDetailsController extends Controller
         $carDetail = CarDetails::find($id);
 
         if (!$carDetail) {
-            dd("ok");
-            return response()->json(['message' => 'Car details not found.'], 404);
+            //dd("ok");
+            return response()->json([
+                'status' => 'error',
+                'message' => 'There was an error deleting the marketing media.'
+            ], 500);
         }
 
         // Delete images from storage
@@ -116,8 +119,9 @@ class CarDetailsController extends Controller
         $carDetail->delete();
 
         return response()->json([
-            'message' => 'Car details deleted successfully.',
-        ], 200);
+            'status' => 'success',
+            'message' => 'Marketing media deleted successfully.'
+        ]);
     }
 
 }

@@ -25,16 +25,27 @@
                     @method('PUT')
 
                     <div class="mb-3">
-                        <label>Type Name</label>
-                        <input type="text" name="type_name" class="form-control" value="{{ $carType->name }}" required>
+                        <label for="carType" class="form-label">Car Type</label>
+                        <input type="text" name="car_type" id="carType" class="form-control"
+                               value="{{ $carType->name }}" placeholder="Enter car type" required>
                     </div>
 
+                    <!-- Car Models Input -->
                     <div class="mb-3">
-                        <label>Models</label>
-                        @foreach ($carType->carModels as $model)
-                            <input type="text" name="model_names[]" class="form-control mb-2" value="{{ $model->name }}" required>
-                        @endforeach
-                        <button type="button" class="btn btn-secondary add-model-btn">Add Model</button>
+                        <label for="carModels" class="form-label">Car Models</label>
+                        <div id="modelsContainer" class="mb-2">
+                            @foreach ($carType->carModels as $model)
+                                <div class="input-group mb-2">
+                                    <input type="text" name="models[]" class="form-control" value="{{ $model->name }}" required>
+                                    <button type="button" class="btn btn-danger remove-model">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            @endforeach
+                        </div>
+                        <button type="button" id="addModelButton" class="btn btn-warning btn-sm">
+                            <i class="bi bi-plus-circle"></i> Add Another Model
+                        </button>
                     </div>
 
                     <button type="submit" class="btn btn-secondary">Update</button>
@@ -42,17 +53,35 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
 <script>
-    document.querySelector('.add-model-btn').addEventListener('click', function () {
-        const newInput = document.createElement('input');
-        newInput.setAttribute('type', 'text');
-        newInput.setAttribute('name', 'model_names[]');
-        newInput.setAttribute('class', 'form-control mb-2');
-        newInput.setAttribute('placeholder', 'New Model');
-        document.querySelector('.add-model-btn').before(newInput);
+    // Add new model input dynamically
+    document.getElementById('addModelButton').addEventListener('click', () => {
+        const container = document.getElementById('modelsContainer');
+        const inputGroup = document.createElement('div');
+        inputGroup.className = 'input-group mb-2';
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'models[]';
+        input.className = 'form-control';
+        input.placeholder = 'Enter another model name';
+        input.required = true;
+
+        const removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.className = 'btn btn-danger remove-model';
+        removeButton.innerHTML = '<i class="bi bi-trash"></i>';
+
+        inputGroup.appendChild(input);
+        inputGroup.appendChild(removeButton);
+        container.appendChild(inputGroup);
+    });
+
+    // Remove model input dynamically
+    document.addEventListener('click', (e) => {
+        if (e.target && e.target.closest('.remove-model')) {
+            e.target.closest('.input-group').remove();
+        }
     });
 </script>
 @endsection

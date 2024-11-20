@@ -15,14 +15,39 @@ use App\Models\Transporter;
 use App\Models\Country;
 use App\Models\Setting;
 use App\Models\Faq;
+use App\Models\CarType;
+use App\Models\CarModel;
 
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function getModelsByCarType(Request $request)
+    {
+        try {
+            // Get the car_type_id from the request query parameter
+            $carTypeId = $request->query('car_type_id');
+
+            // Find the models based on the car type ID
+            $models = CarModel::where('car_type_id', $carTypeId)->pluck('name', 'id');
+            // dd($models);
+            // Check if no models were found
+            if ($models->isEmpty()) {
+                return response()->json(['message' => 'No models found for this car type'], 404);
+            }
+
+            // Return the models as a JSON response
+            return response()->json($models);
+
+        } catch (\Exception $e) {
+            // Catch any exception and return a 500 error response
+            return response()->json(['error' => 'Something went wrong'], 500);
+        }
+    }
     public function home(){
          $banners = Banner::latest()->get();
          $faqs = Faq::latest()->get();
+         $carTypes = CarType::all();
         // $projects = Project::latest()->paginate(4); // Adjust the number 10 to the number of records per page you want to display
         // $nurseries = Nursery::latest()->get();
         // $seeds = Seed::latest()->get();
@@ -30,7 +55,7 @@ class PageController extends Controller
         // $transporters = Transporter::latest()->get();
         // //dd($nurseries->images);
 
-        return view('home',compact('banners', 'faqs'));
+        return view('home',compact('banners', 'faqs', 'carTypes'));
     }
     public function about(){
 

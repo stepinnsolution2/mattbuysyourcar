@@ -15,4 +15,5 @@ class CarModel extends Model
     {
         return $this->belongsTo(CarType::class);
     }
+
 }

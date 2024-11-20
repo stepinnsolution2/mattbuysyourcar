@@ -129,7 +129,7 @@
                                 text: response.message,
                                 icon: "success",
                                 customClass: {
-                                    confirmButton: 'btn btn-primary'
+                                    confirmButton: 'btn btn-secondary'
                                 },
                                 buttonsStyling: false
                             }).then((result) => {

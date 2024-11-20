@@ -9,6 +9,8 @@ use App\Models\CarYear;
 
 class CarController extends Controller
 {
+   
+
     public function index()
     {
         $carTypes = CarType::all();
@@ -24,19 +26,21 @@ class CarController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'type_name' => 'required|string|max:255',
-            'model_name' => 'required|string|max:255',
+        $validatedData = $request->validate([
+            'car_type' => 'required|string',
+            'models' => 'required|array',
+            'models.*' => 'string'
         ]);
 
-        $carType = CarType::create(['name' => $request->type_name]);
-        $carModel = CarModel::create([
-            'name' => $request->model_name,
-            'car_type_id' => $carType->id,
-        ]);
-        // CarYear::create(['year' => $request->year]);
+        // Check if the car type already exists
+        $carType = CarType::firstOrCreate(['name' => $validatedData['car_type']]);
 
-        return redirect()->route('admin.cars.index')->with('success', 'Car data added successfully!');
+        // Store the models
+        foreach ($validatedData['models'] as $modelName) {
+            $carType->carModels()->firstOrCreate(['name' => $modelName]);
+        }
+
+        return redirect()->route('admin.cars.index')->with('success', 'Car type and models saved successfully!');
     }
 
 
@@ -53,16 +57,52 @@ class CarController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
+{
+    // Validate the request data
+    $request->validate([
+        'car_type' => 'required|string|max:255',
+        'models' => 'required|array|min:1', // At least one model is required
+        'models.*' => 'required|string|max:255' // Each model must be a valid string
+    ]);
 
-        $carType = CarType::findOrFail($id);
-        $carType->update(['name' => $request->name]);
+    // Fetch the car type by ID
+    $carType = CarType::findOrFail($id);
 
-        return redirect()->route('admin.cars.index')->with('success', 'Car Type updated successfully!');
+    // Update the car type
+    $carType->name = $request->car_type;
+    $carType->save();
+
+    // Fetch existing models for this car type
+    $existingModels = $carType->carModels->pluck('name')->toArray();
+
+    // New models from the request
+    $newModels = $request->models;
+
+    // Find models to delete (existing models not in the new models array)
+    $modelsToDelete = array_diff($existingModels, $newModels);
+
+    // Find models to add (new models not in the existing models array)
+    $modelsToAdd = array_diff($newModels, $existingModels);
+
+    // Delete models
+    if (!empty($modelsToDelete)) {
+        CarModel::where('car_type_id', $carType->id)
+            ->whereIn('name', $modelsToDelete)
+            ->delete();
     }
+
+    // Add new models
+    foreach ($modelsToAdd as $modelName) {
+        CarModel::create([
+            'car_type_id' => $carType->id,
+            'name' => $modelName
+        ]);
+    }
+
+    // Redirect back with a success message
+    return redirect()->route('admin.cars.index')->with('success', 'Car Type and Models updated successfully!');
+}
+
     public function destroy($id)
     {
         $carType = CarType::findOrFail($id);
