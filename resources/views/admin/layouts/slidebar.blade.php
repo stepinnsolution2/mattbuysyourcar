@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-warning elevation-4" style="background: #000000 !important;">
+<aside class="main-sidebar sidebar-dark-warning elevation-4" style="background: #2c2e2f !important;">
 <!-- Brand Logo -->
 <a href="#" class="brand-link">
     Admin panel
