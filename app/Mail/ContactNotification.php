@@ -46,7 +46,7 @@ class ContactNotification extends Mailable
     public function build()
     {
         return $this->from('faizaambreen22@gmail.com')
-                    ->subject('Thank you for contacting GrowGreen.')
+                    ->subject('Thank you for contacting mattbuysyourcar.')
                     ->view('emails.contact')
                     ->with('contact', $this->contact);
     }
