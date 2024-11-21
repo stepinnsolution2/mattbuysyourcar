@@ -33,7 +33,7 @@
                     <h1>FAQs</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.faqs.create') }}" class="btn btn-secondary">Add FAQ</a>
+                    <a href="{{ route('admin.faqs.create') }}" class="btn btn-warning">Add FAQ</a>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
                                     <td class="text-center align-middle">{{ $faq->question }}</td>
                                     <td class="text-center align-middle">{{ Str::limit($faq->answer, 50) }}</td>
                                     <td class="text-center align-middle">
-                                        <a href="{{ route('admin.faqs.edit', $faq->id) }}" class="btn btn-sm btn-primary mb-1 ml-2">Edit</a>
+                                        <a href="{{ route('admin.faqs.edit', $faq->id) }}" class="btn btn-sm btn-warning mb-1 ml-2">Edit</a>
                                         <a href="javascript:void(0)" onclick="deleteFaq({{ $faq->id }})" class="btn mb-1 btn-sm btn-danger ml-2">Delete</a>
                                     </td>
                                 </tr>

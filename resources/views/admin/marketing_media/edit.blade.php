@@ -36,7 +36,7 @@
                     <h1>Edit Marketing Media</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.marketing-media.index') }}" class="btn btn-secondary">Back to Marketing Media</a>
+                    <a href="{{ route('admin.marketing-media.index') }}" class="btn btn-warning">Back to Marketing Media</a>
                 </div>
             </div>
         </div>

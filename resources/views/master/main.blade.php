@@ -31,7 +31,7 @@
     <div class="background-image position-relative overflow-hidden">
         <nav>
             <div class="logo">
-                <h1>LOGO</h1>
+                <img class="logo" src="{{asset('images/logo.png')}}">
             </div>
             <div class="navs-links">
                 <ul>

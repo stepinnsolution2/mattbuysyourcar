@@ -120,7 +120,7 @@ class CarDetailsController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Marketing media deleted successfully.'
+            'message' => 'Car Detail deleted successfully.'
         ]);
     }
 

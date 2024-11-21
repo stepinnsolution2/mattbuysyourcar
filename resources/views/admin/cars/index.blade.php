@@ -8,7 +8,7 @@
                 <h1> Cars Types & Models</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="{{ route('admin.cars.create') }}" class="btn btn-secondary">Add Car Specs</a>
+                <a href="{{ route('admin.cars.create') }}" class="btn btn-warning">Add Car Specs</a>
             </div>
         </div>
     </div>
