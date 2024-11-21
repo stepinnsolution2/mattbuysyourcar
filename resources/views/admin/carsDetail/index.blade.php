@@ -80,7 +80,7 @@
                                 <td class="text-center align-middle">{{ $car->year}}</td>
                                 <td class="text-center align-middle">{{ $car->kilometers}}</td>
                                 <td class="text-center align-middle">
-                                    <a href="{{ route('admin.car_detail.show', $car->id) }}" class="btn mb-2 btn-primary btn-sm">View</a>
+                                    <a href="{{ route('admin.car_detail.show', $car->id) }}" class="btn mb-2 btn-warning btn-sm">View</a>
                                     <a href="javascript:void(0)" onclick="deleteCar({{ $car->id }})" class="btn  btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>

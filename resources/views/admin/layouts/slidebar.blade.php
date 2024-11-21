@@ -74,21 +74,21 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.car_detail.index') }}" class="nav-link @if(Request::routeIs('admin.cars.index')) active @endif">
-                    <i class="fas fa-calendar nav-icon"></i>
+                <a href="{{ route('admin.car_detail.index') }}" class="nav-link @if(Request::routeIs('admin.car_detail.index')) active @endif">
+                    <i class="fas fa-solid fa-store nav-icon"></i>
                     <p>Available Purchases</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('admin.faqs.index') }}" class="nav-link @if(Request::routeIs('admin.faqs.index')) active @endif">
-                    <i class="fas fa-calendar nav-icon"></i>
+                    <i class="fas fa-solid fa-question nav-icon"></i>
                     <p>Faqs</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.cars.index') }}" class="nav-link @if(Request::routeIs('admin.faqs.index')) active @endif">
-                    <i class="fas fa-calendar nav-icon"></i>
-                    <p>Car Types $ Models</p>
+                <a href="{{ route('admin.cars.index') }}" class="nav-link @if(Request::routeIs('admin.cars.index')) active @endif">
+                    <i class="fas fa-solid fa-car nav-icon"></i>
+                    <p>Car Types & Models</p>
                 </a>
             </li>
         </ul>

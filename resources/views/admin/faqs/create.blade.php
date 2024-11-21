@@ -9,7 +9,7 @@
                     <h1>Add FAQ</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.faqs.index') }}" class="btn btn-secondary">Back to FAQs</a>
+                    <a href="{{ route('admin.faqs.index') }}" class="btn btn-warning">Back to FAQs</a>
                 </div>
             </div>
         </div>

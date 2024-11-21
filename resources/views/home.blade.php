@@ -611,8 +611,8 @@
 
 <script>
     document.querySelector('input[name="phone_number"]').addEventListener('input', function (e) {
-    if (this.value.length > 10) {
-        this.value = this.value.slice(0, 10); // Limit to 10 digits
+    if (this.value.length > 14) {
+        this.value = this.value.slice(0, 14); // Limit to 10 digits
     }
 });
 </script>
@@ -751,6 +751,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         showConfirmButton: true
                     });
                     // Optionally redirect or reset modal data
+                    modalData = {};
+                    // Clear all inputs in the modals
+                    $('input').val(''); // Clear all input fields
+                    $('textarea').val(''); // Clear all textarea fields
+                    $('select').prop('selectedIndex', 0); // Reset select inputs
+                    $('button').removeClass('active'); // Remove active class from buttons
+                    $('#custom-file-input').val(''); // Clear file input
+
+                    // Hide all modals
+                    $('.modal').modal('hide');
                 },
                 error: function (xhr, status, error) {
                     // SweetAlert for error

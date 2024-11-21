@@ -9,7 +9,7 @@
                     <h1>Add Car Type & Model</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.cars.index') }}" class="btn btn-secondary">Back to List</a>
+                    <a href="{{ route('admin.cars.index') }}" class="btn btn-warning">Back to List</a>
                 </div>
             </div>
         </div>

@@ -42,12 +42,17 @@ nav {
 }
 
 .nav-button {
-    padding: 3px 20px 10px 20px;
+    padding: 1px 10px 1px 10px;
     line-height: 60px;
     border-radius: 15px;
     font-weight: 600;
-    background-color: #e9d203;
+    background-color: #FCE80A;
     border: none;
+}
+
+.logo{
+    height: 27vh;
+    width: 24vh;
 }
 
 .nav-button:hover {
@@ -212,7 +217,7 @@ nav {
 }
 
 .faq.active {
-    background-color: rgb(209, 190, 15);
+    background-color: #FCE80A;
     color: black;
 }
 
