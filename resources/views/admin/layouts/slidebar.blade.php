@@ -68,6 +68,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route('admin.blog.index') }}" class="nav-link @if(Request::routeIs('admin.blog.index')) active @endif">
+                    <i class="nav-icon fas fa-blog"></i>
+                    <p>Blog</p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('admin.marketing-media.index') }}" class="nav-link @if(Request::routeIs('admin.marketing-media.index')) active @endif">
                     <i class="fas fa-calendar nav-icon"></i>
                     <p>Marketing Media</p>

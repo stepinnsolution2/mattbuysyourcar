@@ -79,8 +79,6 @@
         <!-- /.card -->
     </section>
     <!-- /.content -->
-@endsection
-@section('customjs')
 <!-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script> -->
 <script src="{{ asset('ckeditor5-build-classic/ckeditor.js') }}"></script>
 <script>

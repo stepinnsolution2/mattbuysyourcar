@@ -6,6 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\admin\DonationController;
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\ProjectController;
@@ -109,7 +110,14 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/admin/marketing-media/{id}', [MarketingMediaController::class, 'update'])->name('admin.marketing-media.update');
     Route::delete('/admin/marketing-media/{id}', [MarketingMediaController::class, 'destroy'])->name('admin.marketing-media.destroy');
 
-
+    //Blog
+    Route::get('admin/blog', [BlogController::class, 'index'])->name('admin.blog.index');
+    Route::get('admin/blog/create', [BlogController::class, 'create'])->name('admin.blog.create');
+    Route::post('admin/blog', [BlogController::class, 'store'])->name('admin.blog.store');
+    Route::get('admin/blog/{id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
+    Route::post('admin/blog/{id}', [BlogController::class, 'update'])->name('admin.blog.update');
+    Route::delete('admin/blog/{id}', [BlogController::class, 'destroy'])->name('admin.blog.destroy');
+    Route::post('/upload-image', [BlogController::class, 'image_store']);
 
     //Car
     Route::get('/admin/cars', [CarController::class, 'index'])->name('admin.cars.index');

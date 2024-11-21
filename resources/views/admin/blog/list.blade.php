@@ -18,7 +18,6 @@
 				<section class="content">
 					<!-- Default box -->
 					<div class="container-fluid">
-						@include('admin.message')
 						<div class="card">
 							<div class="table-responsive p-3">								
 								<table id="table" class="table table-sm table-striped">
@@ -39,7 +38,6 @@
 												<td class="text-center align-middle">{{ $member->subtitle }}</td>
 												<td class="text-center align-middle">{{ $member->author }}</td>
 												<td class="text-center align-middle">
-													<a href="{{ route('admin.comment.list', $member->id) }}" class="btn btn-sm btn-secondary">Comments</a>
 													<a href="{{ route('admin.blog.edit', $member->id) }}" class="btn btn-sm btn-success ml-2">Edit</a>
 													<a href="javascript:void(0)" onclick="confirmDelete({{ $member->id }})" class="btn btn-sm btn-danger ml-2">Delete</a> 
 												</td>
