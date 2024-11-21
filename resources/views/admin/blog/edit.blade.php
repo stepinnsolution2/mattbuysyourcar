@@ -8,7 +8,7 @@
                         <h1>Edit Blog</h1>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <a href="{{ route('admin.blog.index') }}" class="btn btn-success">Back</a>
+                        <a href="{{ route('admin.blog.index') }}" class="btn btn-warning">Back</a>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="pb-5 pt-3 float-right">
-                            <button type="submit" class="btn btn-success" id="submitForm">Update</button>
+                            <button type="submit" class="btn btn-warning" id="submitForm">Update</button>
                         </div>
                     </div>							
                 </div>

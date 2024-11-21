@@ -8,7 +8,7 @@
 								<h1> Blogs</h1>
 							</div>
 							<div class="col-sm-6 text-right">
-								<a href="{{ route('admin.blog.create') }}" class="btn btn-success">Add Blog</a>
+								<a href="{{ route('admin.blog.create') }}" class="btn btn-warning">Add Blog</a>
 							</div>
 						</div>
 					</div>
@@ -21,7 +21,7 @@
 						<div class="card">
 							<div class="table-responsive p-3">								
 								<table id="table" class="table table-sm table-striped">
-									<thead style="background:green;color:white;">
+									<thead style="background:#353535;color:white;">
 										<tr>
 											<th class="text-center">Image</th>
 											<th class="text-center">Title</th>
@@ -38,7 +38,7 @@
 												<td class="text-center align-middle">{{ $member->subtitle }}</td>
 												<td class="text-center align-middle">{{ $member->author }}</td>
 												<td class="text-center align-middle">
-													<a href="{{ route('admin.blog.edit', $member->id) }}" class="btn btn-sm btn-success ml-2">Edit</a>
+													<a href="{{ route('admin.blog.edit', $member->id) }}" class="btn btn-sm btn-warning ml-2">Edit</a>
 													<a href="javascript:void(0)" onclick="confirmDelete({{ $member->id }})" class="btn btn-sm btn-danger ml-2">Delete</a> 
 												</td>
 											</tr>
