@@ -48,6 +48,7 @@ class PageController extends Controller
          $banners = Banner::latest()->get();
          $faqs = Faq::latest()->get();
          $carTypes = CarType::all();
+         $about = About::find(1);
         // $projects = Project::latest()->paginate(4); // Adjust the number 10 to the number of records per page you want to display
         // $nurseries = Nursery::latest()->get();
         // $seeds = Seed::latest()->get();
@@ -55,7 +56,7 @@ class PageController extends Controller
         // $transporters = Transporter::latest()->get();
         // //dd($nurseries->images);
 
-        return view('home',compact('banners', 'faqs', 'carTypes'));
+        return view('home',compact('banners', 'faqs', 'carTypes', 'about'));
     }
     public function about(){
 

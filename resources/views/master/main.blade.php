@@ -27,22 +27,25 @@
             position: relative;
         }
         </style>
+        <header>
+            <div class="">
+                <nav>
+                    <div class="logo">
+                        <img src="{{asset('images/logo.png')}}" alt="Logo" class="logo">
+                    </div>
+                    <div class="navs-links">
+                        <ul>
+                            <li><a href="#" class="text-white">Home</a></li>
+                            <li><a href="#" class="text-white">About</a></li>
+                            <li><a href="#" class="text-white">Contact</a></li>
+                            <button class="nav-button">Sell Your Car</button>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
 <body>
-    <div class="background-image position-relative overflow-hidden">
-        <nav>
-            <div class="logo">
-                <img class="logo" src="{{asset('images/logo.png')}}">
-            </div>
-            <div class="navs-links">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <button class="nav-button">Sell Your Car</button>
-                </ul>
-            </div>
-        </nav>
-    </div>
+
         <!-- is search -->
         @yield('content')
 

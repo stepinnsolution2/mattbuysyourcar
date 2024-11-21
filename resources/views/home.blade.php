@@ -68,7 +68,61 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+<div class="content-wrapper">
+    <div class="greennature-content">
+        <!-- Above Sidebar Section-->
+        <!-- Sidebar With Content Section-->
+        <div class="with-sidebar-wrapper">
+                <section id="content-section-1">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            @if($banners)
+                                @foreach($banners as $banner)
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide-content">
+                                            <img src="{{ asset($banner->image) }}" alt="Banner Image" class="img-fluid banner-image">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
 
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- Add Navigation Buttons -->
+                        <div class="swiper-button-prev left-arrow"></div>
+                        <div class="swiper-button-next right-arrow"></div>
+                    </div>
+                    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const swiper = new Swiper('.swiper-container', {
+                                loop: true, // Infinite loop
+                                autoplay: {
+                                    delay: 5000, // 3 seconds delay
+                                    disableOnInteraction: false, // Keep autoplaying even after interactions
+                                },
+                                pagination: {
+                                    el: '.swiper-pagination',
+                                    clickable: true, // Pagination is clickable
+                                },
+                                navigation: {
+                                    nextEl: '.right-arrow',
+                                    prevEl: '.left-arrow',
+                                },
+                                effect: 'fade', // Add a fade transition effect
+                                fadeEffect: {
+                                    crossFade: true,
+                                },
+                            });
+                        });
+                    </script>
+
+                </section>
+        </div>
+    </div>
+</div>
 
 <div>
     {{-- <div class="swiper-container background-image">
@@ -220,7 +274,7 @@
                 <h3>TELL US ABOUT YOUR CAR</h3>
                     <div class="custom-image-upload">
                         <h2>Upload Images</h2>
-                        <p>Upload at least 6 images of your car.</p>
+                        <p>Upload images of your car.</p>
                         <div class="custom-upload-box">
                             <label for="custom-file-input" class="custom-upload-label">
                                 <div class="custom-upload-icon">⬆</div>
@@ -369,14 +423,12 @@
 <div class="fourth-part">
     <div class="row fourth-part-div">
         <div class="left-img">
-            <img src="images/fourth.png" alt="Not Found">
+            <img src="{{ asset($about->image_path) }}" alt="Not Found">
         </div>
         <div class="right-text">
             <h4 style="color:#d1be0f;">About us</h4>
-            <h1>The story behind our Journey.</h1>
-            <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor
-                fermentum vel semper vestibulum enim congue ut sit. Eu risus lobortis purus ipsum at. Volutpat
-                integer faucibus a massa phasellus id rhoncus ultricies.</p>
+            <h1>{{$about->name}}</h1>
+            <p>{{$about->description}}</p>
             <button class="mr-2">More About Us <i class="fa-solid fa-arrow-right" style="color:#d1be0f;"></i></button>
         </div>
     </div>
