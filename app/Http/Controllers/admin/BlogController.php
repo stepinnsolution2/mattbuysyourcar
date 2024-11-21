@@ -175,14 +175,14 @@ class BlogController extends Controller
 
     public function image_store(Request $request)
     {
-        dd("ok");
+        // dd("ok");
         if ($request->hasFile('upload')) {
             $imageName = Str::random(20) . '.' . $request->upload->getClientOriginalExtension();
             $request->upload->move(public_path('images/Blog/ck'), $imageName);
             $imagePath = 'images/Blog/ck/' . $imageName;
             $url = asset($imagePath);
 
-            dd($url);
+            // dd($url);
 
             return response()->json(['fileName' => $imageName, 'uploaded'=> 1, 'url' => $url]);
         }
