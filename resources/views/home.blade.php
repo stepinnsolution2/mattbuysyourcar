@@ -20,20 +20,6 @@
 </style>
 
 <style>
-    .background-image {
-        width: 100%;
-        height: 150vh;
-        position: relative;
-    }
-
-    .swiper-slide {
-        background-size: cover;
-        background-position: center;
-        height: 100%; /* Ensures full height of the container */
-    }
-    </style>
-
-<style>
     .custom-card {
       position: relative;
       overflow: hidden;
@@ -55,18 +41,14 @@
       margin-top: 15px;
     }
 
-<style>
     .custom-label{
-  font-size: 12px !important;
-  font-weight: lighter !important;
-
-
-}
+        font-size: 12px !important;
+        font-weight: lighter !important;
+    }
 </style>
 
 @section('content')
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 <div class="content-wrapper">
     <div class="greennature-content">
@@ -91,8 +73,8 @@
                         <div class="swiper-pagination"></div>
 
                         <!-- Add Navigation Buttons -->
-                        <div class="swiper-button-prev left-arrow"></div>
-                        <div class="swiper-button-next right-arrow"></div>
+                        <!-- <div class="swiper-button-prev left-arrow"></div>
+                        <div class="swiper-button-next right-arrow"></div> -->
                     </div>
                     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
                     <script>
@@ -124,29 +106,10 @@
     </div>
 </div>
 
-<div>
-    {{-- <div class="swiper-container background-image">
-        <div class="swiper-wrapper">
-            @if($banners)
-            @foreach($banners as $banner)
-                <div class="swiper-slide">
-                    <div class="swiper-slide-content">
-                        <img src="{{ asset($banner->image) }}" alt="" class="img-fluid">
-                    </div>
-                </div>
-            @endforeach
-        @endif
-        </div>
-        <!-- Swiper Navigation Buttons -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <!-- Swiper Pagination -->
-        <div class="swiper-pagination"></div>
-    </div> --}}
-    <div class="box" id="exampleModa">
-        <h1>tell us about your car</h1>
-        <h6>Car Information</h6>
-            <div class="row">
+<!-- <div class="box" id="exampleModa">
+    <div class="card">
+        <div class="card-body">
+        <div class="row">
                 <div class="input-group mb-3">
                     <select class="form-select" name="car_type" id="car_type">
                         <option value="" selected disabled>Type of Car</option>
@@ -186,8 +149,54 @@
             <button type="button" id="next-button-modal1" class="button btn btn-modal-first" >
                 Next
             </button>
+        </div>
     </div>
+</div> -->
+<div class="box" id="exampleModa">
+    <h1>tell us about your car</h1>
+    <h6>Car Information</h6>
+        <div class="row">
+            <div class="input-group mb-3">
+                <select class="form-select" name="car_type" id="car_type">
+                    <option value="" selected disabled>Type of Car</option>
+                    @foreach($carTypes as $carType)
+                        <option value="{{ $carType->id }}">{{ $carType->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" name="model" id="model">
+                    <option value="" selected disabled>Model of Car</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" type="text" name="specification" placeholder="Specification/Trim (e.g.,“E350 Sport”)"
+                    aria-label="default input example">
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" name="engine_size" type="text" placeholder="Engine Size(1499cc)"
+                    aria-label="default input example">
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" name="year" id="inputGroupSelect02">
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" name="kilometers" type="text" placeholder="kilometers"
+                    aria-label="default input example">
+            </div>
+        </div>
+        <button type="button" id="next-button-modal1" class="button btn btn-modal-first" >
+            Next
+        </button>
 </div>
+
 
 
     <!-- Modal -->
