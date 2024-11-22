@@ -17,6 +17,7 @@ use App\Models\Setting;
 use App\Models\Faq;
 use App\Models\CarType;
 use App\Models\CarModel;
+use App\Models\Blog;
 
 use Illuminate\Http\Request;
 
@@ -47,6 +48,7 @@ class PageController extends Controller
     public function home(){
          $banners = Banner::latest()->get();
          $faqs = Faq::latest()->get();
+         $blogs = Blog::latest()->get();
          $carTypes = CarType::all();
          $about = About::find(1);
         // $projects = Project::latest()->paginate(4); // Adjust the number 10 to the number of records per page you want to display
@@ -56,7 +58,7 @@ class PageController extends Controller
         // $transporters = Transporter::latest()->get();
         // //dd($nurseries->images);
 
-        return view('home',compact('banners', 'faqs', 'carTypes', 'about'));
+        return view('home',compact('banners', 'faqs', 'carTypes', 'about', 'blogs'));
     }
     public function about(){
 
