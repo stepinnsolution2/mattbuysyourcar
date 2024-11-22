@@ -215,11 +215,11 @@ nav {
 /* =====================================================================SECOND PART==================================================================== */
 
 .second-part {
-    height: 80vh;
+    height: auto;
     width: 100%;
     position: relative;
     overflow: hidden !important;
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
 }
 
 .rotated-heading {
@@ -276,6 +276,11 @@ nav {
     top: 13%;
 }
 
+@media (max-width: 768px) {
+    .rotated-heading {
+        display:none;
+    }
+}
 
 
 /* ======================================================================Third Part (faq)=================================================================== */
@@ -605,22 +610,23 @@ nav {
 }
 
 .left-img>img {
-    width: 50%;
+    width: 100%;
     height: 100vh;
 }
 
 .right-text {
-    width: 50%;
-    height: 80.7vh;
+    width: 100%;
+    height: 87vh;
     background-color: #000000;
-    position: absolute;
-    top: 10.2%;
-    right: 0;
-    padding: 30px 125px;
+    position: relative;
+    margin-top:40px;
+    /* top: 10.2%;
+    right: 0; */
+    padding: 30px 100px;
 }
 
 .right-text>h1 {
-    font-size: 54px;
+    font-size: 3vw;
     color: white;
     font-weight: 700;
 }
@@ -644,26 +650,62 @@ nav {
     border: 2px solid #e9d203;
 }
 
+@media (max-width:786px) {
+    .left-img>img {
+        display:block;
+    }
+    
+    .right-text {
+        width: 100%;
+        height: auto;
+        background-color: #000000;
+        position: relative;
+        padding: 30px 50px 30px;
+    }
+    .right-text>h4 {
+        font-size: 8vw;
+    }
+    .right-text>h1 {
+        font-size: 5vw;
+        color: white;
+        font-weight: 700;
+    }
+    
+    .right-text>p {
+        color: rgb(209, 204, 204);
+        font-size: 16px;
+        font-weight: 300;
+    }
+    
+    .right-text>button {
+        padding: 5px 10px;
+        font-size: 14px;
+        border: 2px solid white;
+        background: transparent;
+        color: white;
+        border-radius: 5px;
+    }
+}
+
 /* ==============================================================fifth part=========================================================================== */
 .fifth-part {
-    height: 100vh;
-    width: 98%;
+    height: auto;
+    width: 95%;
     position: relative;
     padding-bottom: 50px;
     /* background-color: red; */
 }
 
 .fifth-text {
-    position: absolute;
-    left: 13%;
-    top: 12%;
-    font-family: 'Alexandria';
+    position: relative;
+    padding: 30px 10px;
+    /* font-family: 'Alexandria'; */
 }
 
 .fifth-text>h1 {
-    font-size: 60px;
+    font-size: 4vw;
     font-weight: 700;
-    font-family: 'Alexandria';
+    /* font-family: 'Alexandria'; */
 }
 
 .fifth-text>p {
@@ -688,32 +730,39 @@ nav {
     color: #dbdbdb;
     font-family: sans-serif;
     margin-left: 40px;
-    margin-top: 43%;
+    margin-top: 35%;
     font-size: 120px;
     font-weight: 700;
     font-family: 'Alexandria';
 }
 
 .fifth-img>img {
-    position: absolute;
-    right: 2%;
-    top: 12.2%;
-    width: 50%;
+    position: relative;
+    width: 100%;
     height: auto;
+}
+
+@media (max-width:786px) {
+    .ninty{
+        display:none;   
+    }
+    .fifth-text {
+        padding: 30px 30px;
+    }
+    .fifth-text>h1 {
+        font-size: 7vw;
+    }
 }
 
 /* ==========================================================sixth part===================================================================== */
 
 .sixth-part {
     width: 100%;
-    height: 45vh;
+    height: auto;
     position: relative;
 }
 .left-part-six{
-    width: 60%;
-    position: absolute;
-    top: 15%;
-    left: 10%;
+    position: relative;
 }
 .blog-heading{
     font-size: 58px;
@@ -721,13 +770,12 @@ nav {
     margin-bottom: 5px;
 }
 .rotated-heading-part {
-    position: absolute;
+    position: relative;
     transform: rotate(90deg);
     transform-origin: left top;
+    /* margin-left: 15vw; */
     color: #dbdbdb;
     font-family: sans-serif;
-    right: -150px;
-    top: 27%;
     font-size: 100px;
     font-weight: 800;
 }
@@ -751,6 +799,12 @@ nav {
     border-radius: 5px;
 }
 
+@media (max-width:768px) {
+    .blog-heading{
+        font-size: 38px;
+    }
+}
+
 
 /* ===========================================================seven part==================================================================== */
 .seven-part{
@@ -764,21 +818,17 @@ nav {
 }
 /* ===========================================================eight part==================================================================== */
 .eight-part{
-
     position: relative;
 }
 .first-eight{
-
     text-align: center;
 }
 .second-eight{
-    position: absolute;
-    left: 33%;
-    top: 21%;
+    position: relative;
     text-align: center;
 }
 .second-eight > img{
-    margin-bottom: 42px;
+    margin-bottom: 40px;
 }
 .third-eight{
 
@@ -791,7 +841,6 @@ nav {
 /* ===========================================================footer part ===================================================================== */
 
 .upper-footer {
-    width: 100%;
     height: 60vh;
     background-color: black;
     color: white;
@@ -803,7 +852,7 @@ nav {
 }
 
 .upper-footer>.input-group {
-    width: 20%;
+    width: 25%;
 }
 
 .btn-footer {
@@ -815,7 +864,6 @@ nav {
 }
 
 .mid-footer {
-    width: 100%;
     height: 5vh;
     background-color: #000000;
     color: white;
@@ -827,27 +875,56 @@ nav {
     display: flex;
     gap: 20px;
     margin-right: 40px;
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 10px;
     align-items: center;
     justify-content: end;
 }
 
+.mid-footer a{
+    color:#fff;
+    text-decoration: none;
+}
+
+.mid-footer a:hover{
+    color: yellow;
+}
+
 .down-footer {
-    width: 100%;
-    height: 10vh;
+    height: auto;
     background-color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-top: 2px solid gray;
     color: white;
-    padding-left: 30px;
+    /* padding-left: 30px; */
 }
 
 .down-footer>.right>img {
-    width: 40px;
-    margin-right: 20px;
+    width: 20px;
+    margin-right: 15px;
+}
+
+@media (max-width:786px) {
+    .upper-footer>.input-group {
+        width: 90%;
+    }
+    .upper-footer h1{
+        font-size:22px;
+    }
+    .mid-footer{
+        display: none;
+    }
+    .down-footer>.left{
+        text-align: center;
+    }
+    .down-footer>.right{
+        display: none;
+    }
+    .down-footer>.left{
+        text-align: center;
+    }
 }
 
 

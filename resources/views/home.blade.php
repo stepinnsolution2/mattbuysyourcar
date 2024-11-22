@@ -106,52 +106,6 @@
     </div>
 </div>
 
-<!-- <div class="box" id="exampleModa">
-    <div class="card">
-        <div class="card-body">
-        <div class="row">
-                <div class="input-group mb-3">
-                    <select class="form-select" name="car_type" id="car_type">
-                        <option value="" selected disabled>Type of Car</option>
-                        @foreach($carTypes as $carType)
-                            <option value="{{ $carType->id }}">{{ $carType->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <select class="form-select" name="model" id="model">
-                        <option value="" selected disabled>Model of Car</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <input class="form-control" type="text" name="specification" placeholder="Specification/Trim (e.g.,“E350 Sport”)"
-                        aria-label="default input example">
-                </div>
-                <div class="input-group mb-3">
-                    <input class="form-control" name="engine_size" type="text" placeholder="Engine Size(1499cc)"
-                        aria-label="default input example">
-                </div>
-                <div class="input-group mb-3">
-                    <select class="form-select" name="year" id="inputGroupSelect02">
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <input class="form-control" name="kilometers" type="text" placeholder="kilometers"
-                        aria-label="default input example">
-                </div>
-            </div>
-            <button type="button" id="next-button-modal1" class="button btn btn-modal-first" >
-                Next
-            </button>
-        </div>
-    </div>
-</div> -->
 <div class="box" id="exampleModa">
     <h1>tell us about your car</h1>
     <h6>Car Information</h6>
@@ -338,62 +292,62 @@
 <!-- ===========================================================Second Part========================================================================= -->
 
 
-<div class="second-part container mt-3 mb-5 position-relative overflow-hidden">
+<div class="second-part container mt-5 mb-5 position-relative overflow-hidden">
     <div class="row g-3">
         <div class=" col-md-1">
             <h1 class="rotated-heading">شهادات</h1>
         </div>
-        <div class="second-text  col-md-4">
+        <div class="col-md-4 second-text">
             <h4>Testimonials</h4>
             <h1>What our clients says about us</h1>
             <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. amet
                 consectetur. Massa nunc cras nisl pellentesque integer sed.</p>
-            <button>Sell Your Car</button>
+            <button><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
         </div>
         <div class="col-md-7">
             <div class="swiper swiper-test">
                 <div class="swiper-wrapper">
                 <!-- Slide 1 -->
-                <div class="swiper-slide">
-                    <div class="card custom-card">
-                        <img src="{{ asset('images/hr.jfif') }}" alt="Card Background Image">
-                        <div class="custom-card-content  pb-4">
-                            <h3 class="card-title ">Card Title</h3>
-                            <p class="card-text">This is a description for the card. It provides some details about the content.</p>
-                            <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                    <div class="swiper-slide">
+                        <div class="card custom-card">
+                            <img src="{{ asset('images/hr.jfif') }}" alt="Card Background Image">
+                            <div class="custom-card-content  pb-4">
+                                <h3 class="card-title ">Card Title</h3>
+                                <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                                <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card custom-card">
-                        <img src="{{ asset('images/gp.jfif') }}" alt="Card Background Image">
-                        <div class="custom-card-content">
-                        <h3 class="card-title">Card Title</h3>
-                        <p class="card-text">This is a description for the card. It provides some details about the content.</p>
-                        <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                    <div class="swiper-slide">
+                        <div class="card custom-card">
+                            <img src="{{ asset('images/gp.jfif') }}" alt="Card Background Image">
+                            <div class="custom-card-content">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                            <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                            </div>
                         </div>
-                </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card custom-card">
-                        <img src="{{ asset('images/pc.jfif') }}" alt="Card Background Image">
-                        <div class="custom-card-content">
-                        <h3 class="card-title">Card Title</h3>
-                        <p class="card-text">This is a description for the card. It provides some details about the content.</p>
-                        <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card custom-card">
+                            <img src="{{ asset('images/pc.jfif') }}" alt="Card Background Image">
+                            <div class="custom-card-content">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                            <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                            </div>
                         </div>
-                </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card custom-card">
-                        <img src="{{ asset('images/gp.jfif') }}" alt="Card Background Image">
-                        <div class="custom-card-content">
-                        <h3 class="card-title">Card Title</h3>
-                        <p class="card-text">This is a description for the card. It provides some details about the content.</p>
-                        <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card custom-card">
+                            <img src="{{ asset('images/gp.jfif') }}" alt="Card Background Image">
+                            <div class="custom-card-content">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                            <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                            </div>
                         </div>
-                </div>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -404,7 +358,7 @@
 
 <!-- ==============================================================Third Part====================================================================== -->
 
-<div class="third-part mb-5">
+<div class="third-part">
     <div class="main-faq">
         <h3 class="faq-yellow-text">FAQ</h3>
         <h1>Frequently Asked Questions</h1>
@@ -421,9 +375,6 @@
                 </button>
             </div>
             @endforeach
-
-
-
         </div>
     </div>
 </div>
@@ -431,14 +382,18 @@
 <!-- ========================================================fourth part=================================================================================== -->
 <div class="fourth-part">
     <div class="row fourth-part-div">
-        <div class="left-img">
-            <img src="{{ asset($about->image_path) }}" alt="Not Found">
+        <div class="col-md-6 p-0">
+            <div class="left-img">
+                <img src="{{ asset($about->image_path) }}" alt="Not Found">
+            </div>
         </div>
-        <div class="right-text">
-            <h4 style="color:#d1be0f;">About us</h4>
-            <h1>{{$about->name}}</h1>
-            <p>{{$about->description}}</p>
-            <button class="mr-2">More About Us <i class="fa-solid fa-arrow-right" style="color:#d1be0f;"></i></button>
+        <div class="col-md-6 p-0">
+            <div class="right-text">
+                <h4 style="color:#d1be0f;">About us</h4>
+                <h1>{{$about->name ?? 'The story behind our Journey'}}</h1>
+                <p>{{$about->description}}</p>
+                <button class="mr-2">More About Us <i class="fa-solid fa-arrow-right" style="color:#d1be0f;"></i></button>
+            </div>
         </div>
     </div>
 </div>
@@ -447,10 +402,10 @@
 
 <div class="fifth-part">
     <div class="row">
-        <div class="ninty">
+        <div class="ninty col-md-2">
             <h1 class="rotated-heading-fifth">لماذا نحن؟</h1>
         </div>
-        <div class="fifth-text col-4">
+        <div class="fifth-text col-md-5 col-sm-12">
             <h1>What sets us Apart?</h1>
             <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor
                 fermentum vel semper vestibulum enim congue ut sit. Eu risus lobortis purus ipsum at. Volutpat
@@ -459,9 +414,9 @@
             <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor
                 fermentum vel semper vestibulum enim congue ut sit. Eu risus lobortis purus ipsum at. Volutpat
                 integer faucibus a massa phasellus id rhoncus ultricies.</p>
-            <button>Sell Your Car</button>
+            <button><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
         </div>
-        <div class="fifth-img col-4">
+        <div class="fifth-img col-md-5 col-sm-12">
             <img src="images/fifth-im.jpg" alt="noImage">
         </div>
     </div>
@@ -481,19 +436,71 @@
             margin-top: 34rem !important;
         }
     }
-    </style>
-    <div class="sixth-part">
-        <div class="left-part-six">
-            <h5 style="color:#FCE80A; margin-bottom: -12px;">Blog</h5>
-            <h1 class="blog-heading">Maximizing Your Car’s Value! Tips, Tricks, and Industry News!<span><button class="six-btn-1">Sell Your Car</button>
-                <button class="six-btn-2">Latest Article</button></span></h1>
+</style>
+<div class="sixth-part">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-md-9 left-part-six">
+                <h5 style="color:#FCE80A;margin-bottom:0;">Blog</h5>
+                <h1 class="blog-heading">Maximizing Your Car’s Value! Tips, Tricks, and Industry News!<span><button class="six-btn-1"><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
+                    <button class="six-btn-2">Latest Article</button></span></h1>
 
+            </div>
+            <div class="col-md-1 ninty">
+                <h1 class="rotated-heading-part">مدونة</h1>
+            </div>
         </div>
-
-        <div class="ninty">
-            <h1 class="rotated-heading-part">مدونة</h1>
+        <div class="row">
+            <div class="col-12">
+                <div class="swiper swiper-blog">
+                    <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="card custom-card">
+                                <img src="{{ asset('images/hr.jfif') }}" alt="Card Background Image">
+                                <div class="custom-card-content  pb-4">
+                                    <h3 class="card-title ">Card Title</h3>
+                                    <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                                    <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card custom-card">
+                                <img src="{{ asset('images/gp.jfif') }}" alt="Card Background Image">
+                                <div class="custom-card-content">
+                                <h3 class="card-title">Card Title</h3>
+                                <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                                <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card custom-card">
+                                <img src="{{ asset('images/pc.jfif') }}" alt="Card Background Image">
+                                <div class="custom-card-content">
+                                <h3 class="card-title">Card Title</h3>
+                                <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                                <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card custom-card">
+                                <img src="{{ asset('images/gp.jfif') }}" alt="Card Background Image">
+                                <div class="custom-card-content">
+                                <h3 class="card-title">Card Title</h3>
+                                <p class="card-text">This is a description for the card. It provides some details about the content.</p>
+                                <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 <style>
     .custom-card {
       position: relative;
@@ -517,10 +524,10 @@
     }
   </style>
 <!-- ============================================================seven part=================================================================== -->
-<div class="container pt-5 overflow-hidden">
+<!-- <div class="container pt-5 overflow-hidden">
     <div class="swiper-container swiper-card">
       <div class="swiper-wrapper">
-        <!-- Slide 1 -->
+
         <div class="swiper-slide">
             <div class="card custom-card">
                 <img src="{{ asset('images/hr.jfif') }}" alt="Card Background Image">
@@ -539,7 +546,7 @@
                 <p class="card-text">This is a description for the card. It provides some details about the content.</p>
                 <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
               </div>
-        </div>
+            </div>
         </div>
         <div class="swiper-slide">
           <div class="card custom-card">
@@ -549,7 +556,7 @@
                 <p class="card-text">This is a description for the card. It provides some details about the content.</p>
                 <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
               </div>
-        </div>
+            </div>
         </div>
         <div class="swiper-slide">
           <div class="card custom-card">
@@ -559,41 +566,20 @@
                 <p class="card-text">This is a description for the card. It provides some details about the content.</p>
                 <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
               </div>
+            </div>
         </div>
-        </div>
-    </div>
+      </div>
     </div>
   </div>
-</div>
+</div> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- Include SweetAlert CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
       // Initialize Swiper
-   const swiper = new Swiper('.swiper-card', {
-     slidesPerView: 3, // Number of slides to show at once on larger screens
-     spaceBetween: 0, // Space between the slides (increased for better clarity)
-     loop: true, // Infinite loop for slides
-
-     breakpoints: {
-       0: {
-         slidesPerView: 1, // Show 1 slide on very small mobile screens
-       },
-       576: {
-         slidesPerView: 2, // Show 2 slides on slightly larger mobile screens
-       },
-       768: {
-         slidesPerView: 3, // Show 3 slides on tablets
-       },
-       1024: {
-         slidesPerView: 3, // Maintain 3 slides on desktops and larger screens
-       },
-     },
-   });
-     // Initialize Swiper
-     const swiper2 = new Swiper('.swiper-test', {
-     slidesPerView: 2, // Number of slides to show at once on larger screens
+   const swiper = new Swiper('.swiper-test', {
+     slidesPerView: 6, // Number of slides to show at once on larger screens
      spaceBetween: 0, // Space between the slides (increased for better clarity)
      loop: true, // Infinite loop for slides
 
@@ -612,26 +598,47 @@
        },
      },
    });
+     // Initialize Swiper
+     const swiper2 = new Swiper('.swiper-blog', {
+     slidesPerView: 3, // Number of slides to show at once on larger screens
+     spaceBetween: 0, // Space between the slides (increased for better clarity)
+     loop: true, // Infinite loop for slides
+
+     breakpoints: {
+       0: {
+         slidesPerView: 1, // Show 1 slide on very small mobile screens
+       },
+       576: {
+         slidesPerView: 1, // Show 2 slides on slightly larger mobile screens
+       },
+       768: {
+         slidesPerView: 3, // Show 3 slides on tablets
+       },
+       1024: {
+         slidesPerView: 3, // Maintain 3 slides on desktops and larger screens
+       },
+     },
+   });
 
      </script>
 <!-- ===========================================================eight part================================================================== -->
 
-<div class="eight-part container mb-5">
-    <div class="row mb-5">
-        <div class=" col-md-4">
-            <img src="images/habd.png" style="max-width:100%;height: 200px;" alt=""><br>
+<div class="eight-part container my-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <img src="images/habd.png" style="max-width:100%;height: 200px;" class="mb-2" alt=""><br>
             <span class="h3" >Instant Payment</span ><br>
-            <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor</p>
+            <p class="mt-3">Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor</p>
         </div>
-        <div class=" col-md-4">
-            <img src="images/process.png" style="max-width:100%;height: 200px;" alt=""><br>
+        <div class="col-md-4">
+            <img src="images/process.png" style="max-width:100%;height: 200px;" class="mb-2" alt=""><br>
             <span class="h3" >Hassle-Free Process</span >
-            <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor</p>
+            <p class="mt-3">Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor</p>
         </div>
-        <div class=" col-md-4">
-            <img src="images/Frame.png" style="max-width:100%;height: 200px;" alt=""><br>
+        <div class="col-md-4">
+            <img src="images/Frame.png" style="max-width:100%;height: 200px;" class="mb-2" alt=""><br>
             <span class="h3" >Certified and Trusted</span >
-            <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor</p>
+            <p class="mt-3">Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor</p>
         </div>
     </div>
 </div>

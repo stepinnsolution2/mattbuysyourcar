@@ -41,7 +41,7 @@
                             <li><a href="#" class="">Home</a></li>
                             <li><a href="#" class="">About</a></li>
                             <li><a href="#" class="">Contact</a></li>
-                            <button class="nav-button">Sell Your Car</button>
+                            <button class="nav-button"><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
                         </ul>
                     </div>
                 </nav>
@@ -51,29 +51,55 @@
     <!-- is search -->
     @yield('content')
     <footer>
-        <div class="upper-footer">
-            <h1>Subscribe To Get Updates</h1>
-            <h6>Sell your Car in minutes!</h6>
-            <div class="input-group mt-3">
-                <input type="text" class="form-control" placeholder="Enter Your Mail" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn-footer" type="button" id="button-addon2">Submit</button>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 justify-content-center">
+                <div class="upper-footer">
+                    <h1>Subscribe To Get Updates</h1>
+                    <h6>Sell your Car in minutes!</h6>
+                    <div class="input-group mt-3">
+                        <input type="text" class="form-control" placeholder="Enter Your Mail" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn-footer" type="button" id="button-addon2">Submit</button>
+                    </div>
                 </div>
+            </div>
         </div>
-        <div class="mid-footer">
-            <ul>
-                <li>About</li>
-                <li>Contact Us</li>
-                <li>Terms Of Service</li>
-            </ul>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mid-footer">
+                    <ul>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Terms Of Service</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        <!-- <div class="row justify-content-between">
+            <div class="col-md-6 col-sm-12 p-0">
+            <div class="down-footer">
+                <div class="left">
+                    <h6>Copyright &copy 2024. All Right Reserved</h6>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 p-0">
+                <div class="down-footer">
+                    <div class="right">
+                        <img src="images/facebook.png" width="10px" alt="">
+                        <img src="images/linkedin.png" width="10px" alt="">
+                        <img src="images/insta.png" width="10px" alt="">
+                    </div>
+                </div>
+            </div>
+        </div> -->
         <div class="down-footer">
             <div class="left">
-                <h5>Copyright 2024. All Right Reserved</h5>
+                <h6>Copyright &copy 2024. All Right Reserved</h6>
             </div>
             <div class="right">
-                <img src="images/facebook.png" alt="">
-                <img src="images/linkedin.png" alt="">
-                <img src="images/insta.png" alt="">
+                <img src="images/facebook.png" width="10px" alt="">
+                <img src="images/linkedin.png" width="10px" alt="">
+                <img src="images/insta.png" width="10px" alt="">
             </div>
         </div>
     </footer>
