@@ -44,6 +44,14 @@
                             <button class="nav-button"><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
                         </ul>
                     </div>
+                    <div class="mobile-nav-links">
+                        <button id="menu-toggle" style="text-decoration:none;color:black;" class="nav-button">☰</button>
+                        <ul id="menu" class="menu">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
                 </nav>
             </div>
         </div>
@@ -103,6 +111,17 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById("menu-toggle");
+            const menu = document.getElementById("menu");
+
+            toggleButton.addEventListener("click", function () {
+                menu.classList.toggle("active"); // Toggle the 'active' class
+            });
+        });
+    </script>
 
   <!-- body-wrapper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
