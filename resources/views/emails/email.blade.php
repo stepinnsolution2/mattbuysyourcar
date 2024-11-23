@@ -92,12 +92,12 @@
                 <p>Takecare.... Have a nice day!</p>
                 <br>
                 <p><strong>Regards,</strong></p>
-                <p><a href="https://mattbuysyourcar.com/">mattbuysyourcar.com</a></p>
+                <p>{{ $formData['first_name'] }}  {{ $formData['last_name'] }}</p>
             </td>
         </tr>
         <tr>
             <td class="footer">
-                <p>Copyright &copy; 2024 All rights reserved. | Developed by <a href="">StepinnSolution</a></p>
+                <p>Copyright &copy; 2024 All rights reserved. | Developed by <a href="https://stepinnsolution.com/">StepinnSolution</a></p>
                 <p><a href="https://www.mattbuysyourcar.com">Visit the Website</a></p>
             </td>
         </tr>
