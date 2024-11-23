@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use App\Models\CarDetails;
+use Mail;
 
 class CarDetailsController extends Controller
 {
@@ -72,6 +73,47 @@ class CarDetailsController extends Controller
         $carDetail->car_images = json_encode($imagePaths);  // Store image paths as a JSON array
 
         $carDetail->save();  // Save the car details to the database
+
+        //Email Code 
+        $formData = [
+            'car_type'            => $request->input('car_info.car_type'),
+            'model'               => $request->input('car_info.model'),
+            'specification'       => $request->input('car_info.specification'),
+            'engine_size'         => $request->input('car_info.engine_size'),
+            'year'                => $request->input('car_info.year'),
+            'kilometers'          => $request->input('car_info.kilometers'),
+        
+            // Additional questions
+            'gcc_spec'            => $request->input('additional_questions.gcc_spec'),
+            'condition'           => $request->input('additional_questions.condition'),
+            'paintwork'           => $request->input('additional_questions.paintwork'),
+            'interior_condition'  => $request->input('additional_questions.interior_condition'),
+            'service_history'     => $request->input('additional_questions.service_history'),
+            'comment'             => $request->input('additional_questions.comment'),
+            'loan_secured'        => $request->input('additional_questions.loan_secured'),
+        
+            // Contact info
+            'first_name'          => $request->input('contact_info.first_name'),
+            'last_name'           => $request->input('contact_info.last_name'),
+            'phone_number'        => $request->input('contact_info.phone_number'),
+            'email'               => $request->input('contact_info.email'),
+            'address'             => $request->input('contact_info.address'),
+        
+            // Other data
+            'car_images'          => json_encode($imagePaths),  // Store image paths as a JSON string
+        ];
+        
+
+        //Email to Subscriber
+        $toEmail = "hafiz9oman.dev@gmail.com"; // The email address to send to
+        $subject = 'New Car Available for purchase!!';
+       
+        // Send the email
+        Mail::send('emails.email', ['formData' => $formData], function ($message) use ($toEmail, $subject) {
+            $message->to($toEmail)
+                    ->subject($subject);
+        });
+
         // dd("ok");
         return response()->json([
             'message' => 'Car details saved successfully.',

@@ -156,7 +156,7 @@ nav {
     position: absolute;
     height: 65vh;
     border-radius: 20px;
-    background-color: #f7f6f4;
+    background-color: rgba(247, 246, 244, 0.6);
     top: 25%;
     left: 7%;
     padding: 50px;
