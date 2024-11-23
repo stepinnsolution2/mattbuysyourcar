@@ -48,7 +48,8 @@
     <table>
         <tr>
             <td class="header">
-                <h2 style="color:#fff !important;font-family: cursive;">Mattbuysyourcar</h2>
+                <!-- <h2 style="color:#fff !important;font-family: cursive;">Mattbuysyourcar</h2> -->
+                 <img src="{{ asset('images/logo.png') }}" width="200px" alt="">
             </td>
         </tr>
         <tr>
