@@ -83,6 +83,9 @@ Route::post('/transport_donation', [TransporterDonationController::class, 'store
 //     ]);
 // });
 
+//Subscribe
+Route::post('/subscribe/store', [PageController::class, 'subscribe']);
+
 //Auth Routes
 Auth::routes(['register' => false]);
 
@@ -141,6 +144,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/faqs/{faq}/edit', [FaqController::class, 'edit'])->name('admin.faqs.edit');
     Route::put('/admin/faqs/{faq}', [FaqController::class, 'update'])->name('admin.faqs.update');
     Route::delete('/admin/faqs/{faq}', [FaqController::class, 'destroy'])->name('admin.faqs.destroy');
+
+    //Subscriber
+    Route::get('/admin/subscribe', [SubscribeController::class, 'index'])->name('admin.subscribe');
+    Route::delete('/admin/subscribe/{id}', [SubscribeController::class, 'destroy'])->name('admin.subscribe.destroy');
 
     //Gallery
     Route::get('/admin/gallery', [GalleryController::class, 'gallery'])->name('admin.gallery');

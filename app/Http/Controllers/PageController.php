@@ -18,6 +18,7 @@ use App\Models\Faq;
 use App\Models\CarType;
 use App\Models\CarModel;
 use App\Models\Blog;
+use App\Models\Subscribe;
 
 use Illuminate\Http\Request;
 
@@ -90,6 +91,34 @@ class PageController extends Controller
         // }
 
         return view('event');
+    }
+
+    public function subscribe(Request $req){
+        $check = Subscribe::where('email', $req->email)->first();
+
+        if($check){
+            return response()->json([
+                'status' => false
+            ]);
+        }
+
+        Subscribe::create([
+            'email' => $req->email
+        ]);
+
+        //Email to Subscriber
+        $toEmail = $req->email;  // The email address to send to
+        $subject = 'Welcome to Our Service! Stay Tuned for Updates';
+       
+        // Send the email
+        // Mail::send('emails.email-subscribe', [], function ($message) use ($toEmail, $subject) {
+        //     $message->to($toEmail)
+        //             ->subject($subject);
+        // });
+
+        return response()->json([
+            'status' => true
+        ]);
     }
 
 

@@ -65,7 +65,7 @@
                     <h1>Subscribe To Get Updates</h1>
                     <h6>Sell your Car in minutes!</h6>
                     <div class="input-group mt-3">
-                        <input type="text" class="form-control" placeholder="Enter Your Mail" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="text" id="email_sub" class="form-control" placeholder="Enter Your Mail" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn-footer" type="button" id="button-addon2">Submit</button>
                     </div>
                 </div>
@@ -111,6 +111,90 @@
             </div>
         </div>
     </footer>
+
+    <script>
+	$(document).ready(function() {
+
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+
+		$('#button-addon2').on('click', function(event) {
+			event.preventDefault(); // Prevent the default form submission
+
+			// Simple JS validation
+			const email = $('#email_sub').val().trim();
+
+			function validateEmail(email) {
+				const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				return emailRegex.test(email);
+			}
+
+			if (email === '') {
+				Swal.fire({
+					icon: 'warning',
+					title: 'Validation Error',
+					text: 'Email is required. Please fill them out.',
+					confirmButtonText: 'OK'
+				});
+				return;
+			}
+
+			if (!validateEmail(email)) {
+				Swal.fire({
+					icon: 'warning',
+					title: 'Invalid Email',
+					text: 'Please enter a valid email address.',
+					confirmButtonText: 'OK'
+				});
+				return;
+			}
+
+			// Collect form data
+			const formData = {
+				email: $('#email_sub').val()
+			};
+			// Send AJAX request
+			$.ajax({
+				url: '{{ url('subscribe/store') }}', // Replace with your server endpoint
+				type: 'POST',
+				data: formData,
+				success: function(response) {
+					// Display SweetAlert success message
+					if(response.status){
+						Swal.fire({
+							icon: 'success',
+							title: 'Success!',
+							text: 'Successfully Subscribed.',
+							confirmButtonText: 'OK'
+						});
+					}else{
+						Swal.fire({
+							icon: 'warning',
+							title: 'Warning!',
+							text: 'Already Subscribed.',
+							confirmButtonText: 'OK'
+						});
+					}
+
+					// Reset the form fields
+					$('#email_sub').val("");
+				},
+				error: function(xhr, status, error) {
+					// Display SweetAlert error message
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong! Please try again later.',
+						confirmButtonText: 'OK'
+					});
+				}
+			});
+		});
+	});
+	</script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
