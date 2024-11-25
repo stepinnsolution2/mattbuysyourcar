@@ -311,46 +311,18 @@
             <div class="swiper swiper-test">
                 <div class="swiper-wrapper">
                 <!-- Slide 1 -->
+                 @foreach($testimonials as $testimonial)
                     <div class="swiper-slide">
                         <div class="card custom-card">
-                            <img src="{{ asset('images/hr.jfif') }}" alt="Card Background Image">
+                            <img src="{{ asset($testimonial->image_path) }}" alt="{{ $testimonial->name }}">
                             <div class="custom-card-content  pb-4">
-                                <h3 class="card-title ">Card Title</h3>
-                                <p class="card-text">This is a description for the card. It provides some details about the content.</p>
-                                <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
+                                <h3 class="card-title ">{{ $testimonial->name }}</h3>
+                                <p class="card-text">{{ $testimonial->description }}</p>
+                                <!-- <a href="#" class="btn btn-transparent text-light border border-light">Read More</a> -->
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="card custom-card">
-                            <img src="{{ asset('images/gp.jfif') }}" alt="Card Background Image">
-                            <div class="custom-card-content">
-                            <h3 class="card-title">Card Title</h3>
-                            <p class="card-text">This is a description for the card. It provides some details about the content.</p>
-                            <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card custom-card">
-                            <img src="{{ asset('images/pc.jfif') }}" alt="Card Background Image">
-                            <div class="custom-card-content">
-                            <h3 class="card-title">Card Title</h3>
-                            <p class="card-text">This is a description for the card. It provides some details about the content.</p>
-                            <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card custom-card">
-                            <img src="{{ asset('images/gp.jfif') }}" alt="Card Background Image">
-                            <div class="custom-card-content">
-                            <h3 class="card-title">Card Title</h3>
-                            <p class="card-text">This is a description for the card. It provides some details about the content.</p>
-                            <a href="#" class="btn btn-transparent text-light border border-light">Read More</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
