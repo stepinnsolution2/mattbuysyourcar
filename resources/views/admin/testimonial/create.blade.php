@@ -35,7 +35,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="position">Comment<span class="text-danger">*</span></label>
-                                <textarea type="text" name="description" required id="description" class="form-control @error('description') is-invalid @enderror" placeholder="Description" value="{{ old('position') }}"></textarea>
+                                <textarea type="text" name="description" required id="description" class="form-control @error('description') is-invalid @enderror" placeholder="Comment" value="{{ old('position') }}"></textarea>
                                 @error('description')
                                     <p class="invalid-feedback">{{ $message }}</p>
                                 @enderror

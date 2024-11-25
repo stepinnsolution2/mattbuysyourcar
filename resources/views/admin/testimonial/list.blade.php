@@ -8,7 +8,7 @@
 								<h1>Testimonials</h1>
 							</div>
 							<div class="col-sm-6 text-right">
-								<a href="{{ route('admin.testimonial.create') }}" class="btn btn-warning">Add Service</a>
+								<a href="{{ route('admin.testimonial.create') }}" class="btn btn-warning">Add Testimonial</a>
 							</div>
 						</div>
 					</div>
