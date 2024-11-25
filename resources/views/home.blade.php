@@ -295,7 +295,7 @@
 <!-- ===========================================================Second Part========================================================================= -->
 
 
-<div class="second-part container mt-5 mb-5 position-relative overflow-hidden">
+<div class="second-part container mt-5 mb-5 position-relative overflow-hidden" id="testimonials">
     <div class="row g-3">
         <div class=" col-md-1">
             <h1 class="rotated-heading">شهادات</h1>
@@ -383,7 +383,7 @@
 </div>
 
 <!-- ========================================================fourth part=================================================================================== -->
-<div class="fourth-part">
+<div class="fourth-part" id="about_us">
     <div class="row fourth-part-div">
         <div class="col-md-6 p-0">
             <div class="left-img">
@@ -395,7 +395,7 @@
                 <h4 style="color:#d1be0f;">About us</h4>
                 <h1>{{$about->name ?? 'The story behind our Journey'}}</h1>
                 <p>{{$about->description}}</p>
-                <button class="mr-2">More About Us <i class="fa-solid fa-arrow-right" style="color:#d1be0f;"></i></button>
+                <!-- <button class="mr-2">More About Us <i class="fa-solid fa-arrow-right" style="color:#d1be0f;"></i></button> -->
             </div>
         </div>
     </div>
@@ -440,13 +440,14 @@
         }
     }
 </style>
-<div class="sixth-part">
+<div class="sixth-part mb-5">
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-md-9 left-part-six">
                 <h5 style="color:#FCE80A;margin-bottom:0;">Blog</h5>
                 <h1 class="blog-heading">Maximizing Your Car’s Value! Tips, Tricks, and Industry News!<span><button class="six-btn-1"><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
-                    <button class="six-btn-2">Latest Article</button></span></h1>
+                    <!-- <button class="six-btn-2">Latest Article</button> -->
+                </span></h1>
 
             </div>
             <div class="col-md-1 ninty">
@@ -598,7 +599,7 @@
      </script>
 <!-- ===========================================================eight part================================================================== -->
 
-<div class="eight-part container my-5">
+<!-- <div class="eight-part container my-5">
     <div class="row text-center">
         <div class="col-md-4">
             <img src="images/habd.png" style="max-width:100%;height: 200px;" class="mb-2" alt=""><br>
@@ -616,7 +617,7 @@
             <p class="mt-3">Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor</p>
         </div>
     </div>
-</div>
+</div> -->
 <script src="{{ asset('js/faq.js') }}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use App\Models\CarDetails;
 use Mail;
+use DB;
 
 class CarDetailsController extends Controller
 {
@@ -44,10 +45,14 @@ class CarDetailsController extends Controller
             $imagePaths[] = $imagePath;  // Add the path to the array
         }
 
+        $car_type = DB::table('car_types')->where('id', $request->input('car_info.car_type'))->pluck('name')->first();
+
+        $car_model = DB::table('car_models')->where('id', $request->input('car_info.model'))->pluck('name')->first();
+
         // Create car details entry
         $carDetail = new CarDetails();
-        $carDetail->car_type = $request->input('car_info.car_type');
-        $carDetail->model = $request->input('car_info.model');
+        $carDetail->car_type = $car_type;
+        $carDetail->model = $car_model;
         $carDetail->specification = $request->input('car_info.specification');
         $carDetail->engine_size = $request->input('car_info.engine_size');
         $carDetail->year = $request->input('car_info.year');
@@ -76,8 +81,8 @@ class CarDetailsController extends Controller
 
         //Email Code 
         $formData = [
-            'car_type'            => $request->input('car_info.car_type'),
-            'model'               => $request->input('car_info.model'),
+            'car_type'            => $car_type,
+            'model'               => $car_model,
             'specification'       => $request->input('car_info.specification'),
             'engine_size'         => $request->input('car_info.engine_size'),
             'year'                => $request->input('car_info.year'),
@@ -105,7 +110,7 @@ class CarDetailsController extends Controller
         
 
         //Email to Subscriber
-        $toEmail = "hafiz9oman.dev@gmail.com"; // The email address to send to
+        $toEmail = "stepinnsolution@gmail.com"; // The email address to send to
         $subject = 'New Car Available for purchase!!';
        
         // Send the email

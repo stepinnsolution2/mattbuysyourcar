@@ -42,7 +42,7 @@
                     <div class="navs-links">
                         <ul>
                             <li><a href="{{ url('/') }}" class="">Home</a></li>
-                            <li><a href="#" class="">About</a></li>
+                            <li><a href="{{ url('/#about_us') }}" class="">About</a></li>
                             <li><a href="#" class="">Contact</a></li>
                             <button class="nav-button"><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
                         </ul>
@@ -51,7 +51,7 @@
                         <button id="menu-toggle" style="text-decoration:none;color:black;" class="nav-button">☰</button>
                         <ul id="menu" class="menu">
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="#about">About</a></li>
+                            <li><a href="{{ url('/#about_us') }}">About</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
