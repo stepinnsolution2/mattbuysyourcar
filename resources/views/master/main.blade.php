@@ -121,7 +121,7 @@
 		url: u,
 		options: {
 				waId: "923484195196",
-				siteName: "Matthew",
+				siteName: "Matthew Garth",
 				siteTag: "Typically replies within an hour",
 				siteLogo: "{{ asset('images/logo.png') }}",
 				widgetPosition: "RIGHT",
