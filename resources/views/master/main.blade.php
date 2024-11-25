@@ -35,13 +35,13 @@
             <div class="col-12 col-sm-6">
                 <nav>
                     <div class="logo">
-                        <a href="{{ url('/') }}">
+                        <a href="{{ url('/#home') }}">
                             <img src="{{asset('images/logo.png')}}" alt="Logo" class="logo">
                         </a>
                     </div>
                     <div class="navs-links">
                         <ul>
-                            <li><a href="{{ url('/') }}" class="">Home</a></li>
+                            <li><a href="{{ url('/#home') }}" class="">Home</a></li>
                             <li><a href="{{ url('/#about_us') }}" class="">About</a></li>
                             <li><a href="#" class="">Contact</a></li>
                             <button class="nav-button"><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>

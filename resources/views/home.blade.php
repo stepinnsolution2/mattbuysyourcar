@@ -50,7 +50,7 @@
 @section('content')
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
-<div class="content-wrapper">
+<div class="content-wrapper" id="home">
     <div class="greennature-content">
         <!-- Above Sidebar Section-->
         <!-- Sidebar With Content Section-->
@@ -395,7 +395,7 @@
                 <h4 style="color:#d1be0f;">About us</h4>
                 <h1>{{$about->name ?? 'The story behind our Journey'}}</h1>
                 <p>{{$about->description}}</p>
-                <!-- <button class="mr-2">More About Us <i class="fa-solid fa-arrow-right" style="color:#d1be0f;"></i></button> -->
+                <button class="mr-2"><a href="{{ url('/#testimonials') }}" style="text-decoration:none;color:#fff;">More About Us <i class="fa-solid fa-arrow-right" style="color:#d1be0f;"></i></a></button>
             </div>
         </div>
     </div>
