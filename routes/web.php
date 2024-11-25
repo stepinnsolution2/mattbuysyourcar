@@ -15,7 +15,7 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\MarketingMediaController;
 use App\Http\Controllers\admin\AdminContactController;
 use App\Http\Controllers\admin\NurseryController;
-use App\Http\Controllers\admin\ServiceController;
+use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\TransporterController;
 use App\Http\Controllers\admin\CarController;
 use App\Http\Controllers\CarDetailsController;
@@ -140,6 +140,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/car_detail/{car}', [CarDetailsController::class, 'show'])->name('admin.car_detail.show');
     Route::delete('/admin/car_detail/{car}', [CarDetailsController::class, 'destroy'])->name('admin.car_detail.destroy');
 
+    Route::get('admin/testimonial', [TestimonialController::class, 'index'])->name('admin.testimonial.index');
+    Route::get('admin/testimonial/create', [TestimonialController::class, 'create'])->name('admin.testimonial.create');
+    Route::post('admin/testimonial', [TestimonialController::class, 'store'])->name('admin.testimonial.store');
+    Route::get('admin/testimonial/{id}/edit', [TestimonialController::class, 'edit'])->name('admin.testimonial.edit');
+    Route::post('admin/testimonial/{id}', [TestimonialController::class, 'update'])->name('admin.testimonial.update');
+    Route::delete('admin/testimonial/{id}', [TestimonialController::class, 'destroy'])->name('admin.testimonial.destroy');
+
     //faqs
     Route::get('/admin/faqs', [FaqController::class, 'index'])->name('admin.faqs.index');
     Route::get('/admin/faqs/create', [FaqController::class, 'create'])->name('admin.faqs.create');
@@ -246,13 +253,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('admin/Nursery/{id}', [NurseryController::class, 'update'])->name('admin.nursery.update');
     Route::delete('admin/Nursery/{id}', [NurseryController::class, 'destroy'])->name('admin.nursery.destroy');
     Route::delete('/admin/Nursery-delete-image/{Nursery}', [NurseryController::class, 'destroy_image'])->name('admin.nursery.delete_image');
-
-    Route::get('admin/service', [ServiceController::class, 'index'])->name('admin.service.index');
-    Route::get('admin/service/create', [ServiceController::class, 'create'])->name('admin.service.create');
-    Route::post('admin/service', [ServiceController::class, 'store'])->name('admin.service.store');
-    Route::get('admin/service/{id}/edit', [ServiceController::class, 'edit'])->name('admin.service.edit');
-    Route::post('admin/service/{id}', [ServiceController::class, 'update'])->name('admin.service.update');
-    Route::delete('admin/service/{id}', [ServiceController::class, 'destroy'])->name('admin.service.destroy');
 
 
     Route::get('admin/transporter', [TransporterController::class, 'index'])->name('admin.transporter.index');

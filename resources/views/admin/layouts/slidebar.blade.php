@@ -98,6 +98,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route('admin.testimonial.index') }}" class="nav-link @if(Request::routeIs('admin.testimonial.index')) active @endif">
+                    <i class="fas fa-solid fa-car nav-icon"></i>
+                    <p>Testimonials</p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('admin.subscribe') }}" class="nav-link @if(Request::routeIs('admin.subscribe')) active @endif">
                     <i class="fas fa-solid fa-car nav-icon"></i>
                     <p>Subscribers</p>
