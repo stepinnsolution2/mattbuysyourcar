@@ -78,7 +78,7 @@
             <div class="col-md-12">
                 <div class="mid-footer">
                     <ul>
-                        <li><a href="">About</a></li>
+                        <li><a href="{{ url('/#about_us') }}">About</a></li>
                         <li><a href="">Contact Us</a></li>
                         <li><a href="">Terms Of Service</a></li>
                     </ul>
