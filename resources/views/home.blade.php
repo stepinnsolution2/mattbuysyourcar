@@ -790,8 +790,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     // SweetAlert for success
                     Swal.fire({
                         icon: 'success',
-                        title: 'Success!',
-                        text: 'Data saved successfully!',
+                        title: 'Thank you for your inquiry!',
+                        text: 'Mathew will come back to you soon.',
                         showConfirmButton: true
                     });
                     // Optionally redirect or reset modal data
