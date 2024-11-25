@@ -2,9 +2,7 @@
 <style>
     /* Default styling for banner images */
     .banner-img {
-        width: 600px;
-        /* Set the width you want */
-        height: 200px;
+        max-width: 200px;
     }
     @media (max-width: 1050px) {
         .banner-img {

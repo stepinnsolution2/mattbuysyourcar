@@ -108,9 +108,9 @@
                 <h6>Copyright &copy 2024. All Right Reserved</h6>
             </div>
             <div class="right">
-                <img src="images/facebook.png" width="10px" alt="">
-                <img src="images/linkedin.png" width="10px" alt="">
-                <img src="images/insta.png" width="10px" alt="">
+                <a href="https://facebook.com/mattbuysyourcar"><img src="{{ asset('images/facebook.png') }}" width="25px" alt=""></a>
+                <a href="https://www.linkedin.com/mattbuysyourcar"><img src="{{ asset('images/linkedin.png') }}" width="25px" alt=""></a>
+                <a href="https://www.instagram.com/mattbuysyourcar"><img src="{{ asset('images/insta.png') }}" width="25px" alt=""></a>
             </div>
         </div>
     </footer>

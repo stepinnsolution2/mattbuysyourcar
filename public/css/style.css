@@ -964,6 +964,7 @@ nav {
 
 .down-footer {
     height: auto;
+    padding: 0 20px;
     background-color: black;
     display: flex;
     align-items: center;
@@ -973,9 +974,13 @@ nav {
     /* padding-left: 30px; */
 }
 
+.down-footer>.left{
+    margin-right:25px;
+}
+
 .down-footer>.right>img {
-    width: 20px;
-    margin-right: 15px;
+    width: 25px;
+    /* margin-right: 15px; */
 }
 
 @media (max-width:786px) {
