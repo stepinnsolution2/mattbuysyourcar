@@ -83,6 +83,9 @@ Route::post('/transport_donation', [TransporterDonationController::class, 'store
 //     ]);
 // });
 
+//Blog
+Route::get('/blog/view/{id}/{name}', [PageController::class, 'blog_view']);
+
 //Subscribe
 Route::post('/subscribe/store', [PageController::class, 'subscribe']);
 

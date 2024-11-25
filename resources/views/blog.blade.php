@@ -8,15 +8,16 @@
 
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-8">
-            <h1 class="display-4 mb-4">{{$blog->$title}}</h1>
-            <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisi pellentesque integer sed. In tortor fermentum vel semper vestibulum enim congue ut sit.</p>
-            <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisi pellentesque integer sed...</p>
-            <p>Lorem ipsum dolor sit amet consectetur. Arcu suscipit eget sagittis nulla hac tortor malesuada...</p>
-        </div>
-        <div class="col-md-4">
-            <img src="jeep-wrangler.jpg" class="img-fluid rounded" alt="Jeep Wrangler">
-        </div>
+        <div class="col-md-12 text-center mt-5 pt-5">
+            <img src="{{ asset($blog->image_path) }}" alt="{{$blog->name}}">
+            <h2 class="mt-3">{{$blog->name}}</h2>
+            <p><span>{{ $blog->created_at->format('M d, Y') ?? '' }}  |  {{ $blog->subtitle ?? '' }} </span><hr></p>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 pb-5">
+           <div class="m-5">{!! $blog->description !!}</div>
+       </div>
     </div>
 </div>
 

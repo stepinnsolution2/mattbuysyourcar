@@ -93,6 +93,11 @@ class PageController extends Controller
         return view('event');
     }
 
+    public function blog_view($id){
+        $blog = Blog::find($id);
+
+        return view('blog', compact('blog'));
+    }
     public function subscribe(Request $req){
         $check = Subscribe::where('email', $req->email)->first();
 

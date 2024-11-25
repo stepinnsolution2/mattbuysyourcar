@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="{{ asset('images/favicons.png') }}" rel="icon">
     <title>Mattbuysyourcar</title>
     <!-- Swiper CSS -->
     <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
@@ -34,11 +35,13 @@
             <div class="col-12 col-sm-6">
                 <nav>
                     <div class="logo">
-                        <img src="{{asset('images/logo.png')}}" alt="Logo" class="logo">
+                        <a href="{{ url('/') }}">
+                            <img src="{{asset('images/logo.png')}}" alt="Logo" class="logo">
+                        </a>
                     </div>
                     <div class="navs-links">
                         <ul>
-                            <li><a href="#" class="">Home</a></li>
+                            <li><a href="{{ url('/') }}" class="">Home</a></li>
                             <li><a href="#" class="">About</a></li>
                             <li><a href="#" class="">Contact</a></li>
                             <button class="nav-button"><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
@@ -47,7 +50,7 @@
                     <div class="mobile-nav-links">
                         <button id="menu-toggle" style="text-decoration:none;color:black;" class="nav-button">☰</button>
                         <ul id="menu" class="menu">
-                            <li><a href="#home">Home</a></li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="#about">About</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
