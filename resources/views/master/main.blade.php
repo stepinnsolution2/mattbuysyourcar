@@ -120,7 +120,7 @@
 		w.gbwawc = {
 		url: u,
 		options: {
-				waId: "923484195196",
+				waId: "923078558517",
 				siteName: "Matthew Garth",
 				siteTag: "Typically replies within an hour",
 				siteLogo: "{{ asset('images/logo.png') }}",
