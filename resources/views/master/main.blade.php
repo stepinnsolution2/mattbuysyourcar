@@ -116,6 +116,31 @@
     </footer>
 
     <script>
+		(function (w, d, s, u) {
+		w.gbwawc = {
+		url: u,
+		options: {
+				waId: "923484195196",
+				siteName: "Matthew",
+				siteTag: "Typically replies within an hour",
+				siteLogo: "{{ asset('images/logo.png') }}",
+				widgetPosition: "RIGHT",
+				triggerMessage: "Chat with me...",
+				welcomeMessage: "Hi there 👋",
+				brandColor: "#25D366",
+				messageText: "How can I help you?",
+				replyOptions: ['Consult with me about your Car'],
+			},
+		};
+		var h = d.getElementsByTagName(s)[0],
+		j = d.createElement(s);
+		j.async = true;
+		j.src = u + "/whatsapp-widget.min.js?_=" + Math.random();
+		h.parentNode.insertBefore(j, h);
+		})(window, document, "script", "https://waw.gallabox.com");
+	</script>
+
+    <script>
 	$(document).ready(function() {
 
 		$.ajaxSetup({
