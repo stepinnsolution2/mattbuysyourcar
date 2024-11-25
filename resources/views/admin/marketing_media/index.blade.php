@@ -48,7 +48,7 @@
 					<!-- Default box -->
 					<div class="container-fluid">
 						<div class="card">
-							<div class="table-responsive">
+							<div class="table-responsive  p-3">
 								<table id="table" class="table table-sm table-striped">
 									<thead style="background:#353535;color:white;">
 										<tr>

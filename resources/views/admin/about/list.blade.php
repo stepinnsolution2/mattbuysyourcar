@@ -34,11 +34,11 @@
 							</div>
 							@if($About)
 								<div class="col-sm-6 text-right">
-									<a href="{{ route('admin.about.edit') }}" class="btn btn-secondary">Edit About</a>
+									<a href="{{ route('admin.about.edit') }}" class="btn btn-warning">Edit About</a>
 								</div>
 							@else
 								<div class="col-sm-6 text-right">
-									<a href="{{ route('admin.about.create') }}" class="btn btn-secondary">Add About</a>
+									<a href="{{ route('admin.about.create') }}" class="btn btn-warning">Add About</a>
 								</div>
 							@endif
 						</div>

@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-sm-6 text-right">
                     <!-- <a href="" class="btn btn-primary">Add Banner</a> -->
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
                         Add Banner
                     </button>
                 </div>

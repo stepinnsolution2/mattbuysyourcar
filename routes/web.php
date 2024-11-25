@@ -20,6 +20,7 @@ use App\Http\Controllers\admin\TransporterController;
 use App\Http\Controllers\admin\CarController;
 use App\Http\Controllers\CarDetailsController;
 use App\Http\Controllers\admin\FaqController;
+use App\Http\Controllers\admin\SubscribeController;
 
 /*
 |--------------------------------------------------------------------------

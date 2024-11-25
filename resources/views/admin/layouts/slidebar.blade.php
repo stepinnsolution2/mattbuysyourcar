@@ -97,6 +97,12 @@
                     <p>Car Types & Models</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.subscribe') }}" class="nav-link @if(Request::routeIs('admin.subscribe')) active @endif">
+                    <i class="fas fa-solid fa-car nav-icon"></i>
+                    <p>Subscribers</p>
+                </a>
+            </li>
         </ul>
     </nav>
 
