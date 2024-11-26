@@ -13,7 +13,7 @@ class CarDetailsController extends Controller
 {
     public function storeCarInfo(Request $request)
     {
-         dd($request->all());
+         //dd($request->all());
         // Validate the incoming data
         $validator = Validator::make($request->all(), [
             'car_info.car_type' => 'string',

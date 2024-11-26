@@ -133,7 +133,6 @@
             </div>
             <div class="input-group mb-3">
                 <select class="form-select" name="year" id="inputGroupSelect02">
-                    <option value="" selected disabled>Year</option>
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
@@ -667,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 model: $("select[name='model']").val() || '',
                 specification: $("input[name='specification']").val(),
                 engine_size: $("input[name='engine_size']").val(),
-                year: $("select[name='year']").val() || '',
+                year: $("select[name='year']").val(),
                 kilometers: $("input[name='kilometers']").val(),
             };
             // Move to next modal
