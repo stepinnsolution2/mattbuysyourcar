@@ -137,7 +137,7 @@ nav {
 }
 
 .logo {
-    max-height: 150px;
+    max-height: 125px;
 }
 
 /* Banner styles */
@@ -196,10 +196,6 @@ nav {
         height: 35px;
     }
 
-    .logo {
-        width: 90px;
-    }
-
     .navs-links {
         display: none;
     }
@@ -228,33 +224,36 @@ nav {
     cursor: pointer;
     display: none; /* Hidden by default for larger screens */
   }
-  
+
   .menu {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex; /* Horizontal layout by default */
   }
-  
+
   .menu li {
     margin: 0 10px;
   }
-  
+
   .menu li a {
     color: white;
     text-decoration: none;
   }
-  
+
   .menu li a:hover {
     text-decoration: underline;
   }
-  
+
   /* Responsive styles */
   @media (max-width: 768px) {
     .menu-toggle {
       display: block;
     }
-  
+    .logo{
+        margin-top: 2px;
+    }
+
     .menu {
       display: none; /* Hidden by default */
       flex-direction: column;
@@ -264,11 +263,11 @@ nav {
       left: 0;
       width: 100%;
     }
-  
+
     .menu.active {
       display: flex; /* Show menu when active */
     }
-  
+
     .menu li {
       margin: 10px 0;
       text-align: center;
@@ -725,7 +724,7 @@ nav {
     .left-img>img {
         display:none;
     }
-    
+
     .right-text {
         width: 100%;
         height: auto;
@@ -742,13 +741,13 @@ nav {
         color: white;
         font-weight: 700;
     }
-    
+
     .right-text>p {
         color: rgb(209, 204, 204);
         font-size: 19px;
         font-weight: 300;
     }
-    
+
     .right-text>button {
         padding: 5px 10px;
         font-size: 14px;
@@ -816,7 +815,7 @@ nav {
 
 @media (max-width:786px) {
     .ninty{
-        display:none;   
+        display:none;
     }
     .fifth-text {
         padding: 30px 30px;

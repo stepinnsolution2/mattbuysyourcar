@@ -13,7 +13,7 @@ class CarDetailsController extends Controller
 {
     public function storeCarInfo(Request $request)
     {
-        // dd($request->all());
+         dd($request->all());
         // Validate the incoming data
         $validator = Validator::make($request->all(), [
             'car_info.car_type' => 'string',
@@ -30,19 +30,26 @@ class CarDetailsController extends Controller
             'additional_questions.comment' => 'string',
             'additional_questions.loan_secured' => 'string',
             'images' => 'array|min:6',  // Ensure there are at least 6 images
-            'contact_info.first_name' => 'string',
+            'contact_info.first_name' => 'required|string',
             'contact_info.last_name' => 'string',
-            'contact_info.phone_number' => 'string',
+            'contact_info.phone_number' => 'required|string',
             'contact_info.email' => 'email',
             'contact_info.address' => 'string',
         ]);
 
         // Handling images
         $imagePaths = [];
-        foreach ($request->file('images') as $image) {
-            // Store image and get its path
-            $imagePath = $image->store('car_images', 'public');  // store in 'public' disk, inside 'car_images' folder
-            $imagePaths[] = $imagePath;  // Add the path to the array
+
+        if ($request->hasFile('images') && $request->file('images')->isNotEmpty()) {
+            foreach ($request->file('images') as $image) {
+                // Store image and get its path
+                $imagePath = $image->store('car_images', 'public');  // store in 'public' disk, inside 'car_images' folder
+                $imagePaths[] = $imagePath;  // Add the path to the array
+            }
+        } else {
+            // Handle case where no images were uploaded (if needed)
+            // You can set $imagePaths to an empty array or handle as per your needs
+            $imagePaths = [];  // This will be empty if no images are uploaded
         }
 
         $car_type = DB::table('car_types')->where('id', $request->input('car_info.car_type'))->pluck('name')->first();
@@ -79,7 +86,7 @@ class CarDetailsController extends Controller
 
         $carDetail->save();  // Save the car details to the database
 
-        //Email Code 
+        //Email Code
         $formData = [
             'car_type'            => $car_type,
             'model'               => $car_model,
@@ -87,7 +94,7 @@ class CarDetailsController extends Controller
             'engine_size'         => $request->input('car_info.engine_size'),
             'year'                => $request->input('car_info.year'),
             'kilometers'          => $request->input('car_info.kilometers'),
-        
+
             // Additional questions
             'gcc_spec'            => $request->input('additional_questions.gcc_spec'),
             'condition'           => $request->input('additional_questions.condition'),
@@ -96,23 +103,23 @@ class CarDetailsController extends Controller
             'service_history'     => $request->input('additional_questions.service_history'),
             'comment'             => $request->input('additional_questions.comment'),
             'loan_secured'        => $request->input('additional_questions.loan_secured'),
-        
+
             // Contact info
             'first_name'          => $request->input('contact_info.first_name'),
             'last_name'           => $request->input('contact_info.last_name'),
             'phone_number'        => $request->input('contact_info.phone_number'),
             'email'               => $request->input('contact_info.email'),
             'address'             => $request->input('contact_info.address'),
-        
+
             // Other data
             'car_images'          => json_encode($imagePaths),  // Store image paths as a JSON string
         ];
-        
+
 
         //Email to Subscriber
         $toEmail = "stepinnsolution@gmail.com"; // The email address to send to
         $subject = 'New Car Available for purchase!!';
-       
+
         // Send the email
         Mail::send('emails.email', ['formData' => $formData], function ($message) use ($toEmail, $subject) {
             $message->to($toEmail)

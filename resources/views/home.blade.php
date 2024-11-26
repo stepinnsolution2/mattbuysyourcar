@@ -133,6 +133,7 @@
             </div>
             <div class="input-group mb-3">
                 <select class="form-select" name="year" id="inputGroupSelect02">
+                    <option value="" selected disabled>Year</option>
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
@@ -275,18 +276,18 @@
                 <div class="contact-info-form">
                     <h3>Contact Information:</h3>
                       <div class="form-group">
-                        <input type="text" name="first_name" placeholder="First Name" class="form-control" />
+                        <input type="text" name="first_name" required placeholder="First Name" class="form-control" />
                         <input type="text" name="last_name" placeholder="Last Name" class="form-control" />
                       </div>
                       <div class="form-group">
-                        <input type="number" name="phone_number" placeholder="Phone Number" class="form-control" min="0" maxlength="13" />
+                        <input type="number" name="phone_number" required placeholder="Phone Number" class="form-control" min="0" maxlength="13" />
                         <input type="email" name="email" placeholder="Email Address" class="form-control" />
                       </div>
                       <div class="form-group">
                         <input style="min-height: 70px;" name="address" type="text" placeholder="Location where car ..." class="form-control full-width" />
                       </div>
                   </div>
-                  <button type="button" class="button">Submit</button>
+                  <button type="button" id = "submitbutton" class="button ">Submit</button>
             </div>
         </div>
     </div>
@@ -662,11 +663,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Modal 1 - Collect car info
         document.getElementById("next-button-modal1").addEventListener("click", function() {
             modalData.car_info = {
-                car_type: $("select[name='car_type']").val(),
-                model: $("select[name='model']").val(),  // Corrected 'modal' to 'model'
+                car_type: $("select[name='car_type']").val() || '',
+                model: $("select[name='model']").val() || '',
                 specification: $("input[name='specification']").val(),
                 engine_size: $("input[name='engine_size']").val(),
-                year: $("select[name='year']").val(),
+                year: $("select[name='year']").val() || '',
                 kilometers: $("input[name='kilometers']").val(),
             };
             // Move to next modal
@@ -676,13 +677,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Modal 2 - Collect additional data and move to next modal
         $("#next-button-modal2").click(function () {
             modalData.additional_questions = {
-                gcc_spec: $("button[name='gcc_spec'].active").val(),
-                condition: $("button[name='condition'].active").val(),
-                paintwork: $("button[name='paintwork'].active").val(),
-                interior_condition: $("button[name='interior_condition'].active").val(),
-                service_history: $("input[name='service_history']:checked").val(),
+                gcc_spec: $("button[name='gcc_spec'].active").val() || '',
+                condition: $("button[name='condition'].active").val() || '',
+                paintwork: $("button[name='paintwork'].active").val() || '',
+                interior_condition: $("button[name='interior_condition'].active").val() || '',
+                service_history: $("input[name='service_history']:checked").val() || '',
                 comment: $("textarea[name='comment']").val(),
-                loan_secured: $("input[name='loan_secured']:checked").val(),
+                loan_secured: $("input[name='loan_secured']:checked").val() || '',
             };
             // Move to next modal
             $("#exampleModal").modal("hide");
@@ -693,34 +694,47 @@ document.addEventListener('DOMContentLoaded', () => {
         $("#next-button-modal3").click(function () {
             let images = [];  // Corrected the array initialization
             let fileInput = document.getElementById("custom-file-input");
-            if (fileInput.files.length > 0) {
+            if (fileInput.files.length >= 0) {
                 // Loop through files in the file input
                 Array.from(fileInput.files).forEach(file => {
                     images.push(file);  // Push file object, not the file name
                 });
 
-                if (images.length >= 6) {
+                if (images.length >= 0) {
                     modalData.images = images;  // Store the files in modalData
                     // Move to next modal
                     $("#exampleModal1").modal("hide");
                     $("#exampleModal2").modal("show");
-                } else {
-                    alert("You must upload at least 6 images!");
                 }
-            } else {
-                alert("You must upload at least 6 images!");
             }
         });
 
         // Modal 4 - Collect contact data and submit everything
-        $(".button").click(function () {
+
+            $("#submitbutton").click(function () {
+                // Get values of the required fields
+                var firstName = $("input[name='first_name']").val().trim();
+                var phoneNumber = $("input[name='phone_number']").val().trim();
+
+                // Check if required fields are empty
+                if (firstName === "" || phoneNumber === "") {
+            // If either required field is empty, show a SweetAlert warning
+            Swal.fire({
+                title: 'Required Fields Missing!',
+                text: 'Please fill in both First Name and Phone Number.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+        } else {
+            // If all required fields are filled, proceed with the modal data collection
             modalData.contact_info = {
-                first_name: $("input[name='first_name']").val(),
+                first_name: firstName,
                 last_name: $("input[name='last_name']").val(),
-                phone_number: $("input[name='phone_number']").val(),
+                phone_number: phoneNumber,
                 email: $("input[name='email']").val(),
                 address: $("input[name='address']").val(),
             };
+
 
             $("#exampleModal2").modal("hide");
 
@@ -788,43 +802,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             });
-
+        }
         });
     });
+
 </script>
 
-
-<script>
-    //----------------------------For atleast 6 images-----------------------
-
-    document.addEventListener('DOMContentLoaded', () => {
-    const fileInput = document.getElementById('custom-file-input');
-    const nextButton = document.getElementById('next-button');
-    const errorElement = document.getElementById('image-error');
-    const currentModal = document.getElementById('exampleModal1');
-    const nextModalElement = document.getElementById('exampleModal2');
-
-    nextButton.addEventListener('click', (e) => {
-        const files = fileInput.files;
-
-        // Check if the number of uploaded files is less than 6
-        if (files.length < 6) {
-            e.preventDefault(); // Prevent button default behavior
-            errorElement.style.display = 'block'; // Show the error message
-        } else {
-            errorElement.style.display = 'none'; // Hide the error message
-
-            // Hide the current modal
-            const currentModalInstance = bootstrap.Modal.getInstance(currentModal);
-            currentModalInstance.hide();
-
-            // Show the next modal
-            const nextModalInstance = new bootstrap.Modal(nextModalElement);
-            nextModalInstance.show();
-        }
-    });
-});
-</script>
 @endsection
 
 
