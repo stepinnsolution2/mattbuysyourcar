@@ -1079,13 +1079,14 @@ nav {
 .btn-modal-first {
     background-color: #e9d203;
     color: #000;
+    width: 48%;
+    margin-left: 5px;
 }
 
 .btn-modal-first:hover {
     background-color: #e9d203;
     color: #000;
 }
-
 
 .modal-content {
     min-height: 80vh;
@@ -1094,6 +1095,14 @@ nav {
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 8px 0 rgba(248, 246, 246, 0.61), 0 6px 20px 0 rgba(247, 245, 245, 0.651);
     padding: 20px;
+}
+
+.modal-content .btn-close {
+    background-color: #FCE80A;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    padding: 0.35rem;
 }
 
 .modal-content>h3 {

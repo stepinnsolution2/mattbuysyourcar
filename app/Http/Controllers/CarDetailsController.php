@@ -40,7 +40,7 @@ class CarDetailsController extends Controller
         // Handling images
         $imagePaths = [];
 
-        if ($request->hasFile('images') && $request->file('images')->isNotEmpty()) {
+        if ($request->hasFile('images') && !empty($request->file('images'))) {
             foreach ($request->file('images') as $image) {
                 // Store image and get its path
                 $imagePath = $image->store('car_images', 'public');  // store in 'public' disk, inside 'car_images' folder

@@ -149,7 +149,7 @@
                     aria-label="default input example">
             </div>
         </div>
-        <button type="button" id="next-button-modal1" class="button btn btn-modal-first" >
+        <button type="button" id="next-button-modal1" class="button btn" >
             Next
         </button>
 </div>
@@ -160,8 +160,10 @@
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
+
             <div class="modal-content">
                 <h3>TELL US ABOUT YOUR CAR</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <h6>Additional Questions</h6>
                     <p>GCC Spec?</p>
                     <div class="button-group">
@@ -223,9 +225,14 @@
                             No
                         </label>
                     </div>
-                    <button type="button"  id="next-button-modal2" class="btn btn-modal-first" >
-                        Next
-                    </button>
+                    <div class="row">
+                        <button type="button"  id="next-button-modal2" class="btn btn-modal-first" >
+                            Next
+                        </button>
+                        <button type="button" id="back-button-modal1" class="btn btn-modal-first">
+                            Back
+                        </button>
+                    </div>
             </div>
         </div>
     </div>
@@ -238,6 +245,7 @@
         <div class="modal-dialog">
             <div class="modal-content image-modal">
                 <h3>TELL US ABOUT YOUR CAR</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="custom-image-upload">
                         <h2>Upload Images</h2>
                         <p>Upload images of your car.</p>
@@ -254,9 +262,14 @@
                             <p id="image-error" class="text-danger" style="display: none;">You must upload at least 6 images!</p>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-modal-first"  id="next-button-modal3">
-                        Next
-                    </button>
+                    <div class="row">
+                        <button type="button" class="btn btn-modal-first"  id="next-button-modal3">
+                            Next
+                        </button>
+                        <button type="button" id="back-button-modal2" class="btn btn-modal-first">
+                            Back
+                        </button>
+                    </div>
             </div>
         </div>
     </div>
@@ -272,6 +285,7 @@
         <div class="modal-dialog">
             <div class="modal-content contact-modal">
                 <h3>TELL US ABOUT YOUR CAR</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="contact-info-form">
                     <h3>Contact Information:</h3>
                       <div class="form-group">
@@ -286,7 +300,12 @@
                         <input style="min-height: 70px;" name="address" type="text" placeholder="Location where car ..." class="form-control full-width" />
                       </div>
                   </div>
-                  <button type="button" id = "submitbutton" class="button ">Submit</button>
+                  <div class="row">
+                    <button type="button" id = "submitbutton" class="btn btn-modal-first">Submit</button>
+                    <button type="button" id="back-button-modal3" class="btn btn-modal-first">
+                        Back
+                    </button>
+                  </div>
             </div>
         </div>
     </div>
@@ -673,6 +692,28 @@ document.addEventListener('DOMContentLoaded', () => {
             $("#exampleModal").modal("show");
         });
 
+        $("#back-button-modal1").click(function () {
+        // Close the current modal
+            $("#exampleModal").modal("hide");
+
+        });
+
+        $("#back-button-modal2").click(function () {
+        // Close the current modal
+            $("#exampleModal1").modal("hide");
+
+            // Open the previous modal
+            $("#exampleModal").modal("show");
+        });
+
+        $("#back-button-modal3").click(function () {
+        // Close the current modal
+            $("#exampleModal2").modal("hide");
+
+            // Open the previous modal
+            $("#exampleModal1").modal("show");
+        });
+
         // Modal 2 - Collect additional data and move to next modal
         $("#next-button-modal2").click(function () {
             modalData.additional_questions = {
@@ -691,21 +732,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Modal 3 - Collect image data and move to next modal
         $("#next-button-modal3").click(function () {
-            let images = [];  // Corrected the array initialization
+            let images = [];
+            let totalSize = 0; // Corrected the array initialization
+            let isValid = true;
             let fileInput = document.getElementById("custom-file-input");
-            if (fileInput.files.length >= 0) {
                 // Loop through files in the file input
                 Array.from(fileInput.files).forEach(file => {
+                    if (!['image/jpeg', 'image/png', 'image/jpg'].includes(file.type)) {
+                Swal.fire({
+                    title: 'Invalid File Type!',
+                    text: 'Please upload images in JPEG or PNG format.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+                isValid = false;
+                return;
+                }
+                    // Validate image size (5MB max)
+                    totalSize += file.size;
+                    if (totalSize > 5 * 1024 * 1024) {
+                        Swal.fire({
+                            title: 'Total File Size Exceeded!',
+                            text: 'The total size of all images must not exceed 5MB.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                        totalSize -= file.size; // Rollback last addition
+                        isValid = false;
+                        return;
+                    }
                     images.push(file);  // Push file object, not the file name
                 });
+                if (isValid) {
+                    modalData.images = images; // Save only if all validations pass
 
-                if (images.length >= 0) {
-                    modalData.images = images;  // Store the files in modalData
-                    // Move to next modal
+                    // Move to the next modal
                     $("#exampleModal1").modal("hide");
                     $("#exampleModal2").modal("show");
+                } else {
+                    // If invalid, stay on the current modal
+                    console.log('Validation failed. Staying on the same modal.');
                 }
-            }
         });
 
         // Modal 4 - Collect contact data and submit everything
