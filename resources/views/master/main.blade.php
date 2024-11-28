@@ -17,7 +17,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    
+
 
 </head>
 <style>
@@ -108,9 +108,34 @@
                 <h6>Copyright &copy 2024. All Right Reserved</h6>
             </div>
             <div class="right">
-                <a href="https://facebook.com/mattbuysyourcar"><img src="{{ asset('images/facebook.png') }}" width="25px" alt=""></a>
-                <a href="https://www.linkedin.com/mattbuysyourcar"><img src="{{ asset('images/linkedin.png') }}" width="25px" alt=""></a>
-                <a href="https://www.instagram.com/mattbuysyourcar"><img src="{{ asset('images/insta.png') }}" width="25px" alt=""></a>
+                @if($setting->facebook_link)
+                    <a href="{{ $setting->facebook_link }}">
+                        <img src="{{ asset('images/facebook.png') }}" width="25px" alt="Facebook">
+                    </a>
+                @endif
+
+                @if($setting->linkedin_link)
+                    <a href="{{ $setting->linkedin_link }}">
+                        <img src="{{ asset('images/linkedin.png') }}" width="25px" alt="LinkedIn">
+                    </a>
+                @endif
+
+                @if($setting->instagram_link)
+                    <a href="{{ $setting->instagram_link }}">
+                        <img src="{{ asset('images/insta.png') }}" width="25px" alt="Instagram">
+                    </a>
+                @endif
+                @if($setting->twitter_link)
+                    <a href="{{ $setting->twitter_link }}">
+                        <img src="{{ asset('images/twitter.png') }}" width="25px" alt="Twitter">
+                    </a>
+                @endif
+
+                @if($setting->utube_link)
+                    <a href="{{ $setting->utube_link }}">
+                        <img src="{{ asset('images/youtube.png') }}" width="25px" alt="YouTube">
+                    </a>
+                @endif
             </div>
         </div>
     </footer>

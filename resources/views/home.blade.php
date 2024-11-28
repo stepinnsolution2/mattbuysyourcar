@@ -226,11 +226,11 @@
                         </label>
                     </div>
                     <div class="row">
-                        <button type="button"  id="next-button-modal2" class="btn btn-modal-first" >
-                            Next
-                        </button>
                         <button type="button" id="back-button-modal1" class="btn btn-modal-first">
                             Back
+                        </button>
+                        <button type="button"  id="next-button-modal2" class="btn btn-modal-first" >
+                            Next
                         </button>
                     </div>
             </div>
@@ -263,11 +263,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <button type="button" class="btn btn-modal-first"  id="next-button-modal3">
-                            Next
-                        </button>
                         <button type="button" id="back-button-modal2" class="btn btn-modal-first">
                             Back
+                        </button>
+                        <button type="button" class="btn btn-modal-first"  id="next-button-modal3">
+                            Next
                         </button>
                     </div>
             </div>
@@ -301,10 +301,11 @@
                       </div>
                   </div>
                   <div class="row">
-                    <button type="button" id = "submitbutton" class="btn btn-modal-first">Submit</button>
                     <button type="button" id="back-button-modal3" class="btn btn-modal-first">
                         Back
                     </button>
+                    <button type="button" id = "submitbutton" class="btn btn-modal-first">Submit</button>
+
                   </div>
             </div>
         </div>
@@ -321,9 +322,8 @@
         </div>
         <div class="col-md-4 second-text">
             <h4>Testimonials</h4>
-            <h1>What our clients says about us</h1>
-            <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. amet
-                consectetur. Massa nunc cras nisl pellentesque integer sed.</p>
+            <h1>{{$settings->testimonial_header}}</h1>
+            <p>{{$settings->testimonial_description}}</p>
             <button><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
         </div>
         <div class="col-md-7">
@@ -355,9 +355,8 @@
 <div class="third-part">
     <div class="main-faq">
         <h3 class="faq-yellow-text">FAQ</h3>
-        <h1>Frequently Asked Questions</h1>
-        <p class="faq-para">Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl<br> pellentesque integer
-            sed. In tortor </p>
+        <h1>{{$settings->faq_header}}</h1>
+        <p class="faq-para">{{$settings->faq_description}}</p>
         <div class="faqs-container">
             @foreach ($faqs as $faq)
             <div class="faq ">
@@ -400,14 +399,8 @@
             <h1 class="rotated-heading-fifth">لماذا نحن؟</h1>
         </div>
         <div class="fifth-text col-md-5 col-sm-12">
-            <h1>What sets us Apart?</h1>
-            <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor
-                fermentum vel semper vestibulum enim congue ut sit. Eu risus lobortis purus ipsum at. Volutpat
-                integer faucibus a massa phasellus id rhoncus ultricies.</p>
-            <br>
-            <p>Lorem ipsum dolor sit amet consectetur. Massa nunc cras nisl pellentesque integer sed. In tortor
-                fermentum vel semper vestibulum enim congue ut sit. Eu risus lobortis purus ipsum at. Volutpat
-                integer faucibus a massa phasellus id rhoncus ultricies.</p>
+            <h1>{{$settings->Uniqueness_header}}</h1>
+            <p>{{$settings->Uniqueness_description}}</p>
             <button><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
         </div>
         <div class="fifth-img col-md-5 col-sm-12">

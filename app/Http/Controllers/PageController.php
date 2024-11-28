@@ -2,17 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Banner;
-use App\Models\Team;
-use App\Models\Event;
-use App\Models\Project;
-use App\Models\Seed;
-use App\Models\Envelop;
-use App\Models\Gallery;
 use App\Models\About;
 use App\Models\Service;
-use App\Models\Nursery;
-use App\Models\Transporter;
-use App\Models\Country;
 use App\Models\Setting;
 use App\Models\Faq;
 use App\Models\CarType;
@@ -53,6 +44,8 @@ class PageController extends Controller
          $carTypes = CarType::all();
          $about = About::find(1);
          $testimonials = Service::get();
+         $settings = Setting::first();
+        //  dd($settings);
         // $projects = Project::latest()->paginate(4); // Adjust the number 10 to the number of records per page you want to display
         // $nurseries = Nursery::latest()->get();
         // $seeds = Seed::latest()->get();
@@ -60,7 +53,7 @@ class PageController extends Controller
         // $transporters = Transporter::latest()->get();
         // //dd($nurseries->images);
 
-        return view('home',compact('banners', 'faqs', 'testimonials', 'carTypes', 'about', 'blogs'));
+        return view('home',compact('banners', 'faqs', 'testimonials', 'carTypes', 'about', 'blogs','settings'));
     }
     public function about(){
 
@@ -115,7 +108,7 @@ class PageController extends Controller
         //Email to Subscriber
         $toEmail = $req->email;  // The email address to send to
         $subject = 'Welcome to Our Service! Stay Tuned for Updates';
-       
+
         // Send the email
         // Mail::send('emails.email-subscribe', [], function ($message) use ($toEmail, $subject) {
         //     $message->to($toEmail)

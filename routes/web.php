@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\CarController;
 use App\Http\Controllers\CarDetailsController;
 use App\Http\Controllers\admin\FaqController;
 use App\Http\Controllers\admin\SubscribeController;
+use App\Http\Controllers\admin\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('admin/blog/{id}', [BlogController::class, 'update'])->name('admin.blog.update');
     Route::delete('admin/blog/{id}', [BlogController::class, 'destroy'])->name('admin.blog.destroy');
     Route::post('/upload-image', [BlogController::class, 'image_store']);
+
+    //Settings
+    Route::get('/admin/settings', [SettingController::class, 'settings'])->name('admin.settings');
+    Route::post('/admin/settings/create', [SettingController::class, 'create'])->name('admin.settings.create');
 
     //Car
     Route::get('/admin/cars', [CarController::class, 'index'])->name('admin.cars.index');

@@ -109,6 +109,12 @@
                     <p>Subscribers</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.settings') }}" class="nav-link @if(Request::routeIs('admin.settings')) active @endif">
+                    <i class="fas fa-cog nav-icon"></i>
+                    <p>Settings</p>
+                </a>
+            </li>
         </ul>
     </nav>
 
