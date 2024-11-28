@@ -90,13 +90,13 @@ nav {
     position: absolute;
     background-color: black;
     width: 100%;
-    height: 50px;
+    height: 45px;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 150px;
-    top: 5%;
+    top: 8%;
     z-index: 10;
 }
 
@@ -137,7 +137,9 @@ nav {
 }
 
 .logo {
-    max-height: 125px;
+    max-height: 130px;
+    margin-bottom: 20px;
+
 }
 
 /* Banner styles */
@@ -361,16 +363,16 @@ nav {
     height: auto;
     background-color: black;
     padding: 30px 0px;
+    margin-bottom: 40px;
 }
 
 .main-faq h1 {
     margin-top: 40px;
     text-align: center;
-    font-size: 42px;
+    font-size: 38px;
     margin-bottom: 20px;
     color: white;
-    font-family: var(--font);
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .faq-yellow-text {
@@ -380,7 +382,8 @@ nav {
 }
 
 .faq-para {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 300;
     text-align: center;
     color: gray;
 }
@@ -434,13 +437,15 @@ nav {
 
 .faq-title {
     margin: 0 35px 0 0;
-    font-size: 30px;
+    font-size: 20px;
+    font-weight: 400;
 }
 
 .faq-text {
     display: none;
     margin: 30px 0 0;
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .faq.active .faq-text {
@@ -678,6 +683,7 @@ nav {
 /* ================================================================fourth part==================================================================== */
 .fourth-part {
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .fourth-part-div {
@@ -769,6 +775,7 @@ nav {
     width: 95%;
     position: relative;
     padding-bottom: 50px;
+    margin-bottom: 30px;
     /* background-color: red; */
 }
 
@@ -843,12 +850,13 @@ nav {
 .blog-heading{
     font-size: 58px;
     font-weight: 700;
-    margin-bottom: 5px;
+    font-family: Alexandria;
 }
 .rotated-heading-part {
     position: relative;
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
     transform-origin: left top;
+    top: 75%;
     /* margin-left: 15vw; */
     color: #dbdbdb;
     font-family: sans-serif;
@@ -873,6 +881,19 @@ nav {
     font-weight: 500;
     color: rgb(15, 15, 15);
     border-radius: 5px;
+}
+
+.blog-card-title{
+    font-family: Alexandria;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.blog-card-text{
+    font-family: Alexandria;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 0px;
 }
 
 @media (max-width:768px) {
@@ -949,9 +970,9 @@ nav {
 .mid-footer ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 10px;
     margin-right: 40px;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 10px;
     align-items: center;
     justify-content: end;
@@ -968,7 +989,7 @@ nav {
 
 .down-footer {
     height: auto;
-    padding: 0 20px;
+    padding: 10px 20px;
     background-color: black;
     display: flex;
     align-items: center;
@@ -982,9 +1003,9 @@ nav {
     margin-right:25px;
 }
 
-.down-footer>.right>img {
-    width: 25px;
-    /* margin-right: 15px; */
+.social-image{
+    width: 35px;
+    padding: 0 5px;
 }
 
 @media (max-width:786px) {

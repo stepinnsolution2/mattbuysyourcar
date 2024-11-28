@@ -43,7 +43,6 @@
                         <ul>
                             <li><a href="{{ url('/#home') }}" class="">Home</a></li>
                             <li><a href="{{ url('/#about_us') }}" class="">About</a></li>
-                            <li><a href="#" class="">Contact</a></li>
                             <button class="nav-button"><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
                         </ul>
                     </div>
@@ -52,7 +51,6 @@
                         <ul id="menu" class="menu">
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('/#about_us') }}">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -79,7 +77,6 @@
                 <div class="mid-footer">
                     <ul>
                         <li><a href="{{ url('/#about_us') }}">About</a></li>
-                        <li><a href="">Contact Us</a></li>
                         <li><a href="">Terms Of Service</a></li>
                     </ul>
                 </div>
@@ -110,30 +107,30 @@
             <div class="right">
                 @if($setting->facebook_link)
                     <a href="{{ $setting->facebook_link }}">
-                        <img src="{{ asset('images/facebook.png') }}" width="25px" alt="Facebook">
+                        <img src="{{ asset('images/facebook.png') }}" class="social-image" width="25px" alt="Facebook">
                     </a>
                 @endif
 
                 @if($setting->linkedin_link)
                     <a href="{{ $setting->linkedin_link }}">
-                        <img src="{{ asset('images/linkedin.png') }}" width="25px" alt="LinkedIn">
+                        <img src="{{ asset('images/linkedin.png') }}" class="social-image" width="25px" alt="LinkedIn">
                     </a>
                 @endif
 
                 @if($setting->instagram_link)
                     <a href="{{ $setting->instagram_link }}">
-                        <img src="{{ asset('images/insta.png') }}" width="25px" alt="Instagram">
+                        <img src="{{ asset('images/insta.png') }}" class="social-image" width="25px" alt="Instagram">
                     </a>
                 @endif
                 @if($setting->twitter_link)
                     <a href="{{ $setting->twitter_link }}">
-                        <img src="{{ asset('images/twitter.png') }}" width="25px" alt="Twitter">
+                        <img src="{{ asset('images/twitter.png') }}" class="social-image" width="25px" alt="Twitter">
                     </a>
                 @endif
 
                 @if($setting->utube_link)
                     <a href="{{ $setting->utube_link }}">
-                        <img src="{{ asset('images/youtube.png') }}" width="25px" alt="YouTube">
+                        <img src="{{ asset('images/youtube.png') }}" class="social-image" width="25px" alt="YouTube">
                     </a>
                 @endif
             </div>

@@ -44,7 +44,7 @@
 
         .flex-container {
         display: flex;
-        padding: 20px;
+        padding: 8px 20px;
     }
 
     .flex-item {
@@ -55,7 +55,7 @@
         border-radius: 6px;
         font-size: 14px;
         max-width: 30%;
-        margin: 10px;
+        margin: 5px 10px;
     }
 
     .flex-item p {
@@ -111,10 +111,9 @@
         <tr>
             <td class="section">
                 <p><strong>Dear Matt,</strong></p>
-                <br>
                 <p>I hope this email finds you well.</p>
                 <p>A user has submitted their car details for sale. You can review the complete information in the admin panel. Here’s a summary of the car details:<strong></strong>!</p>
-                <br>
+
                 <div class="flex-container">
                     <div class="flex-item">
                         @if(!empty($formData['car_type']))
@@ -180,9 +179,8 @@
                     </div>
                 </div>
 
-                <br>
                 <p><strong>Car Images:</strong></p>
-                <br>
+
                 <div>
                     @if(!empty($formData['car_images']))
                         @foreach(json_decode($formData['car_images'], true) as $image)

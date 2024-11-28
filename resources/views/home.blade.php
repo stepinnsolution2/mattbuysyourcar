@@ -385,7 +385,6 @@
                 <h4 style="color:#d1be0f;">About us</h4>
                 <h1>{{$about->name ?? 'The story behind our Journey'}}</h1>
                 <p>{{$about->description}}</p>
-                <button class="mr-2"><a href="{{ url('/#testimonials') }}" style="text-decoration:none;color:#fff;">More About Us <i class="fa-solid fa-arrow-right" style="color:#d1be0f;"></i></a></button>
             </div>
         </div>
     </div>
@@ -447,9 +446,9 @@
                         <div class="swiper-slide">
                             <div class="card custom-card">
                                 <img src="{{ asset($blog->image_path) }}" alt="{{ $blog->name }}">
-                                <div class="custom-card-content  pb-4">
-                                    <h3 class="card-title">{{ $blog->name }}</h3>
-                                    <p class="card-text">{{ $blog->subtitle }}</p>
+                                <div class="custom-card-content">
+                                    <h3 class="blog-card-title">{{ $blog->name }}</h3>
+                                    <p class="blog-card-text">{{ $blog->subtitle }}</p>
                                     <a href="{{ url('blog/view/'.$blog->id.'/'.$blog->name) }}" class="btn btn-transparent text-light border border-light">Read More</a>
                                 </div>
                             </div>
@@ -467,6 +466,7 @@
       overflow: hidden;
       color: white;
       height: 400px;
+      margin: 7px
     }
     .custom-card img {
       object-fit: cover;
@@ -475,12 +475,14 @@
     }
     .custom-card-content {
         position: absolute;
-        top: 63%;
+        top: 78%;
         left: 37%;
         transform: translate(-50%, -50%);
     }
     .custom-card .btn {
-      margin-top: 15px;
+        margin-top: 0px;
+        margin-bottom: 2px;
+        padding: 0px 5px;
     }
   </style>
 <!-- ============================================================seven part=================================================================== -->
@@ -743,7 +745,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                     // Validate image size (5MB max)
                     totalSize += file.size;
-                    if (totalSize > 5 * 1024 * 1024) {
+                    if (totalSize > 10 * 1024 * 1024) {
                         Swal.fire({
                             title: 'Total File Size Exceeded!',
                             text: 'The total size of all images must not exceed 5MB.',
