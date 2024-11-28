@@ -18,7 +18,6 @@
         color: black;
     }
 </style>
-
 <style>
     .custom-card {
       position: relative;
@@ -33,19 +32,21 @@
     }
     .custom-card-content {
         position: absolute;
-        top: 63%;
-        left: 37%;
+        top: 78%;
+        left: 52%;
         transform: translate(-50%, -50%);
+        width: 95%;
     }
     .custom-card .btn {
-      margin-top: 15px;
+        margin-top: 0px;
+        margin-bottom: 2px;
+        padding: 0px 5px;
     }
-
     .custom-label{
         font-size: 12px !important;
         font-weight: lighter !important;
     }
-</style>
+  </style>
 
 @section('content')
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -334,7 +335,7 @@
                     <div class="swiper-slide">
                         <div class="card custom-card">
                             <img src="{{ asset($testimonial->image_path) }}" alt="{{ $testimonial->name }}">
-                            <div class="custom-card-content  pb-4">
+                            <div class="custom-card-content ">
                                 <h3 class="card-title ">{{ $testimonial->name }}</h3>
                                 <p class="card-text">{{ $testimonial->description }}</p>
                                 <!-- <a href="#" class="btn btn-transparent text-light border border-light">Read More</a> -->
@@ -460,31 +461,7 @@
         </div>
     </div>
 </div>
-<style>
-    .custom-card {
-      position: relative;
-      overflow: hidden;
-      color: white;
-      height: 400px;
-      margin: 7px
-    }
-    .custom-card img {
-      object-fit: cover;
-      width: 100%;
-      height: 400px;
-    }
-    .custom-card-content {
-        position: absolute;
-        top: 78%;
-        left: 37%;
-        transform: translate(-50%, -50%);
-    }
-    .custom-card .btn {
-        margin-top: 0px;
-        margin-bottom: 2px;
-        padding: 0px 5px;
-    }
-  </style>
+
 <!-- ============================================================seven part=================================================================== -->
 <!-- <div class="container pt-5 overflow-hidden">
     <div class="swiper-container swiper-card">

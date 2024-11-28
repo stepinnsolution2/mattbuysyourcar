@@ -299,8 +299,9 @@ nav {
     font-family: sans-serif;
     margin-left: -45px;
     margin-top: 33%;
-    font-size: 120px;
+    font-size: 80px;
     font-weight: 800;
+    font-family: 'Alexandria';
 }
 
 .second-text {
@@ -373,6 +374,7 @@ nav {
     margin-bottom: 20px;
     color: white;
     font-weight: 700;
+    font-family: 'Alexandria';
 }
 
 .faq-yellow-text {
@@ -814,7 +816,7 @@ nav {
     font-family: sans-serif;
     margin-left: 40px;
     margin-top: 35%;
-    font-size: 120px;
+    font-size: 80px;
     font-weight: 700;
     font-family: 'Alexandria';
 }
@@ -859,9 +861,9 @@ nav {
     top: 75%;
     /* margin-left: 15vw; */
     color: #dbdbdb;
-    font-family: sans-serif;
     font-size: 100px;
     font-weight: 800;
+    font-family: 'Alexandria';
 }
 .six-btn-1{
     padding: 8px 18px;
@@ -884,16 +886,16 @@ nav {
 }
 
 .blog-card-title{
-    font-family: Alexandria;
+    font-family: 'Alexandria';
     font-size: 28px;
     font-weight: 700;
 }
 
 .blog-card-text{
-    font-family: Alexandria;
+    font-family: 'Alexandria';
     font-size: 14px;
     font-weight: 300;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
 }
 
 @media (max-width:768px) {

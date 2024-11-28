@@ -47,12 +47,12 @@
     <!-- Sidebar user (optional) -->
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="{{ route('dashboard') }}" class="nav-link @if(Request::routeIs('dashboard')) active @endif">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>Dashboard</p>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a href="{{ route('banners') }}" class="nav-link @if(Request::routeIs('banners')) active @endif">
                     <svg class="h-6 nav-icon w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -73,12 +73,12 @@
                     <p>Blog</p>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="{{ route('admin.marketing-media.index') }}" class="nav-link @if(Request::routeIs('admin.marketing-media.index')) active @endif">
                     <i class="fas fa-calendar nav-icon"></i>
                     <p>Marketing Media</p>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a href="{{ route('admin.car_detail.index') }}" class="nav-link @if(Request::routeIs('admin.car_detail.index')) active @endif">
                     <i class="fas fa-solid fa-store nav-icon"></i>

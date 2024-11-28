@@ -2,7 +2,23 @@
 
 @extends('admin.layouts.app')
 @section('content')
+<section class="content-header">
+    <div class="container-fluid my-2">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1> About</h1>
+            </div>
+            @if($about)
+                <div class="col-sm-6 text-right">
+                    <a href="{{ route('admin.about.edit') }}" class="btn btn-warning">Edit About</a>
+                </div>
+            @endif
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
 <div class="container">
+
     <div class="card mb-3 mt-3 scroller">
         <div class="card-body">
         <div class="row mb-2">
