@@ -147,7 +147,7 @@
 		w.gbwawc = {
 		url: u,
 		options: {
-				waId: "923078558517",
+				waId: "971 56 933 6600",
 				siteName: "Matthew Garth",
 				siteTag: "Typically replies within an hour",
 				siteLogo: "{{ asset('images/logo.png') }}",

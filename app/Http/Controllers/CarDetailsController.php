@@ -117,7 +117,7 @@ class CarDetailsController extends Controller
 
 
         //Email to Subscriber
-        $toEmail = "stepinnsolution@gmail.com"; // The email address to send to
+        $toEmail = "matthewgarth@outlook.com"; // The email address to send to
         $subject = 'New Car Available for purchase!!';
 
         // Send the email

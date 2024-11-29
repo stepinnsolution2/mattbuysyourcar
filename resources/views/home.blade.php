@@ -153,7 +153,7 @@
                     aria-label="default input example">
             </div>
             <div class="input-group mb-3">
-                <input class="form-control" name="engine_size" type="text" placeholder="Engine Size(1499cc)"
+                <input class="form-control" name="engine_size" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="Engine Size(1499cc)"
                     aria-label="default input example">
             </div>
             <div class="input-group mb-3">
@@ -170,7 +170,7 @@
                 </select>
             </div>
             <div class="input-group mb-3">
-                <input class="form-control" name="kilometers" type="text" placeholder="kilometers"
+                <input class="form-control" name="kilometers" type="text" placeholder="kilometers" oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                     aria-label="default input example">
             </div>
         </div>
@@ -377,8 +377,6 @@
                         style="top: 90%; color: black; font-size: 7px;">
                     </div> --}}
                 </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination testimonial-swiper-pagination"></div>
             </div>
         </div>
     </div>
@@ -552,22 +550,23 @@
         });
     });
 </script>
-{{-- <div id="mz-gallery-container">
+<div id="mz-gallery-container">
     <div id="mz-gallery">
         @foreach ($mediaItems as $mediaItem)
-        @foreach ($mediaItem->images as $image)
-            <figure>
-                <img src="{{ asset($image) }}" alt="Marketing Image" width="700" height="700">
-                <figcaption>Marketing Media</figcaption>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </figure>
+            @foreach ($mediaItem->images as $image)
+                <figure>
+                    <img src="{{ $image }}" alt="Marketing Image" width="700" height="700">
+                    <figcaption>Marketing Media</figcaption>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </figure>
+            @endforeach
         @endforeach
-    @endforeach
     </div>
-</div> --}}
+</div>
+
 
 
 

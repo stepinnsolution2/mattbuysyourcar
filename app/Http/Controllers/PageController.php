@@ -52,6 +52,7 @@ class PageController extends Controller
                 $mediaItem->images = json_decode($mediaItem->images, true) ?? [];
                 $mediaItem->videos = json_decode($mediaItem->videos, true) ?? [];
             }
+            // dd($mediaItems);
 
         //  dd($settings);
         // $projects = Project::latest()->paginate(4); // Adjust the number 10 to the number of records per page you want to display
