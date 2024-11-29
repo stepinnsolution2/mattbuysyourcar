@@ -10,6 +10,7 @@ use App\Models\CarType;
 use App\Models\CarModel;
 use App\Models\Blog;
 use App\Models\Subscribe;
+use App\Models\MarketingMedia;
 
 use Illuminate\Http\Request;
 
@@ -45,6 +46,13 @@ class PageController extends Controller
          $about = About::find(1);
          $testimonials = Service::get();
          $settings = Setting::first();
+         $mediaItems = MarketingMedia::all();
+
+            foreach ($mediaItems as $mediaItem) {
+                $mediaItem->images = json_decode($mediaItem->images, true) ?? [];
+                $mediaItem->videos = json_decode($mediaItem->videos, true) ?? [];
+            }
+
         //  dd($settings);
         // $projects = Project::latest()->paginate(4); // Adjust the number 10 to the number of records per page you want to display
         // $nurseries = Nursery::latest()->get();
@@ -53,7 +61,7 @@ class PageController extends Controller
         // $transporters = Transporter::latest()->get();
         // //dd($nurseries->images);
 
-        return view('home',compact('banners', 'faqs', 'testimonials', 'carTypes', 'about', 'blogs','settings'));
+        return view('home',compact('banners', 'faqs', 'testimonials', 'carTypes', 'about', 'blogs','settings', 'mediaItems'));
     }
     public function about(){
 

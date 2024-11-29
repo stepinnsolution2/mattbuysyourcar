@@ -123,8 +123,10 @@ class CarDetailsController extends Controller
         // Send the email
         Mail::send('emails.email', ['formData' => $formData], function ($message) use ($toEmail, $subject) {
             $message->to($toEmail)
+                    ->cc('adeelashraf6aug@gmail.com') // Add this line to include CC
                     ->subject($subject);
         });
+
 
         // dd("ok");
         return response()->json([

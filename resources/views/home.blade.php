@@ -1,4 +1,6 @@
 @extends('master.main')
+
+
 <style>
     .btn-bg-warning {
         border: 1px solid black; /* Black outline */
@@ -366,14 +368,14 @@
                         @endforeach
                     </div>
                     <!-- Add Navigation -->
-                    <div
+                    {{-- <div
                         class="swiper-button-next testimonial-swiper-button-next"
-                        style="top: 85%; color: black; font-size: 7px;">
+                        style="top: 90%; color: black; font-size: 7px;">
                     </div>
                     <div
                         class="swiper-button-prev testimonial-swiper-button-prev"
-                        style="top: 85%; color: black; font-size: 7px;">
-                    </div>
+                        style="top: 90%; color: black; font-size: 7px;">
+                    </div> --}}
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination testimonial-swiper-pagination"></div>
@@ -550,6 +552,24 @@
         });
     });
 </script>
+{{-- <div id="mz-gallery-container">
+    <div id="mz-gallery">
+        @foreach ($mediaItems as $mediaItem)
+        @foreach ($mediaItem->images as $image)
+            <figure>
+                <img src="{{ asset($image) }}" alt="Marketing Image" width="700" height="700">
+                <figcaption>Marketing Media</figcaption>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </figure>
+        @endforeach
+    @endforeach
+    </div>
+</div> --}}
+
+
 
 <!-- ============================================================seven part=================================================================== -->
 <!-- <div class="container pt-5 overflow-hidden">

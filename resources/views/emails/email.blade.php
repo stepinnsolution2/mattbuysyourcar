@@ -19,9 +19,8 @@
             border-collapse: collapse;
         }
         .header {
-            text-align: center;
+            margin-left: 10px;
             padding: 12px;
-            background-color: #7c8998;
             color: #fff;
             font-size: 22px;
         }

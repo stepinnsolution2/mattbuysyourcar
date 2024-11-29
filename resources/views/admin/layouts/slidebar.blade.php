@@ -73,12 +73,12 @@
                     <p>Blog</p>
                 </a>
             </li>
-            {{-- <li class="nav-item">
+            <li class="nav-item">
                 <a href="{{ route('admin.marketing-media.index') }}" class="nav-link @if(Request::routeIs('admin.marketing-media.index')) active @endif">
                     <i class="fas fa-calendar nav-icon"></i>
                     <p>Marketing Media</p>
                 </a>
-            </li> --}}
+            </li>
             <li class="nav-item">
                 <a href="{{ route('admin.car_detail.index') }}" class="nav-link @if(Request::routeIs('admin.car_detail.index')) active @endif">
                     <i class="fas fa-solid fa-store nav-icon"></i>

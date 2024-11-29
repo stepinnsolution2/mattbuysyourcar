@@ -61,7 +61,7 @@
 
                         <div class="mb-3">
                             <label>Description</label>
-                            <textarea name="description" class="form-control" required>{{ $mediaItem->description }}</textarea>
+                            <textarea name="description" class="form-control">{{ $mediaItem->description }}</textarea>
                         </div>
 
                         @if($mediaItem->images)

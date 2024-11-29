@@ -3,147 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>OutreachCrown</title> -->
     <style>
-        /* Global Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
         }
         table {
             width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 0 auto;
             background-color: #ffffff;
             border-collapse: collapse;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border-radius: 8px;
         }
-
-        /* Header */
         .header {
-            background-color: #34495e;
-            color: #ffffff;
             text-align: center;
-            padding: 20px;
-        }
-        .header img {
-            max-width: 150px;
-            margin-bottom: 10px;
-        }
-        .header h2 {
-            margin: 0;
+            padding: 12px;
+            color: #fff;
             font-size: 22px;
         }
-
-        /* Main Section */
         .section {
             padding: 20px;
-            color: #333333;
-            line-height: 1.6;
+            text-align: left;
+            color: #333;
         }
-        .section p {
-            margin: 0 0 15px;
+        .footer {
+            padding: 10px;
+            background-color: #f1f1f1;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
         }
-        .section strong {
-            color: #2c3e50;
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
         }
 
-        /* Flexbox for Data */
         .flex-container {
-            display: flex;
-            gap: 15px;
-            margin: 15px 0;
-        }
-        .flex-item {
-            background-color: #f9f9f9;
-            border: 1px solid #dddddd;
-            border-radius: 6px;
-            padding: 15px;
-            flex: 1 1 calc(33.333% - 10px);
-            box-sizing: border-box;
-        }
-        .flex-item p {
-            margin: 8px 0;
-            font-size: 14px;
-        }
+        display: flex;
+        padding: 8px 20px;
+    }
+
+    .flex-item {
+        box-sizing: border-box; /* Ensure padding doesn't affect width */
+        background-color: #f9f9f9;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        max-width: 30%;
+        margin: 5px 10px;
+    }
+
+    .flex-item p {
+        margin: 8px 0; /* Adjust spacing between paragraphs */
+        color: #333;
+        line-height: 1.5;
+    }
+
 
         /* Images Section */
         .car-images {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px; /* Increased gap for better spacing */
+            justify-content: center; /* Center images for a balanced layout */
+            padding: 10px; /* Add padding for breathing space */
         }
+
         .car-images img {
-            width: 100px;
-            height: 100px;
+            width: 120px; /* Slightly larger width */
+            height: 120px; /* Slightly larger height */
             object-fit: cover;
-            border: 1px solid #ddd;
-            border-radius: 6px;
+            border: 2px solid #e0e0e0; /* Subtle border for a polished look */
+            border-radius: 8px; /* Slightly more rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .car-images a {
             display: inline-block;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
+
+        .car-images a:hover img {
+            transform: scale(1.1); /* Slight zoom on hover */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+            border-color: #007bff; /* Highlighted border on hover */
+        }
+
         .car-images a:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px); /* Subtle lift on hover */
         }
 
-        /* Footer */
-        .footer {
-            background-color: #f8f8f8;
-            color: #7f8c8d;
-            text-align: center;
-            padding: 15px;
-            font-size: 12px;
-        }
-        .footer a {
-            color: #2980b9;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Styles */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .flex-item {
-                flex: 1 1 calc(50% - 10px);
-            }
-        }
-        @media (max-width: 480px) {
-            .flex-item {
-                flex: 1 1 100%;
-            }
             .car-images img {
-                width: 80px;
-                height: 80px;
+                width: 90px; /* Adjust width for smaller screens */
+                height: 90px;
+            }
+            .car-images {
+                gap: 10px; /* Reduce gap for smaller screens */
             }
         }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .flex-item {
+            flex: 1 1 calc(50% - 20px); /* 2 columns on medium screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .flex-item {
+            flex: 1 1 100%; /* 1 column on small screens */
+        }
+    }
     </style>
 </head>
 <body>
+
     <table>
-        <!-- Header Section -->
         <tr>
             <td class="header">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo">
-                <h2>Matt Buys Your Car</h2>
+                <!-- <h2 style="color:#fff !important;font-family: cursive;">Mattbuysyourcar</h2> -->
+                 <img src="{{ asset('images/logo.png') }}" width="200px" alt="">
             </td>
         </tr>
-
-        <!-- Main Content Section -->
         <tr>
             <td class="section">
                 <p><strong>Dear Matt,</strong></p>
                 <p>I hope this email finds you well.</p>
-                <p>
-                    A user has submitted their car details for sale. You can review the complete information in the admin panel. Here’s a summary of the car details:
-                </p>
+                <p>A user has submitted their car details for sale. You can review the complete information in the admin panel. Here’s a summary of the car details:<strong></strong>!</p>
 
-                <!-- Data Summary Section -->
                 <div class="flex-container">
                     <div class="flex-item">
                         @if(!empty($formData['car_type']))
@@ -185,6 +179,9 @@
                         @if(!empty($formData['comment']))
                             <p><strong>Comment:</strong> {{ $formData['comment'] }}</p>
                         @endif
+                        @if(!empty($formData['loan_secured']))
+                            <p><strong>Loan Secured:</strong> {{ $formData['loan_secured'] }}</p>
+                        @endif
                     </div>
 
                     <div class="flex-item">
@@ -200,36 +197,37 @@
                         @if(!empty($formData['email']))
                             <p><strong>Email:</strong> {{ $formData['email'] }}</p>
                         @endif
+                        @if(!empty($formData['address']))
+                            <p><strong>Address:</strong> {{ $formData['address'] }}</p>
+                        @endif
                     </div>
                 </div>
 
-                <!-- Car Images Section -->
-                <p><strong>Car Images:</strong></p>
-                <div class="car-images">
-                    @if(!empty($formData['car_images']))
-                        @foreach(json_decode($formData['car_images'], true) as $image)
-                            <a href="{{ asset('storage/' . $image) }}" target="_blank">
-                                <img src="{{ asset('storage/' . $image) }}" alt="Car Image">
-                            </a>
-                        @endforeach
-                    @else
-                        <p>No images available.</p>
-                    @endif
-                </div>
+                @if(!empty($formData['car_images']))
+                    <p><strong>Car Images:</strong></p>
+                    <div class="car-images">
+                            @foreach(json_decode($formData['car_images'], true) as $image)
+                                <a href="{{ asset('storage/' . $image) }}" target="_blank">
+                                    <img src="{{ asset('storage/' . $image) }}" alt="Car Image">
+                                </a>
+                            @endforeach
+                    </div>
+                @endif
 
-                <p>Take care... Have a nice day!</p>
+                <br>
+                <p>Takecare.... Have a nice day!</p>
+                <br>
                 <p><strong>Regards,</strong></p>
-                <p>{{ $formData['first_name'] }} {{ $formData['last_name'] }}</p>
+                <p>{{ $formData['first_name'] }}  {{ $formData['last_name'] }}</p>
             </td>
         </tr>
-
-        <!-- Footer Section -->
         <tr>
             <td class="footer">
-                <p>&copy; 2024 All rights reserved. | Developed by <a href="https://stepinnsolution.com/">StepinnSolution</a></p>
+                <p>Copyright &copy; 2024 All rights reserved. | Developed by <a href="https://stepinnsolution.com/">StepinnSolution</a></p>
                 <p><a href="https://www.mattbuysyourcar.com">Visit the Website</a></p>
             </td>
         </tr>
     </table>
+
 </body>
 </html>
