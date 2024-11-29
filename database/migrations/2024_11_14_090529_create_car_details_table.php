@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('specification')->nullable();
             $table->string('engine_size')->nullable();
             $table->integer('year')->nullable();
-            $table->decimal('kilometers')->nullable();
+            $table->integer('kilometers')->nullable();
             $table->string('gcc_spec')->nullable();
             $table->string('condition')->nullable();
             $table->string('paintwork')->nullable();
