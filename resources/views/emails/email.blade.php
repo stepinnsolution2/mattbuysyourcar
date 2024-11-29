@@ -208,7 +208,7 @@
                     @endif
                 </div>
 
-                @if(!empty($formData['car_images']))
+                @if(!empty(json_decode($formData['car_images'], true)))
                     <p><strong>Car Images:</strong></p>
                     <div class="car-images">
                             @foreach(json_decode($formData['car_images'], true) as $image)
