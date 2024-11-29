@@ -55,6 +55,7 @@
         font-size: 14px;
         max-width: 30%;
         margin: 5px 10px;
+        word-wrap: break-word;
     }
 
     .flex-item p {
@@ -139,6 +140,7 @@
                 <p>A user has submitted their car details for sale. You can review the complete information in the admin panel. Here’s a summary of the car details:<strong></strong>!</p>
 
                 <div class="flex-container">
+                    @if(!empty($formData['car_type']) || !empty($formData['model']) || !empty($formData['specification']) || !empty($formData['engine_size']) || !empty($formData['year']) || !empty($formData['kilometers']))
                     <div class="flex-item">
                         @if(!empty($formData['car_type']))
                             <p><strong>Car Type:</strong> {{ $formData['car_type'] }}</p>
@@ -159,7 +161,8 @@
                             <p><strong>Kilometers:</strong> {{ $formData['kilometers'] }}</p>
                         @endif
                     </div>
-
+                    @endif
+                    @if(!empty($formData['gcc_spec']) || !empty($formData['condition']) || !empty($formData['paintwork']) || !empty($formData['interior_condition']) || !empty($formData['service_history']) || !empty($formData['comment']) || !empty($formData['loan_secured']))
                     <div class="flex-item">
                         @if(!empty($formData['gcc_spec']))
                             <p><strong>GCC Spec:</strong> {{ $formData['gcc_spec'] }}</p>
@@ -183,7 +186,8 @@
                             <p><strong>Loan Secured:</strong> {{ $formData['loan_secured'] }}</p>
                         @endif
                     </div>
-
+                    @endif
+                    @if(!empty($formData['first_name']) || !empty($formData['last_name']) || !empty($formData['phone_number']) || !empty($formData['email']) || !empty($formData['address']))
                     <div class="flex-item">
                         @if(!empty($formData['first_name']))
                             <p><strong>First Name:</strong> {{ $formData['first_name'] }}</p>
@@ -201,6 +205,7 @@
                             <p><strong>Address:</strong> {{ $formData['address'] }}</p>
                         @endif
                     </div>
+                    @endif
                 </div>
 
                 @if(!empty($formData['car_images']))
