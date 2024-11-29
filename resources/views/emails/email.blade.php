@@ -64,26 +64,51 @@
         line-height: 1.5;
     }
 
-    /* Car Images Section */
-    .car-images {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: start;
-        gap: 10px;
-        padding: 20px;
-    }
 
-    .car-images img {
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
+        /* Images Section */
+        .car-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; /* Increased gap for better spacing */
+            justify-content: center; /* Center images for a balanced layout */
+            padding: 10px; /* Add padding for breathing space */
+        }
 
-    .car-images a {
-        text-decoration: none;
-    }
+        .car-images img {
+            width: 120px; /* Slightly larger width */
+            height: 120px; /* Slightly larger height */
+            object-fit: cover;
+            border: 2px solid #e0e0e0; /* Subtle border for a polished look */
+            border-radius: 8px; /* Slightly more rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .car-images a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .car-images a:hover img {
+            transform: scale(1.1); /* Slight zoom on hover */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+            border-color: #007bff; /* Highlighted border on hover */
+        }
+
+        .car-images a:hover {
+            transform: translateY(-3px); /* Subtle lift on hover */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .car-images img {
+                width: 90px; /* Adjust width for smaller screens */
+                height: 90px;
+            }
+            .car-images {
+                gap: 10px; /* Reduce gap for smaller screens */
+            }
+        }
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
@@ -179,19 +204,16 @@
                     </div>
                 </div>
 
-                <p><strong>Car Images:</strong></p>
-
-                <div>
-                    @if(!empty($formData['car_images']))
-                        @foreach(json_decode($formData['car_images'], true) as $image)
-                            <a href="{{ asset('storage/' . $image) }}" target="_blank">
-                                <img src="{{ asset('storage/' . $image) }}" alt="Car Image" style="width: 150px; height: 150px; margin: 5px;">
-                            </a>
-                        @endforeach
-                    @else
-                        <p>No images available.</p>
-                    @endif
-                </div>
+                @if(!empty($formData['car_images']))
+                    <p><strong>Car Images:</strong></p>
+                    <div class="car-images">
+                            @foreach(json_decode($formData['car_images'], true) as $image)
+                                <a href="{{ asset('storage/' . $image) }}" target="_blank">
+                                    <img src="{{ asset('storage/' . $image) }}" alt="Car Image">
+                                </a>
+                            @endforeach
+                    </div>
+                @endif
 
                 <br>
                 <p>Takecare.... Have a nice day!</p>

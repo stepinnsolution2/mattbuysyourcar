@@ -24,6 +24,7 @@
       overflow: hidden;
       color: white;
       height: 400px;
+      margin: 0px 5px;
     }
     .custom-card img {
       object-fit: cover;
@@ -46,6 +47,28 @@
         font-size: 12px !important;
         font-weight: lighter !important;
     }
+    .testimonial-swiper-container {
+    position: relative;
+    margin-bottom: 30px;
+    }
+
+    .testimonial-swiper-pagination {
+        position: relative;
+        bottom: 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .testimonial-swiper-button-next,
+    .testimonial-swiper-button-prev {
+        color: #000000; /* Customize as needed */
+
+    }
+    .swiper-button-next, .swiper-button-prev {
+        top: var(--swiper-navigation-top-offset, 95%);
+        height: 10px;
+        color: #000000;
+}
   </style>
 
 @section('content')
@@ -77,7 +100,6 @@
                         <!-- <div class="swiper-button-prev left-arrow"></div>
                         <div class="swiper-button-next right-arrow"></div> -->
                     </div>
-                    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
                     <script>
                         document.addEventListener('DOMContentLoaded', () => {
                             const swiper = new Swiper('.swiper-container', {
@@ -328,27 +350,68 @@
             <button><a href="#exampleModa" style="text-decoration:none;color:black;">Sell Your Car</a></button>
         </div>
         <div class="col-md-7">
-            <div class="swiper swiper-test">
-                <div class="swiper-wrapper">
-                <!-- Slide 1 -->
-                 @foreach($testimonials as $testimonial)
-                    <div class="swiper-slide">
-                        <div class="card custom-card">
-                            <img src="{{ asset($testimonial->image_path) }}" alt="{{ $testimonial->name }}">
-                            <div class="custom-card-content ">
-                                <h3 class="card-title ">{{ $testimonial->name }}</h3>
-                                <p class="card-text">{{ $testimonial->description }}</p>
-                                <!-- <a href="#" class="btn btn-transparent text-light border border-light">Read More</a> -->
+            <div class="testimonial-swiper-container">
+                <div class="swiper testimonial-swiper">
+                    <div class="swiper-wrapper">
+                        @foreach($testimonials as $testimonial)
+                            <div class="swiper-slide">
+                                <div class="card custom-card">
+                                    <img src="{{ asset($testimonial->image_path) }}" alt="{{ $testimonial->name }}">
+                                    <div class="custom-card-content">
+                                        <h3 class="card-title">{{ $testimonial->name }}</h3>
+                                        <p class="card-text">{{ $testimonial->description }}</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                    @endforeach
+                    <!-- Add Navigation -->
+                    <div
+                        class="swiper-button-next testimonial-swiper-button-next"
+                        style="top: 85%; color: black; font-size: 7px;">
+                    </div>
+                    <div
+                        class="swiper-button-prev testimonial-swiper-button-prev"
+                        style="top: 85%; color: black; font-size: 7px;">
+                    </div>
                 </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination testimonial-swiper-pagination"></div>
             </div>
         </div>
     </div>
 </div>
 
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.testimonial-swiper', {
+            loop: true, // Ensures infinite looping
+            navigation: {
+                nextEl: '.testimonial-swiper-button-next',
+                prevEl: '.testimonial-swiper-button-prev',
+            },
+            pagination: {
+                el: '.testimonial-swiper-pagination',
+                clickable: true, // Enables clickable pagination
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            slidesPerView: 2, // Display 2 slides at a time
+            spaceBetween: 20,
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 2,
+                },
+            },
+        });
+    });
+    </script>
 
 
 <!-- ==============================================================Third Part====================================================================== -->
@@ -434,7 +497,7 @@
                 </span></h1>
 
             </div>
-            <div class="col-md-1 ninty">
+            <div class="col-md-1 ninty" style="height: 35vh">
                 <h1 class="rotated-heading-part">مدونة</h1>
             </div>
         </div>
@@ -442,25 +505,51 @@
             <div class="col-12">
                 <div class="swiper swiper-blog">
                     <div class="swiper-wrapper">
-                    <!-- Slide 1 -->
-                     @foreach($blogs as $blog)
-                        <div class="swiper-slide">
-                            <div class="card custom-card">
-                                <img src="{{ asset($blog->image_path) }}" alt="{{ $blog->name }}">
-                                <div class="custom-card-content">
-                                    <h3 class="blog-card-title">{{ $blog->name }}</h3>
-                                    <p class="blog-card-text">{{ $blog->subtitle }}</p>
-                                    <a href="{{ url('blog/view/'.$blog->id.'/'.$blog->name) }}" class="btn btn-transparent text-light border border-light">Read More</a>
+                        @foreach($blogs as $blog)
+                            <div class="swiper-slide">
+                                <div class="card custom-card">
+                                    <img src="{{ asset($blog->image_path) }}" alt="{{ $blog->name }}">
+                                    <div class="custom-card-content">
+                                        <h3 class="blog-card-title">{{ $blog->name }}</h3>
+                                        <p class="blog-card-text">{{ $blog->subtitle }}</p>
+                                        <a href="{{ url('blog/view/'.$blog->id.'/'.$blog->name) }}" class="btn btn-transparent text-light border border-light">Read More</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var swiper = new Swiper('.swiper-blog', {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true, // Enable infinite looping
+            autoplay: {
+                delay: 3000, // 3 seconds delay between slides
+                disableOnInteraction: false, // Keeps autoplay on user interaction
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                // Responsive breakpoints
+                768: { slidesPerView: 1 },
+                992: { slidesPerView: 2 },
+                1200: { slidesPerView: 3 },
+            },
+        });
+    });
+</script>
 
 <!-- ============================================================seven part=================================================================== -->
 <!-- <div class="container pt-5 overflow-hidden">
