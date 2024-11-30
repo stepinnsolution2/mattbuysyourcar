@@ -157,6 +157,8 @@
 				brandColor: "#25D366",
 				messageText: "How can I help you?",
 				replyOptions: ['Consult with me about your Car'],
+                widgetPositionMarginX: "35",
+                widgetPositionMarginY: "50",
 			},
 		};
 		var h = d.getElementsByTagName(s)[0],
