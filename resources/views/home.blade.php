@@ -399,13 +399,13 @@
                 delay: 3000,
                 disableOnInteraction: false,
             },
-            slidesPerView: 2, // Display 2 slides at a time
+            slidesPerView: 1, // Display 2 slides at a time
             spaceBetween: 20,
             breakpoints: {
                 768: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                 },
-                1024: {
+                992: {
                     slidesPerView: 2,
                 },
             },
@@ -526,7 +526,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var swiper = new Swiper('.swiper-blog', {
-            slidesPerView: 3,
+            // slidesPerView: 1,
             spaceBetween: 20,
             loop: true, // Enable infinite looping
             autoplay: {
@@ -543,9 +543,9 @@
             },
             breakpoints: {
                 // Responsive breakpoints
-                768: { slidesPerView: 1 },
-                992: { slidesPerView: 2 },
-                1200: { slidesPerView: 3 },
+                425: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                992: { slidesPerView: 3 },
             },
         });
     });
