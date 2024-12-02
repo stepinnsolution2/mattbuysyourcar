@@ -43,17 +43,17 @@
 
         .flex-container {
         display: flex;
-        padding: 8px 20px;
+        padding: 8px 15px;
     }
 
     .flex-item {
         box-sizing: border-box; /* Ensure padding doesn't affect width */
         background-color: #f9f9f9;
-        padding: 15px;
+        padding: 12px;
         border: 1px solid #ddd;
-        border-radius: 6px;
-        font-size: 14px;
-        max-width: 30%;
+        border-radius: 5px;
+        font-size: 13px;
+        min-width: 30%;
         margin: 5px 10px;
         word-wrap: break-word;
     }
