@@ -131,7 +131,7 @@
     </div>
 </div>
 
-<div class="box" id="exampleModa">
+<!-- <div class="box" id="exampleModa">
     <h1>tell us about your car</h1>
     <h6>Car Information</h6>
         <div class="row">
@@ -177,6 +177,55 @@
         <button type="button" id="next-button-modal1" class="button btn" >
             Next
         </button>
+</div> -->
+<div class="car_detail">
+<div class="card" id="exampleModa">
+    <h1>tell us about your car</h1>
+        <div class="row card-body">
+        <h6>Car Information</h6>
+            <div class="input-group mb-3">
+                <select class="form-select" name="car_type" id="car_type">
+                    <option value="" selected disabled>Type of Car</option>
+                    @foreach($carTypes as $carType)
+                        <option value="{{ $carType->id }}">{{ $carType->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" name="model" id="model">
+                    <option value="" selected disabled>Model of Car</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" type="text" name="specification" placeholder="Specification/Trim (e.g.,“E350 Sport”)"
+                    aria-label="default input example">
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" name="engine_size" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="Engine Size(1499cc)"
+                    aria-label="default input example">
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" name="year" id="inputGroupSelect02">
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" name="kilometers" type="text" placeholder="kilometers" oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                    aria-label="default input example">
+            </div>
+        </div>
+        <button type="button" id="next-button-modal1" class="button btn" >
+            Next
+        </button>
+</div>
 </div>
 
 
@@ -250,7 +299,7 @@
                             No
                         </label>
                     </div>
-                    <div class="row">
+                    <div class="row mt-2">
                         <button type="button" id="back-button-modal1" class="btn btn-modal-first">
                             Back
                         </button>
