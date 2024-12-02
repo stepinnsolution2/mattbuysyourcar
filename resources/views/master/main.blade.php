@@ -158,7 +158,7 @@
 				messageText: "How can I help you?",
 				replyOptions: ['Consult with me about your Car'],
                 widgetPositionMarginX: "35",
-                widgetPositionMarginY: "50",
+                widgetPositionMarginY: "75",
 			},
 		};
 		var h = d.getElementsByTagName(s)[0],

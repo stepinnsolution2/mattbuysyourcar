@@ -37,7 +37,9 @@
 		<form class="login-form" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
 
-            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i> SIGN IN </h3>
+            <div class="login-head">
+            <img src="{{asset('images/logo.png')}}" alt="" width="70">
+            </div>
             @if ($errors->any())
             <span class="text-danger font-weight-bold">
                 
