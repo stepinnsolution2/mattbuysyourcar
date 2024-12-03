@@ -56,13 +56,15 @@ class CarDetailsController extends Controller
 
         $car_model = DB::table('car_models')->where('id', $request->input('car_info.model'))->pluck('name')->first();
 
+        $car_year = DB::table('car_years')->where('id', $request->input('car_info.year'))->pluck('year')->first();
+
         // Create car details entry
         $carDetail = new CarDetails();
         $carDetail->car_type = $car_type;
         $carDetail->model = $car_model;
         $carDetail->specification = $request->input('car_info.specification');
         $carDetail->engine_size = $request->input('car_info.engine_size');
-        $carDetail->year = $request->input('car_info.year');
+        $carDetail->year = $car_year;
         $carDetail->kilometers = $request->input('car_info.kilometers');
 
         // Additional questions

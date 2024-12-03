@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class CarType extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+    ];
+
+
+    public function carYears()
+    {
+        return $this->hasMany(CarYear::class);
+    }
 
     public function carModels()
     {

@@ -23,10 +23,11 @@
                 <table id="table" class="table table-sm table-striped">
                     <thead style="background:#353535;color:white;">
                         <tr>
-                            <th class="text-center">Sr.</th>
-                            <th>Type</th>
-                            <th>Model</th>
-                            <th>Actions</th>
+                            <th class="text-center align-middle">Sr.</th>
+                            <th class="text-center align-middle">Type</th>
+                            <th class="text-center align-middle">Year</th>
+                            <th class="text-center align-middle">Model</th>
+                            <th class="text-center align-middle">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +35,12 @@
                         <tr>
                             <td class="text-center align-middle">{{$key +1}}</td>
                             <td class="text-center align-middle">{{ $type->name }}</td>
+                            <td class="text-center align-middle">
+                                @php
+                                    $uniqueYears = $type->carModels->pluck('carYear.year')->unique();
+                                @endphp
+                                {{ $uniqueYears->implode(', ') }}
+                            </td>
                             <td class="text-center align-middle">
                                 @foreach ($type->carModels as $model)
                                     {{ $model->name }}

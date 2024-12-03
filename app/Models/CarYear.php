@@ -9,5 +9,19 @@ class CarYear extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['year'];
+    protected $fillable = [
+        'car_type_id',
+        'year',
+    ];
+
+    public function carType()
+    {
+        return $this->belongsTo(CarType::class);
+    }
+
+
+    public function carModels()
+    {
+        return $this->hasMany(CarModel::class);
+    }
 }

@@ -36,7 +36,10 @@ Route::get('send-test-email', function () {
 ////Static Pages
 Route::get('/', [PageController::class, 'home'])->name('index');
 Route::post('car-details/store', [CarDetailsController::class, 'storeCarInfo'])->name('car-details.store');
-Route::get('/get-models', [PageController::class, 'getModelsByCarType'])->name('car-types.getModels');
+Route::get('/car-makes', [PageController::class, 'getMakes']);
+Route::get('/car-years/{makeId}', [PageController::class, 'getYears']);
+Route::get('/car-models/{makeId}/{yearId}', [PageController::class, 'getModels']);
+// Route::get('/get-models', [PageController::class, 'getModelsByCarType'])->name('car-types.getModels');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
 //Blog

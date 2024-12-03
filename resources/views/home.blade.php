@@ -184,17 +184,41 @@
         <div class="row card-body">
         <h6>Car Information</h6>
             <div class="input-group mb-3">
-                <select class="form-select" name="car_type" id="car_type">
-                    <option value="" selected disabled>Type of Car</option>
+                <select class="form-select" name="car_type" id="make-dropdown">
+                    <option value="">Select Make</option>
+                </select>
+                {{-- <select class="form-select" name="car_type" id="car_type">
+
+                    <option value="" selected disabled>Select Make</option>
                     @foreach($carTypes as $carType)
                         <option value="{{ $carType->id }}">{{ $carType->name }}</option>
                     @endforeach
-                </select>
+                </select> --}}
             </div>
             <div class="input-group mb-3">
-                <select class="form-select" name="model" id="model">
-                    <option value="" selected disabled>Model of Car</option>
+                <select class="form-select" name="year" id="year-dropdown">
+                    <option value="">Select Year</option>
                 </select>
+                {{-- <select class="form-select" name="year" id="inputGroupSelect02">
+                    <option value="">Select Model year</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                </select> --}}
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" name="model" id="model-dropdown">
+                    <option value="">Select Model</option>
+                </select>
+                {{-- <select class="form-select" name="model" id="model">
+                    <option value="" selected disabled>Model of Car</option>
+                </select> --}}
             </div>
             <div class="input-group mb-3">
                 <input class="form-control" type="text" name="specification" placeholder="Specification/Trim (e.g.,“E350 Sport”)"
@@ -205,19 +229,6 @@
                     aria-label="default input example">
             </div>
             <div class="input-group mb-3">
-                <select class="form-select" name="year" id="inputGroupSelect02">
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                    <option value="2017">2017</option>
-                    <option value="2016">2016</option>
-                </select>
-            </div>
-            <div class="input-group mb-3">
                 <input class="form-control" name="kilometers" type="text" placeholder="kilometers" oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                     aria-label="default input example">
             </div>
@@ -225,7 +236,7 @@
         <button type="button" id="next-button-modal1" class="button btn" >
             Next
         </button>
-</div>
+    </div>
 </div>
 
 
@@ -742,7 +753,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+{{-- <script>
     // -----------------------For Car type and Car Model Drop Down
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -771,6 +782,43 @@
     });
 });
 
+</script> --}}
+
+
+<script>
+    $(document).ready(function () {
+        // Load makes dynamically
+        $.get('/car-makes', function (makes) {
+
+            $('#make-dropdown').append(makes.map(make => `<option value="${make.id}">${make.name}</option>`));
+        });
+
+        // Load years dynamically based on selected make
+        $('#make-dropdown').change(function () {
+            const makeId = $(this).val();
+            $('#year-dropdown').empty().append('<option value="">Select Year</option>');
+            $('#model-dropdown').empty().append('<option value="">Select Model</option>');
+
+            if (makeId) {
+                $.get(`/car-years/${makeId}`, function (years) {
+                    $('#year-dropdown').append(years.map(year => `<option value="${year.id}">${year.year}</option>`));
+                });
+            }
+        });
+
+        // Load models dynamically based on selected make and year
+        $('#year-dropdown').change(function () {
+            const makeId = $('#make-dropdown').val();
+            const yearId = $(this).val();
+            $('#model-dropdown').empty().append('<option value="">Select Model</option>');
+
+            if (makeId && yearId) {
+                $.get(`/car-models/${makeId}/${yearId}`, function (models) {
+                    $('#model-dropdown').append(models.map(model => `<option value="${model.id}">${model.name}</option>`));
+                });
+            }
+        });
+    });
 </script>
 
 <script>

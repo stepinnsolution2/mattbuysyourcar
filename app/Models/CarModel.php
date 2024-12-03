@@ -9,8 +9,16 @@ class CarModel extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'car_type_id'];
+    protected $fillable = [
+        'car_year_id',
+        'car_type_id',
+        'name',
+    ];
 
+    public function carYear()
+    {
+        return $this->belongsTo(CarYear::class);
+    }
     public function carType()
     {
         return $this->belongsTo(CarType::class);

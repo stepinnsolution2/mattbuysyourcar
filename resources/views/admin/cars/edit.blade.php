@@ -30,6 +30,12 @@
                                value="{{ $carType->name }}" placeholder="Enter car type" required>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="carYear" class="form-label">Car Year</label>
+                        <input type="number" name="car_year" id="carYear" class="form-control"
+                               value="{{ $carYear ? $carYear->year : '' }}" placeholder="Enter car year" required>
+                    </div>
+
                     <!-- Car Models Input -->
                     <div class="mb-3">
                         <label for="carModels" class="form-label">Car Models</label>

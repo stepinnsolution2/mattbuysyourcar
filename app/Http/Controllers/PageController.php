@@ -11,6 +11,7 @@ use App\Models\CarModel;
 use App\Models\Blog;
 use App\Models\Subscribe;
 use App\Models\MarketingMedia;
+use App\Models\CarYear;
 
 use Illuminate\Http\Request;
 
@@ -37,6 +38,24 @@ class PageController extends Controller
             // Catch any exception and return a 500 error response
             return response()->json(['error' => 'Something went wrong'], 500);
         }
+    }
+    public function getMakes()
+    {
+        return response()->json(CarType::all());
+    }
+
+    public function getYears($makeId)
+    {
+        $years = CarYear::where('car_type_id', $makeId)->get();
+        return response()->json($years);
+    }
+
+    public function getModels($makeId, $yearId)
+    {
+        $models = CarModel::where('car_type_id', $makeId)
+                          ->where('car_year_id', $yearId)
+                          ->get();
+        return response()->json($models);
     }
     public function home(){
          $banners = Banner::latest()->get();

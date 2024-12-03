@@ -41,13 +41,13 @@
                             <small class="form-text text-muted">Upload multiple images.</small>
                         </div>
 
-                        <div class="mb-3" id="videoUploadContainer">
+                        {{-- <div class="mb-3" id="videoUploadContainer">
                             <label>Video Links</label>
                             <div id="videoLinksContainer">
                                 <input type="text" name="videos[]" class="form-control mb-2" placeholder="Enter video link">
                             </div>
                             <button type="button" id="addVideoBtn" class="btn btn-info btn-sm mt-2">Add More Video Links</button>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="card-footer text-right">
@@ -62,24 +62,8 @@
 @endsection
 
 @section('customjs')
-<script>
+<script>PHP version konsa?
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Button to add more video link fields
-    const addVideoBtn = document.getElementById('addVideoBtn');
-    const videoLinksContainer = document.getElementById('videoLinksContainer');
-
-    // Add event listener for adding more video links
-    addVideoBtn.addEventListener('click', function() {
-        const newVideoInput = document.createElement('input');
-        newVideoInput.type = 'text';
-        newVideoInput.name = 'videos[]';
-        newVideoInput.classList.add('form-control', 'mb-2');
-        newVideoInput.placeholder = 'Enter video link';
-        videoLinksContainer.appendChild(newVideoInput);
-    });
-});
 
 
 document.addEventListener("DOMContentLoaded", function() {

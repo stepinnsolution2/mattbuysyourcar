@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('car_years', function (Blueprint $table) {
             $table->id();
-            $table->year('year');
+
+            $table->unsignedBigInteger('car_type_id');
+            $table->integer('year');
             $table->timestamps();
+
+            $table->foreign('car_type_id')->references('id')->on('car_types')->onDelete('cascade');
         });
     }
 
