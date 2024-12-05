@@ -13,7 +13,7 @@ class CarDetailsController extends Controller
 {
     public function storeCarInfo(Request $request)
     {
-         //dd($request->all());
+        //  dd($request->all());
         // Validate the incoming data
         $validator = Validator::make($request->all(), [
             'car_info.car_type' => 'string',
@@ -61,10 +61,10 @@ class CarDetailsController extends Controller
         // Create car details entry
         $carDetail = new CarDetails();
         $carDetail->car_type = $car_type;
-        $carDetail->model = $car_model;
+        $carDetail->model = $request->input('car_info.model');
         $carDetail->specification = $request->input('car_info.specification');
         $carDetail->engine_size = $request->input('car_info.engine_size');
-        $carDetail->year = $car_year;
+        $carDetail->year = $request->input('car_info.year');
         $carDetail->kilometers = $request->input('car_info.kilometers');
 
         // Additional questions
