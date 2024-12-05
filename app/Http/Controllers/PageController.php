@@ -17,28 +17,46 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function getModelsByCarType(Request $request)
+    public function storeCarNames(Request $request)
     {
         try {
-            // Get the car_type_id from the request query parameter
-            $carTypeId = $request->query('car_type_id');
-
-            // Find the models based on the car type ID
-            $models = CarModel::where('car_type_id', $carTypeId)->pluck('name', 'id');
-            // dd($models);
-            // Check if no models were found
-            if ($models->isEmpty()) {
-                return response()->json(['message' => 'No models found for this car type'], 404);
+            $carNames = $request->input('carNames');
+            foreach ($carNames as $name) {
+                CarType::updateOrCreate(['name' => $name]); // Avoid duplicates
             }
-
-            // Return the models as a JSON response
-            return response()->json($models);
-
+            return response()->json(['message' => 'Car names stored successfully']);
         } catch (\Exception $e) {
-            // Catch any exception and return a 500 error response
-            return response()->json(['error' => 'Something went wrong'], 500);
+            // Log the error for debugging
+            \Log::error($e->getMessage());
+            return response()->json(['error' => 'Server Error'], 500);
         }
     }
+
+    public function storeCarData(Request $request)
+    {
+
+        // $request->validate([
+        //     'car_year' => 'required|integer',
+        //     'car_models' => 'required|array',
+        //     'car_models.*.model_name' => 'required|string',
+        //     'car_models.*.model_value' => 'required|string',
+        // ]);
+        // Store the car year
+        $carYear = CarYear::firstOrCreate(['year' => $request->car_year,]);
+        dd($carYear);
+        // Store the car models with relationships
+        foreach ($request->car_models as $modelData) {
+            CarModel::firstOrCreate([
+                'name' => $modelData['model_name'],
+                'car_type_id' => 8,
+                'car_year_id' => $carYear->id,
+            ]);
+        }
+
+        return response()->json(['success' => true, 'message' => 'Car data stored successfully']);
+    }
+
+
     public function getMakes()
     {
         return response()->json(CarType::all());

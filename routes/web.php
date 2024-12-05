@@ -41,6 +41,8 @@ Route::get('/car-years/{makeId}', [PageController::class, 'getYears']);
 Route::get('/car-models/{makeId}/{yearId}', [PageController::class, 'getModels']);
 // Route::get('/get-models', [PageController::class, 'getModelsByCarType'])->name('car-types.getModels');
 Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::post('/store-car-names', [PageController::class, 'storeCarNames']);
+Route::post('/store-car-data', [PageController::class, 'storeCarData']);
 
 //Blog
 Route::get('/blog/view/{id}/{name}', [PageController::class, 'blog_view']);
